@@ -61,7 +61,7 @@ class Search extends Component {
               </label>
             </h3>
 
-            <h3 className="third-search">星の数から探す
+            {/*<h3 className="third-search">星の数から探す
               <label>
                 <input type="checkbox" class="checkbox" />
                 <span class="checkbox-icon"></span>
@@ -87,7 +87,7 @@ class Search extends Component {
                 <span class="checkbox-icon"></span>
                 ⭐️
               </label>
-          </h3>
+            </h3>*/}
 
             <h3 className="fourth-search">こだわり・目的から探す
               <label>
@@ -103,17 +103,7 @@ class Search extends Component {
               <label>
                 <input type="checkbox" class="checkbox" />
                 <span class="checkbox-icon"></span>
-                トイレが近い
-              </label>
-              <label>
-                <input type="checkbox" class="checkbox" />
-                <span class="checkbox-icon"></span>
-                コンビニが近い
-              </label>
-              <label>
-                <input type="checkbox" class="checkbox" />
-                <span class="checkbox-icon"></span>
-                交通機関が近い
+                トイレがある
               </label>
             </h3>
 

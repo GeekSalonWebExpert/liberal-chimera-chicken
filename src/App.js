@@ -11,7 +11,9 @@ import Map from './Map/Map'
 // Search.jsをインポート
 import Search from './Search/Search'
 // Detail.jsをインポート
-import Detail from './Detail'
+import Detail from './Detail/Detail'
+// Full.jsをインポート
+import Full from './Full/Full'
 
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
       <Router history={browserHistory}>
       	<Route path="/" component={Main}/>
       	<Route path="/detail/:id/" component={Detail}/>
+        <Route path="/full/:id" component={Full}/>
       </Router>
     )
   }
