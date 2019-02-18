@@ -3,17 +3,17 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import './App.css';
 
 // Main.jsをインポート
-import Main from './Main'
+import Main from './components/Main/Main'
 // Header.jsをインポート
-import Header from './Header/Header'
+import Header from './components/Header/Header'
 // Map.jsをインポート
-import Map from './Map/Map'
+import Map from './components/Map/Map'
 // Search.jsをインポート
-import Search from './Search/Search'
+import Search from './components/Search/Search'
 // Detail.jsをインポート
-import Detail from './Detail/Detail'
+import Detail from './components/Detail/Detail'
 // Full.jsをインポート
-import Full from './Full/Full'
+import Full from './components/Full/Full'
 
 
 class App extends Component {
