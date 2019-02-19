@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
-import ReactDOM from 'react-dom'
 import './Main.css';
 
 // Header.jsをインポート
@@ -11,8 +10,8 @@ import Map from '../Map/Map'
 import Search from '../Search/Search'
 
 class Main extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props);
     this.state = {
 
       name: "野宿びより",
@@ -25,7 +24,7 @@ class Main extends Component {
         { name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", image: 0, score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: true}
       ],
 
-      selectedSpot: null,
+      selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
       config: {
         place: [
           { label: "北海道", key: "hokkaido", value: false },
@@ -42,9 +41,24 @@ class Main extends Component {
           { label: "ベンチがある", key: "hasBench", value: false },
           { label: "屋根がある", key: "hasRoof", value: false},
           { label: "トイレがある", key: "hasToilet", value: false},
-        ],
+        ]
       }
+    }
+  }
 
+  // チェックボックスにチェックをつける
+  updateConfig(option = {}) {
+    let config = this.state.updateConfig
+    switch(option.category){
+      case "place":
+      case "attribute":
+        config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
+        this.setState({
+          config: config
+        })
+      break
+      default:
+      break
     }
   }
 
@@ -60,7 +74,62 @@ class Main extends Component {
               <Search />
             </div>*/}
 
+            <div className="pane">
+              {/*場所から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">場所から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config.place.map((data,i)=>{
+                      return (
+                        <li
+                          key={`place${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=>{ this.updateConfig({
+                              category: "place",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <input type="checkbox" className="checkbox" />
+                          {data.label}
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
+
+              {/*属性から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">属性から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config.attribute.map((data,i)=>{
+                      return (
+                        <li
+                          key={`option${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=> { this.upadateConfig({
+                              category: "attribute",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <input type="checkbox" className="checkbox" />
+                          {data.label}
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
+            </div>
           </div>
+
+
             <Link to={`/detail/aaa/`}>詳細ページへ</Link>
           {/*<Link to={`/detail/aaa/`}>詳細ページへ</Link>*/}
       </div>
