@@ -15,7 +15,7 @@ class Main extends Component {
     super()
     this.state = {
 
-      name: "野宿びより",
+      name: "野宿日和",
 
       spot: [
         { name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東",  image: 0 , score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: true},
