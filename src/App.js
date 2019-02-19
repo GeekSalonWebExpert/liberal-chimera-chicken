@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import './App.css';
 
+
 // Main.jsをインポート
 import Main from './components/Main/Main'
 // Header.jsをインポート
@@ -30,6 +31,12 @@ class App extends Component {
       </Router>
     )
   }
+}
+
+let application = new App()
+
+window.initMap = ()=>{
+	application.trigger("invocationMap")
 }
 
 export default App;

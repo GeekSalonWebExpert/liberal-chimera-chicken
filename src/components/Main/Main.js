@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
+import ReactDOM from 'react-dom'
 import './Main.css';
 
 // Header.jsをインポート
@@ -46,6 +47,7 @@ class Main extends Component {
 
     }
   }
+
   render() {
     return (
       <div className="App">
