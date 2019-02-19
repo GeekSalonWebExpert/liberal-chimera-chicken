@@ -3,11 +3,11 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import './Main.css';
 
 // Header.jsをインポート
-import Header from './Header/Header'
+import Header from '../Header/Header'
 // Map.jsをインポート
-import Map from './Map/Map'
+import Map from '../Map/Map'
 // Search.jsをインポート
-import Search from './Search/Search'
+import Search from '../Search/Search'
 
 class Main extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class Main extends Component {
       ],
 
       selectedSpot: null,
-      refine: {
+      config: {
         place: [
           { label: "北海道", key: "hokkaido", value: false },
           { label: "東北", key: "touhoku", value: false },
