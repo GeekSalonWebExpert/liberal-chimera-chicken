@@ -7,7 +7,6 @@ import Core from './Core'
 class Map extends Core {
   constructor() {
     super()
-    console.log("gitの確認")
     this.watcher = window.setInterval(()=>{
       if(window.google.maps){
         clearInterval(this.watcher)
