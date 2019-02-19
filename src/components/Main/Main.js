@@ -51,10 +51,8 @@ class Main extends Component {
     let config = this.state.updateConfig
     switch(option.category){
       case "place":
-        console.log(option.category)
-        config [ option.category ].forEach((data, i)=>{
-          data.value = i === option.index
-        })
+      case "attribute":
+        config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
         this.setState({
           config: config
         })
@@ -76,34 +74,62 @@ class Main extends Component {
               <Search />
             </div>*/}
 
-            <section className="nav-section">
-              <h2 className="nav-section-hd">場所から探す</h2>
-              <ul className="nav-list">
-                {
-                  this.state.config.place.map((data,i)=>{
-                    return (
-                      <li
-                        key={`place${i}`}
-                        className="nav-row checkbox"
-                        onClick={
-                          ()=>{ this.updateConfig({
-                            category: "place",
-                            index: i
-                          })}
-                        }
-                        data-checked={data.value}>
-                        {data.label}
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-            </section>
+            <div className="pane">
+              {/*場所から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">場所から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config.place.map((data,i)=>{
+                      return (
+                        <li
+                          key={`place${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=>{ this.updateConfig({
+                              category: "place",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <input type="checkbox" className="checkbox" />
+                          {data.label}
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
 
-
-
-
+              {/*属性から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">属性から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config.attribute.map((data,i)=>{
+                      return (
+                        <li
+                          key={`option${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=> { this.upadateConfig({
+                              category: "attribute",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <input type="checkbox" className="checkbox" />
+                          {data.label}
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
+            </div>
           </div>
+
+
             <Link to={`/detail/aaa/`}>詳細ページへ</Link>
           {/*<Link to={`/detail/aaa/`}>詳細ページへ</Link>*/}
       </div>
