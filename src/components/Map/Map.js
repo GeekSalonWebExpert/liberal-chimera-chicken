@@ -32,13 +32,13 @@ class Map extends Core {
                 center : mapLatLng  // 緯度・経度
               };
               // マップオブジェクト作成
-              this.map = new window.google.maps.Map(
+              self.map = new window.google.maps.Map(
                 ReactDOM.findDOMNode(self.refs["map-view"]), // マップを表示する要素
                 mapOptions         // マップオプション
               );
               //　マップにマーカーを表示する
               var marker = new window.google.maps.Marker({
-                map : map,             // 対象の地図オブジェクト
+                map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng   // 緯度・経度
               });
             },
