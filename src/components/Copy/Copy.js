@@ -48,8 +48,6 @@ class Main extends Component {
 
   // チェックボックスにチェックをつける
   updateConfig(option = {}) {
-    console.log(option.category)
-    console.log(option.index)
     let config = this.state.updateConfig
     switch(option.category){
       case "place":
