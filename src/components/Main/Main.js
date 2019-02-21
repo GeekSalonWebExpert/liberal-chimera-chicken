@@ -112,7 +112,7 @@ class Main extends Component {
                             key={`option${i}`}
                             className="nav-row checkbox"
                             onClick={
-                              ()=> { this.upadateConfig({
+                              ()=> { this.updateConfig({
                                 category: "attribute",
                                 index: i
                               })}
