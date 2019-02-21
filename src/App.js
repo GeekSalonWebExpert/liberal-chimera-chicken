@@ -13,8 +13,7 @@ import Map from './components/Map/Map'
 import Search from './components/Search/Search'
 // Detail.jsをインポート
 import Detail from './components/Detail/Detail'
-// Full.jsをインポート
-import Full from './components/Full/Full'
+
 
 
 class App extends Component {
@@ -26,8 +25,7 @@ class App extends Component {
     return (
       <Router history={browserHistory}>
       	<Route path="/" component={Main}/>
-      	{/*<Route path="/detail/:id/" component={Detail}/>*/}
-        <Route path="/full/:id" component={Full}/>
+      	<Route path="/detail/:id/" component={Detail}/>
       </Router>
     )
   }

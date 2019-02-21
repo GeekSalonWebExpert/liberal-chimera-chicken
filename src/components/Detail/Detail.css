@@ -46,3 +46,48 @@
   margin-left: 20px;
   border: solid 1px #000000;
 }
+
+.location_info {
+  display: flex;
+}
+
+.address {
+  margin: 20px 0px 20px 20px;
+}
+
+.location_address {
+  margin: 20px 0px 20px 50px;
+}
+
+.map {
+  margin-left: 20px;
+  height: 300px;
+  width: 1000px;
+  background-color: rgb(255, 229, 204);
+}
+
+.wordofmouth {
+  margin: 20px 0px 20px 20px;
+}
+
+.review_info {
+  display: flex;
+}
+
+.user_image {
+  margin-left: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(255, 229, 204);
+}
+
+.user_name {
+  margin: 0px 0px 20px 20px;
+}
+
+.reviews {
+  margin-left: 20px;
+  height: 200px;
+  width: 1000px;
+  background-color: rgb(255, 229, 204);
+}

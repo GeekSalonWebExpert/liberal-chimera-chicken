@@ -9,7 +9,7 @@ class Detail extends Component {
   render() {
     return (
       <div className="list">
-        <div className="list_name">道の駅　五霞</div>
+        <div className="list_name">道の駅 五霞</div>
           <div className="list_contents">
             <div className="list_image"></div>
             <div className="list_info">
@@ -24,8 +24,24 @@ class Detail extends Component {
               </ul>
             </div>
           </div>
-        <Link to={`/Full/aaa/`}>詳細ページへ</Link>
-      </div>
+        <div className="location">
+          <div className="location_info">
+            <div className="address">住所</div>
+            <div className="location_address">〒306-0304 茨城県 猿島郡五霞町幸主１８－１</div>
+          </div>
+            <div className="map"></div>
+        </div>
+        <div className="reviewlist">
+          <div className="wordofmouth">口コミ</div>
+          <div className="review_info">
+            <div className="user">
+              <div className="user_image"></div>
+              <div className="user_name">kai</div>
+            </div>
+             <div className="reviews"></div>
+          </div>
+        </div>
+        </div>
     )
   }
 }
