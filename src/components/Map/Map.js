@@ -7,6 +7,17 @@ import Core from './Core'
 class Map extends Core {
   constructor() {
     super()
+
+    this.state = {
+      spot: [
+        { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東",  image: 0 , score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
+        { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", image: 0, score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: false, lat: 42.102251, lng: 140.568183},
+        { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", image: 0, score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: true, lat: 38.946439, lng: 141.052885},
+        { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", image: 0, score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
+        { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", image: 0, score: 5, let: 0, lng: 0, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
+      ]
+    }
+
     this.watcher = window.setInterval(()=>{
       if(window.google.maps){
         clearInterval(this.watcher)
@@ -14,6 +25,8 @@ class Map extends Core {
         this.initMap.call(this)
       }
     },100)
+
+
   }
 
   initMap(){
@@ -41,7 +54,16 @@ class Map extends Core {
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng   // 緯度・経度
               });
+
+              this.state.spot.forEach((spot)=>{
+                let latLng = new window.google.maps.LatLng (spot.lat, spot.lng);
+                let marker = new window.google.maps.Marker({
+                  map: this.map,
+                  position: latLng
+                })
+              })
             },
+
             // 取得失敗した場合
             function(error) {
               // エラーメッセージを表示
@@ -67,11 +89,10 @@ class Map extends Core {
         }
 
   }
+
   render() {
     return (
       <div className="container">
-
-
         <div className="map" ref="map-view">地図</div>
       </div>
     );
