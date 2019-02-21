@@ -4,7 +4,47 @@ import './Search.css';
 class Search extends Component {
   constructor() {
     super()
+
+      this.state = {
+        config: {
+          place: [
+            { label: "北海道", key: "hokkaido", value: false },
+            { label: "東北", key: "touhoku", value: false },
+            { label: "関東", key: "kanto", value: false },
+            { label: "北陸・甲信越", key: "hokurikukousinetu", value: false },
+            { label: "東海", key: "tokai", value: false },
+            { label: "近畿", key: "kinki", value: false },
+            { label: "中国", key: "tyugoku", value: false },
+            { label: "四国", key: "sikoku", value: false },
+            { label: "九州・沖縄", key: "kyusyuokinawa", value: false }
+          ],
+          attribute: [
+            { label: "ベンチがある", key: "hasBench", value: false },
+            { label: "屋根がある", key: "hasRoof", value: false},
+            { label: "トイレがある", key: "hasToilet", value: false},
+          ]
+        }
+      }
   }
+
+  // チェックボックスにチェックをつける
+  updateConfig(option = {}) {
+    console.log(option.category)
+    console.log(option.index)
+    let config = this.state.config
+    switch(option.category){
+      case "place":
+      case "attribute":
+        config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
+        this.setState({
+          config: config
+        })
+      break
+      default:
+      break
+    }
+  }
+
   render() {
     return (
       <div className="pane">
