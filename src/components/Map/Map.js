@@ -55,10 +55,10 @@ class Map extends Core {
                 position : mapLatLng   // 緯度・経度
               });
 
-              this.state.spot.forEach((spot)=>{
+              self.state.spot.forEach((spot)=>{
                 let latLng = new window.google.maps.LatLng (spot.lat, spot.lng);
                 let marker = new window.google.maps.Marker({
-                  map: this.map,
+                  map: self.map,
                   position: latLng
                 })
               })
