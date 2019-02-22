@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import './Main.css';
+import ReactDOM from 'react-dom';
+import Core from './Core'
 
 // Header.jsをインポート
 import Header from '../Header/Header'
 // Map.jsをインポート
-import Map from '../Map/Map'
+// import Map from '../Map/Map'
 // Search.jsをインポート
-import Search from '../Search/Search'
+// import Search from '../Search/Search'
 
 class Main extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -43,8 +46,187 @@ class Main extends Component {
           { label: "トイレがある", key: "hasToilet", value: false},
         ]
       }
-    }
+    },
+
+      this.watcher = window.setInterval(()=>{
+        if(window.google.maps){
+          clearInterval(this.watcher)
+          this.watcher = null
+          this.initMap.call(this)
+        }
+      },100)
   }
+
+
+  initMap(){
+    let self = this
+        // Geolocation APIに対応している
+        if (navigator.geolocation) {
+          // 現在地を取得
+          navigator.geolocation.getCurrentPosition(
+            // 取得成功した場合
+            function(position) {
+              // 緯度・経度を変数に格納
+              var mapLatLng = new window.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+              // マップオプションを変数に格納
+              var mapOptions = {
+                zoom : 15,          // 拡大倍率
+                center : mapLatLng  // 緯度・経度
+              };
+              // マップオブジェクト作成
+              self.map = new window.google.maps.Map(
+                ReactDOM.findDOMNode(self.refs["map-view"]), // マップを表示する要素
+                mapOptions         // マップオプション
+              );
+              //　マップにマーカーを表示する
+              var marker = new window.google.maps.Marker({
+                map : self.map,             // 対象の地図オブジェクト
+                position : mapLatLng   // 緯度・経度
+              });
+
+              self.state.spot.forEach((spot)=>{
+                let latLng = new window.google.maps.LatLng (spot.lat, spot.lng);
+                let marker = new window.google.maps.Marker({
+                  map: self.map,
+                  position: latLng
+                })
+              })
+            },
+
+            // 取得失敗した場合
+            function(error) {
+              // エラーメッセージを表示
+              switch(error.code) {
+                case 1: // PERMISSION_DENIED
+                  alert("位置情報の利用が許可されていません");
+                  break;
+                case 2: // POSITION_UNAVAILABLE
+                  alert("現在位置が取得できませんでした");
+                  break;
+                case 3: // TIMEOUT
+                  alert("タイムアウトになりました");
+                  break;
+                default:
+                  alert("その他のエラー(エラーコード:"+error.code+")");
+                  break;
+              }
+            }
+          );
+        // Geolocation APIに対応していない
+        } else {
+          alert("この端末では位置情報が取得できません");
+        }
+  }
+
+
+  // チェックボックスにチェックをつける
+  updateConfig(option = {}) {
+    console.log(option.category)
+    console.log(option.index)
+    let config = this.state.config
+    switch(option.category){
+      case "place":
+      case "attribute":
+        config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
+        this.setState({
+          config: config
+        })
+      break
+      default:
+      break
+    }
+
+    // 場所による絞り込み
+    let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
+    let spot = this.state.spot
+      if(filterPlaceKey.length > 0){
+        spot = spot.map(s=>{
+        let active = true
+        filterPlaceKey.forEach(key=>{
+          if(s[key] === 0) active = false
+        })
+        s.active = active
+        return s
+        })
+        } else {
+        spot = spot.map(s=>{
+          s.active = true
+          return s
+        })
+      }
+
+    // 属性による絞り込み
+    let filterAtrKey = this.state.config.attribute.filter(a=>a.value).map(a=>a.key)
+      if(filterAtrKey.length > 0){
+        spot = spot.map(s=>{
+        let active = true
+        filterAtrKey.forEach(key=>{
+          if(s[key] === 0) active = false
+        })
+        s.active = active
+        return s
+        })
+      } else {
+        spot = spot.map(s=>{
+          s.active = true
+          return s
+        })
+      }
+      　this.putMarker()
+  }
+
+
+  putMarker(o = {}){
+    // 前回のマーカー、infoWindowを消去
+    if(this.makerList){
+      this.makerList.forEach(m=>m.setMap(null))
+      this.markerList = null
+    }
+    if(this.infoWindowList){
+      this.infoWindowList.forEach(m=>m.setMap(null))
+      this.infoWindowList = null
+    }
+    this.makerList = []
+    this.infoWindowList = []
+
+    // activeな場所のマーカーを作成
+		// this.state.spot.filter(s=>s.active).forEach((spot)=>{ここでやっとs.activeがtrueのものしか残らないfilterをかけて
+		// ピンを絞っている
+    let self = this
+
+    this.state.spot.filter(s=>s.active).forEach((spot)=>{
+      let latLng = new window.google.maps.LatLng( spot.lat, spot.lng );
+      let marker = new window.google.maps.Marker({
+        map: this.map,
+        position: latLng,
+        animation: o.animation
+      })
+
+      let info = document.createElement("div")
+      let spotName = document.createElement("div")
+      spotName.textContent = spot.name
+      let button = document.createElement("input")
+      button.type = "button"
+      button.value = "詳細画面へ"
+      button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
+      info.appendChild(spotName)
+      info.appendChild(button)
+
+      let infoWindow = new window.google.maps.InfoWindow({
+        content:info
+      })
+
+      marker.addListener("click",()=>{
+        infoWindow.open(this.map,marker);
+        this.route(latLng)
+      })
+
+      self.markerListd.push(marker)
+      self.infoWindowList.push(infoWindow)
+
+    })
+  }
+
 
   render() {
     return (
@@ -52,10 +234,67 @@ class Main extends Component {
           <Header name={this.state.name} />
           <div className="flex-container">
             <div className="pane">
-              <Map />
+              <div className="map" ref="map-view"></div>
             </div>
-              <Search />
+            <div className="pane">
+
+
+              {/*場所から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">場所から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config.place.map((data,i)=>{
+                      return (
+                        <li
+                          key={`place${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=>{ this.updateConfig({
+                              category: "place",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <input type="checkbox" className="checkbox" />
+                          {data.label}
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
+
+
+              {/*属性から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">属性から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config.attribute.map((data,i)=>{
+                      return (
+                        <li
+                          key={`option${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=> { this.updateConfig({
+                              category: "attribute",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <input type="checkbox" className="checkbox" />
+                          {data.label}
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
+
+
           </div>
+        </div>
             <Link to={`/detail/aaa/`}>詳細ページへ</Link>
       </div>
     );
