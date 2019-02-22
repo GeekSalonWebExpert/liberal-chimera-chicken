@@ -46,7 +46,7 @@ class Main extends Component {
           { label: "トイレがある", key: "hasToilet", value: false},
         ]
       }
-    },
+    }
 
       this.watcher = window.setInterval(()=>{
         if(window.google.maps){
@@ -121,8 +121,6 @@ class Main extends Component {
 
   // チェックボックスにチェックをつける
   updateConfig(option = {}) {
-    console.log(option.category)
-    console.log(option.index)
     let config = this.state.config
     switch(option.category){
       case "place":
@@ -136,9 +134,11 @@ class Main extends Component {
       break
     }
 
+
     // 場所による絞り込み
     let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
     let spot = this.state.spot
+    console.log(filterPlaceKey)
       if(filterPlaceKey.length > 0){
         spot = spot.map(s=>{
         let active = true
@@ -154,6 +154,7 @@ class Main extends Component {
           return s
         })
       }
+
 
     // 属性による絞り込み
     let filterAtrKey = this.state.config.attribute.filter(a=>a.value).map(a=>a.key)
@@ -172,7 +173,7 @@ class Main extends Component {
           return s
         })
       }
-      　this.putMarker()
+    this.putMarker()
   }
 
 
@@ -217,11 +218,13 @@ class Main extends Component {
       })
 
       marker.addListener("click",()=>{
-        infoWindow.open(this.map,marker);
-        this.route(latLng)
+        infoWindow.open(self.map,marker);
+        //this.route(latLng)
       })
 
-      self.markerListd.push(marker)
+      self.markerList = self.markerList || []
+      self.infoWindowList = self.infoWindowList || []
+      self.markerList.push(marker)
       self.infoWindowList.push(infoWindow)
 
     })
