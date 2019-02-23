@@ -52,6 +52,7 @@ class Main extends Component {
         if(window.google.maps){
           clearInterval(this.watcher)
           this.watcher = null
+          // initMapを表示する
           this.initMap.call(this)
         }
       },100)
@@ -81,7 +82,16 @@ class Main extends Component {
               //　マップにマーカーを表示する
               var marker = new window.google.maps.Marker({
                 map : self.map,             // 対象の地図オブジェクト
-                position : mapLatLng   // 緯度・経度
+                position : mapLatLng,   // 緯度・経度
+          			icon:{
+          				fillColor:"#FF0000",
+          				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+          				scale: 5,
+          			},
+          			// label:{
+          			// 	text:"現在地",
+          			// 	color:"#ff7fbf
+                // }
               });
 
               self.updateConfig()
@@ -120,6 +130,7 @@ class Main extends Component {
     switch(option.category){
       case "place":
       case "attribute":
+        // チェックボックスの真偽を逆にする
         config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
         this.setState({
           config: config
@@ -131,27 +142,30 @@ class Main extends Component {
 
 
     // 場所による絞り込み
+    // filterPlaceKey = ["hokkaido","tohoku"]
     let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
-    console.log(filterPlaceKey) // ["hokkaido","kyusyu"]
+  　console.log(filterPlaceKey)
 
     this.state.spot.forEach(s=>{
       // this.state.spot[0] ~ [this.state.spot.length -1] までの area 属性を調べる
       if(filterPlaceKey.length > 0){
         s.active = filterPlaceKey.includes(s.area);
+        console.log(s.active)
       } else {
         s.active = true
       }
-
     })
 
     // 属性による絞り込み
+    // filterAtrKey = ["hasBench","hasRoof","hasToilet"]
     let filterAtrKey = this.state.config.attribute.filter(a=>a.value).map(a=>a.key)
-    console.log(filterAtrKey) // ["hasBench","hasRoof","hasToilet"]
     let spot = this.state.spot
+    // filterAtrKeyに値がある時
     if(filterAtrKey.length > 0){
       spot = spot.map(s=>{
         let active = true
         filterAtrKey.forEach(key=>{
+          // 例えば、this.state.spotのhasBenchの値が0の時、activeをfalseにする
           if(s[key] === 0) active = false
         })
         s.active = active
@@ -186,7 +200,9 @@ class Main extends Component {
 		// ピンを絞っている
     let self = this
 
+    // this.state.spotにfilterをかけて、sがactiveなものだけ取り出し、spotに一つ一つ取り出す
     this.state.spot.filter(s=>s.active).forEach((spot)=>{
+      console.log(spot)
       let latLng = new window.google.maps.LatLng( spot.lat, spot.lng );
       let marker = new window.google.maps.Marker({
         map: this.map,
