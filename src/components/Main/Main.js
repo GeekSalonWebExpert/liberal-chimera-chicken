@@ -54,7 +54,7 @@ class Main extends Component {
             <div className="pane">
               <Map />
             </div>
-<<<<<<< HEAD
+
               {/*<Search />*/}
 
             <div className="pane">
@@ -114,7 +114,7 @@ class Main extends Component {
 =======
               <Search />
           </div>
->>>>>>> 50225028789e659dbda0b57cfca27e58f9b60148
+
             <Link to={`/detail/aaa/`}>詳細ページへ</Link>
       </div>
     );
