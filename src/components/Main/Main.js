@@ -305,7 +305,7 @@ class Main extends Component {
 
           </div>
         </div>
-            <Link to={`/detail/aaa/`}>詳細ページへ</Link>
+            <Link to={`/detail/id/`}>詳細ページへ</Link>
       </div>
     );
   }
