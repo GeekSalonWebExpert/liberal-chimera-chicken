@@ -29,7 +29,7 @@ class Detail extends Component {
             <div className="address">住所</div>
             <div className="location_address">〒306-0304 茨城県 猿島郡五霞町幸主１８－１</div>
           </div>
-            <div className="map"></div>
+            <div className="detail-map"></div>
         </div>
         <div className="reviewlist">
           <div className="wordofmouth">口コミ</div>
