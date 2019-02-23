@@ -137,7 +137,7 @@ class Main extends Component {
     // 場所による絞り込み
     // filterPlaceKey = ["hokkaido","tohoku"]
     let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
-  　console.log(filterPlaceKey)
+  　//console.log(filterPlaceKey)
 
     this.state.spot.forEach(s=>{
       // this.state.spot[0] ~ [this.state.spot.length -1] までの area 属性を調べる
@@ -146,6 +146,7 @@ class Main extends Component {
       } else {
         s.isActive = true
       }
+      console.log(s.name,s.isActive);
     })
 
     // 属性による絞り込み
@@ -160,7 +161,7 @@ class Main extends Component {
           // 例えば、this.state.spotのhasBenchの値が0の時、activeをfalseにする
           if(s[key] === false) s.isActive = false
         })
-        s.isActive = true
+        //s.isActive = true
         return s
       })
     } else {
@@ -168,11 +169,13 @@ class Main extends Component {
         s.isActive = true
         return s
       })
+
     }
+
+
 
     this.putMarker()
   }
-
 
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
@@ -194,7 +197,7 @@ class Main extends Component {
 
     // this.state.spotにfilterをかけて、sがactiveなものだけ取り出し、spotに一つ一つ取り出す
     this.state.spot.filter(s=>s.isActive).forEach((spot)=>{
-      console.log(spot)
+      console.log(spot.name,spot.isActive)
       let latLng = new window.google.maps.LatLng( spot.lat, spot.lng );
       let marker = new window.google.maps.Marker({
         map: this.map,
