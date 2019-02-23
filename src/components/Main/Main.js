@@ -16,11 +16,11 @@ class Main extends Component {
       name: "野宿びより",
 
       spot: [
-        { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: true, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
-        { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: true, image: 0, score: 5, hasToilet: true, hasRoof: 1, hasBench: false, lat: 42.102251, lng: 140.568183},
-        { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: true, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
-        { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: true, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
-        { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: true, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
+        { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
+        { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: 1, hasBench: false, lat: 42.102251, lng: 140.568183},
+        { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
+        { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
+        { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
       ],
 
       selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
@@ -137,16 +137,16 @@ class Main extends Component {
     // 場所による絞り込み
     // filterPlaceKey = ["hokkaido","tohoku"]
     let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
-  　//console.log(filterPlaceKey)
+  　console.log(filterPlaceKey)
 
     this.state.spot.forEach(s=>{
       // this.state.spot[0] ~ [this.state.spot.length -1] までの area 属性を調べる
       if(filterPlaceKey.length > 0){
         s.isActive = filterPlaceKey.includes(s.area);
+        console.log(s.isActive)
       } else {
         s.isActive = true
       }
-      console.log(s.name,s.isActive);
     })
 
     // 属性による絞り込み
@@ -158,10 +158,11 @@ class Main extends Component {
     if(filterAtrKey.length > 0){
       spot = spot.map(s=>{
         filterAtrKey.forEach(key=>{
-          // 例えば、this.state.spotのhasBenchの値が0の時、activeをfalseにする
+          // 例えば、this.state.spotのhasBenchの値がfalseの時、activeをfalseにする
           if(s[key] === false) s.isActive = false
         })
         //s.isActive = true
+        console.log(s.isActive)
         return s
       })
     } else {
@@ -169,13 +170,10 @@ class Main extends Component {
         s.isActive = true
         return s
       })
-
     }
-
-
-
     this.putMarker()
   }
+
 
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
@@ -197,7 +195,7 @@ class Main extends Component {
 
     // this.state.spotにfilterをかけて、sがactiveなものだけ取り出し、spotに一つ一つ取り出す
     this.state.spot.filter(s=>s.isActive).forEach((spot)=>{
-      console.log(spot.name,spot.isActive)
+      console.log(spot)
       let latLng = new window.google.maps.LatLng( spot.lat, spot.lng );
       let marker = new window.google.maps.Marker({
         map: this.map,
@@ -260,7 +258,6 @@ class Main extends Component {
       }
     })
   }
-
 
 
   render() {
@@ -330,7 +327,7 @@ class Main extends Component {
 
           </div>
         </div>
-            <Link to={`/detail/id/`}>詳細ページへ</Link>
+            <Link to={`/detail/aaa/`}>詳細ページへ</Link>
       </div>
     );
   }
