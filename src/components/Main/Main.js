@@ -58,11 +58,23 @@ class Main extends Component {
         if(window.google.maps){
           clearInterval(this.watcher)
           this.watcher = null
-          // initMapを表示する
+          // initMapを呼び出す
           this.initMap.call(this)
         }
       },100)
   }
+
+  // componentWillMount(){
+  //   this.fetchTasks()
+  // }
+
+  // fetchTasks(){
+  //   fetch("http://localhost:3001/spot") // データを取得しに行く
+  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+  //     this.setState({ spot: json }) // Stateを更新する
+  //   })
+  // }
 
 
   initMap(){
@@ -82,8 +94,6 @@ class Main extends Component {
                 heading: position.coords.heading
               }
             })
-
-              //console.log(this.state.nowLocation)
 
               // 緯度・経度を変数に格納
               var mapLatLng = new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng);
@@ -269,6 +279,11 @@ class Main extends Component {
               <div className="map" ref="map-view"></div>
             </div>
             <div className="pane">
+
+
+              <button type="button" name="post">
+                投稿する
+              </button>
 
 
               {/*場所から探す*/}
