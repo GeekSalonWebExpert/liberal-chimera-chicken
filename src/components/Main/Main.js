@@ -165,12 +165,7 @@ class Main extends Component {
         console.log(s.isActive)
         return s
       })
-    } /*else {
-      spot = spot.map(s=>{
-        s.isActive = true
-        return s
-      })
-    }*/
+    }
     this.putMarker()
   }
 

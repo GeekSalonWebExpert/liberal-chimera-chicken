@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <Router history={browserHistory}>
       	<Route path="/" component={Main}/>
-      	<Route path="/detail/id/" component={Detail}/>
+      	<Route path="/detail/:id/" component={Detail}/>
       </Router>
     )
   }
