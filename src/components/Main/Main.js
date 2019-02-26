@@ -384,17 +384,40 @@ class Main extends Component {
           <section className="post">
             <figure className= "post-image">
             </figure>
+            <select name="region-name" id="region-name" className="region-score">
+              <option value="1">北海道</option>
+              <option value="2">東北</option>
+              <option value="3">関東</option>
+              <option value="4">北陸・甲信越</option>
+              <option value="5">東海</option>
+              <option value="6">近畿</option>
+              <option value="7">中国</option>
+              <option value="8">中国</option>
+              <option value="9">九州・沖縄</option>
+            </select>
+            <div className="post-place">
+              <div className="post-place-name">地名</div>
+              <input type="text" id="post-input-place-name" className="input-place-name"></input>
+            </div>
+            <div className="post-address">
+              <div className="post-address-content">住所</div>
+              <input type="text" id="post-input-address-content" className="input-address-content"></input>
+            </div>
+            <div className="post-star">
+              <div className="evaluate-star">評価をつける</div>
+              <div className="chage-post-star">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div className="post-attribute">
+              <input type="button" className="post-hasBench" value="ベンチがある"></input>
+              <input type="button" className="post-hasRoof" value="屋根がある"></input>
+              <input type="button" className="post-hasToilet" value="トイレがある"></input>
+            </div>
+            <div className="posting">
+              <input type="button" className="posting" value="投稿する"></input>
+            </div>
 
           </section>
           :null
-
-
-
-
-
-
-
-
 
 
         }

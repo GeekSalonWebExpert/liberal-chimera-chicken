@@ -32,6 +32,24 @@ time, mark, audio, video {
 	width: 1000px;
 }
 
+.outer {
+	position: relative;
+	height: 100%;
+}
+
+.modal-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	display: block;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 1024;
+	cursor: pointer;
+}
+
 .post {
 	position: absolute;
   top: 50%;
@@ -40,7 +58,7 @@ time, mark, audio, video {
   width: 64%;
   height: 94%;
   box-shadow: 0 0 8px rgba(0,0,0,.4);
-  padding: 20px;
+	padding: 20px;
   background: #fff;
   z-index: 1029;
 }
@@ -53,4 +71,16 @@ time, mark, audio, video {
 	position: relative;
 	overflow: hidden;
 	background-color: rgb(255, 229, 204);
+}
+
+.post-place {
+	display: flex;
+}
+
+.post-address {
+	display: flex;
+}
+
+.post-star {
+	display: flex;
 }
