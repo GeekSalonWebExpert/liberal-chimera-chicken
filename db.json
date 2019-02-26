@@ -1,5 +1,7 @@
 {
 
+  "name": [{ "name": "野宿びより"}],
+
   "spot": [
     { "id": 1, "name": "道の駅五霞", "address": "〒306-0304 茨城県猿島群五霞町幸主18-1", "place": "関東", "area": "kanto", "isActive": false, "image": 0 , "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": true, "lat": 36.115163, "lng": 139.734986},
     { "id": 2, "name": "道の駅 YOU・遊・もり", "address": "〒049-2311 北海道茅部郡森町上台町326-18", "place": "北海道", "area": "hokkaido" , "isActive": false, "image": 0, "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": false, "lat": 42.102251, "lng": 140.568183},

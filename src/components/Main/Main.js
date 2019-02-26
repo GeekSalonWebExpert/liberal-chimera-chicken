@@ -13,48 +13,48 @@ class Main extends Component {
     super(props);
     this.state = {
 
-      name: "野宿びより",
-
-      spot: [
-        { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
-        { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 42.102251, lng: 140.568183},
-        { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
-        { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
-        { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
-      ],
-
-      selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
-      config: {
-
-        region: [
-          { label: "北海道", key: "hokkaido", value: false },
-          { label: "東北", key: "tohoku", value: false },
-          { label: "関東", key: "kanto", value: false },
-          { label: "北陸・甲信越", key: "hokurikukousinetu", value: false },
-          { label: "東海", key: "tokai", value: false },
-          { label: "近畿", key: "kinki", value: false },
-          { label: "中国", key: "tyugoku", value: false },
-          { label: "四国", key: "sikoku", value: false },
-          { label: "九州・沖縄", key: "kyusyuokinawa", value: false }
-        ],
-
-        attribute: [
-          { label: "ベンチがある", key: "hasBench", value: false },
-          { label: "屋根がある", key: "hasRoof", value: false},
-          { label: "トイレがある", key: "hasToilet", value: false},
-        ],
-
-      },
-
-      view: "default", // post
-      nowLocation: [
-       {data: []},
-  		 {lat: 35.645843},
-  			{lng: 139.704582},
-  			{alt: 0},
-  			{accLatlng: 0},
-  			{heading: 0}
-      ]
+      // name: "野宿びより",
+      //
+      // spot: [
+      //   { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
+      //   { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 42.102251, lng: 140.568183},
+      //   { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
+      //   { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
+      //   { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
+      // ],
+      //
+      // selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
+      // config: {
+      //
+      //   region: [
+      //     { label: "北海道", key: "hokkaido", value: false },
+      //     { label: "東北", key: "tohoku", value: false },
+      //     { label: "関東", key: "kanto", value: false },
+      //     { label: "北陸・甲信越", key: "hokurikukousinetu", value: false },
+      //     { label: "東海", key: "tokai", value: false },
+      //     { label: "近畿", key: "kinki", value: false },
+      //     { label: "中国", key: "tyugoku", value: false },
+      //     { label: "四国", key: "sikoku", value: false },
+      //     { label: "九州・沖縄", key: "kyusyuokinawa", value: false }
+      //   ],
+      //
+      //   attribute: [
+      //     { label: "ベンチがある", key: "hasBench", value: false },
+      //     { label: "屋根がある", key: "hasRoof", value: false},
+      //     { label: "トイレがある", key: "hasToilet", value: false},
+      //   ],
+      //
+      // },
+      //
+      // view: "default", // post
+      // nowLocation: [
+      //  {data: []},
+  		//  {lat: 35.645843},
+  		// 	{lng: 139.704582},
+  		// 	{alt: 0},
+  		// 	{accLatlng: 0},
+  		// 	{heading: 0}
+      // ]
 
     }
 
@@ -68,33 +68,41 @@ class Main extends Component {
       },100)
   }
 
-  // componentWillMount(){
-  //   this.fetchTasks()
-  // }
+  componentWillMount(){
+    this.fetchTasks()
+  }
 
-  // fetchTasks(){
-  //   fetch("http://localhost:3001/spot") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ spot: json }) // Stateを更新する
-  //   })
-  // }
+  fetchTasks(){
+    fetch("http://localhost:3001/name") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ name: json }) // Stateを更新する
+    })
+  }
 
-  // fetchTasks(){
-  //   fetch("http://localhost:3001/config") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ config: json }) // Stateを更新する
-  //   })
-  //}
+  fetchTasks(){
+    fetch("http://localhost:3001/spot") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ spot: json }) // Stateを更新する
+    })
+  }
 
-  // fetchTasks(){
-  //   fetch("http://localhost:3001/nowLocation") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ nowLocation: json }) // Stateを更新する
-  //   })
-  // }
+  fetchTasks(){
+    fetch("http://localhost:3001/config") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ config: json }) // Stateを更新する
+    })
+  }
+
+  fetchTasks(){
+    fetch("http://localhost:3001/nowLocation") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ nowLocation: json }) // Stateを更新する
+    })
+  }
 
 
   updateView(option = {}){
