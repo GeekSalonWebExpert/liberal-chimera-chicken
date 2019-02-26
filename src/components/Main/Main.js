@@ -26,7 +26,7 @@ class Main extends Component {
       selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
       config: {
 
-        place: [
+        region: [
           { label: "北海道", key: "hokkaido", value: false },
           { label: "東北", key: "tohoku", value: false },
           { label: "関東", key: "kanto", value: false },
@@ -46,7 +46,7 @@ class Main extends Component {
 
       },
 
-      view: "default",
+      view: "default", // post
       nowLocation: [
        {data: []},
   		 {lat: 35.645843},
@@ -160,7 +160,7 @@ class Main extends Component {
   updateConfig(option = {}) {
     let config = this.state.config
     switch(option.category){
-      case "place":
+      case "region":
       case "attribute":
         // チェックボックスの真偽を逆にする
         config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
@@ -174,7 +174,7 @@ class Main extends Component {
 
     // 場所による絞り込み
     // filterPlaceKey = ["hokkaido","tohoku"]
-    let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
+    let filterPlaceKey = this.state.config.region.filter(p=>p.value).map(p=>p.key)
 
     this.state.spot.forEach(s=>{
       // this.state.spot[0] ~ [this.state.spot.length -1] までの area 属性を調べる
@@ -296,6 +296,18 @@ class Main extends Component {
 
   render() {
     return (
+      <div className="outer" data-view={this.state.view}>
+
+        {/*背景を押したらdefaultのviewに戻る?*/}
+        {
+          ["post"].includes(this.state.view)
+          ?
+          <span className="modal-background" onClick={()=>{ this.updateView({ view: "default" }) }}></span>
+          :
+          null
+        }
+
+
       <div className="App">
           <Header name={this.state.name} />
           <div className="flex-container">
@@ -305,7 +317,7 @@ class Main extends Component {
             <div className="pane">
 
 
-              <button type="button" name="post" /*onClick={this.updateView({view: "post"})}*/>
+              <button type="button" name="post" onClick={()=> {this.updateView({ view: "post" }) }} >
                 投稿する
               </button>
 
@@ -315,14 +327,14 @@ class Main extends Component {
                 <h2 className="nav-section-hd">場所から探す</h2>
                 <ul className="nav-list">
                   {
-                    this.state.config.place.map((data,i)=>{
+                    this.state.config.region.map((data,i)=>{
                       return (
                         <li
                           key={`place${i}`}
                           className="nav-row checkbox"
                           onClick={
                             ()=>{ this.updateConfig({
-                              category: "place",
+                              category: "region",
                               index: i
                             })}
                           }
@@ -364,10 +376,33 @@ class Main extends Component {
               </section>
           </div>
         </div>
+
+
+        {
+          this.state.view === "post"
+          ?
+          <section className="post">
+            <figure className= "post-image">
+            </figure>
+
+          </section>
+          :null
+
+
+
+
+
+
+
+
+
+
+        }
+
       </div>
+    </div>
 
 
-      { this.state.view === "post"}
     );
   }
 }

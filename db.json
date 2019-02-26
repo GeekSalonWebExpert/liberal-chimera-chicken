@@ -9,7 +9,7 @@
   ],
 
   "config": {
-    "place": [
+    "region": [
       { "label": "北海道", "key": "hokkaido", "value": false },
       { "label": "東北", "key": "tohoku", "value": false },
       { "label": "関東", "key": "kanto", "value": false },
