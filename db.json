@@ -10,7 +10,8 @@
     { "id": 5, "name": "道の駅 させぼっくす", "address": "〒858-0917 長崎県佐世保市愛宕町11", "place": "九州・沖縄", "area": "kyusyuokinawa", "isActive": false, "image": 0, "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": true, "lat": 33.201749, "lng": 129.671847}
   ],
 
-    "place": [
+  "config": {
+    "region": [
       { "label": "北海道", "key": "hokkaido", "value": false },
       { "label": "東北", "key": "tohoku", "value": false },
       { "label": "関東", "key": "kanto", "value": false },
@@ -26,16 +27,11 @@
       { "label": "ベンチがある", "key": "hasBench", "value": false },
       { "label": "屋根がある", "key": "hasRoof", "value": false},
       { "label": "トイレがある", "key": "hasToilet", "value": false}
-    ],
+    ]
+  },
 
     "nowLocation": [
-      {"data": []},
-      {"lat": 35.645843},
-      {"lng": 139.704582},
-      {"alt": 0},
-      {"accLatlng": 0},
-      {"heading": 0}
+      {"data": [], "lat": 35.645843, "lng": 139.704582, "alt": 0, "accLatlng": 0, "heading": 0}
     ]
-  
 
 }

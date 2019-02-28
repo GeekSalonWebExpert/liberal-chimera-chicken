@@ -13,45 +13,49 @@ class Main extends Component {
     super(props);
     this.state = {
 
-      name: "野宿びより",
+      // name: "野宿びより",
+      //
+      // spot: [
+      //   { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
+      //   { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 42.102251, lng: 140.568183},
+      //   { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
+      //   { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
+      //   { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
+      // ],
+      //
+      // selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
+      // config: {
+      //
+      //   region: [
+      //     { label: "北海道", key: "hokkaido", value: false },
+      //     { label: "東北", key: "tohoku", value: false },
+      //     { label: "関東", key: "kanto", value: false },
+      //     { label: "北陸・甲信越", key: "hokurikukousinetu", value: false },
+      //     { label: "東海", key: "tokai", value: false },
+      //     { label: "近畿", key: "kinki", value: false },
+      //     { label: "中国", key: "tyugoku", value: false },
+      //     { label: "四国", key: "sikoku", value: false },
+      //     { label: "九州・沖縄", key: "kyusyuokinawa", value: false }
+      //   ],
+      //
+      //   attribute: [
+      //     { label: "ベンチがある", key: "hasBench", value: false },
+      //     { label: "屋根がある", key: "hasRoof", value: false},
+      //     { label: "トイレがある", key: "hasToilet", value: false},
+      //   ],
+      //
+      // },
+      //
+      // view: "default", // post
+      // nowLocation: [
+      //  {data: []},
+  		//  {lat: 35.645843},
+  		// 	{lng: 139.704582},
+  		// 	{alt: 0},
+  		// 	{accLatlng: 0},
+  		// 	{heading: 0}
+      // ]
 
-      spot: [
-        { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
-        { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 42.102251, lng: 140.568183},
-        { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
-        { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
-        { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
-      ],
-
-      selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
-      config: {
-        place: [
-          { label: "北海道", key: "hokkaido", value: false },
-          { label: "東北", key: "tohoku", value: false },
-          { label: "関東", key: "kanto", value: false },
-          { label: "北陸・甲信越", key: "hokurikukousinetu", value: false },
-          { label: "東海", key: "tokai", value: false },
-          { label: "近畿", key: "kinki", value: false },
-          { label: "中国", key: "tyugoku", value: false },
-          { label: "四国", key: "sikoku", value: false },
-          { label: "九州・沖縄", key: "kyusyuokinawa", value: false }
-        ],
-        attribute: [
-          { label: "ベンチがある", key: "hasBench", value: false },
-          { label: "屋根がある", key: "hasRoof", value: false},
-          { label: "トイレがある", key: "hasToilet", value: false},
-        ],
-
-        // view: "default"
-        nowLocation: [
-          {data: []},
-  				{lat: 35.645843},
-  				{lng: 139.704582},
-  				{alt: 0},
-  				{accLatlng: 0},
-  				{heading: 0}
-        ]
-      },
     }
 
       this.watcher = window.setInterval(()=>{
@@ -64,17 +68,48 @@ class Main extends Component {
       },100)
   }
 
-  // componentWillMount(){
-  //   this.fetchTasks()
-  // }
-  //
-  // fetchTasks(){
-  //   fetch("http://localhost:3001/spot") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ spot: json }) // Stateを更新する
-  //   })
-  // }
+  componentWillMount(){
+    this.fetchTasks()
+  }
+
+  fetchTasks(){
+    fetch("http://localhost:3001/name") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ name: json }) // Stateを更新する
+    })
+  }
+
+  fetchTasks(){
+    fetch("http://localhost:3001/spot") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ spot: json }) // Stateを更新する
+    })
+  }
+
+  fetchTasks(){
+    fetch("http://localhost:3001/config") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ config: json }) // Stateを更新する
+    })
+  }
+
+  fetchTasks(){
+    fetch("http://localhost:3001/nowLocation") // データを取得しに行く
+    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+      this.setState({ nowLocation: json }) // Stateを更新する
+    })
+  }
+
+
+  updateView(option = {}){
+    this.setState({
+      view: option.view,
+    })
+  }
 
 
   initMap(){
@@ -83,6 +118,7 @@ class Main extends Component {
         if (navigator.geolocation) {
           // 現在地を取得
           navigator.geolocation.getCurrentPosition(( position ) => {
+
 
             // 取得成功した場合、this.state.nowLocationを更新
             this.setState({
@@ -132,7 +168,7 @@ class Main extends Component {
   updateConfig(option = {}) {
     let config = this.state.config
     switch(option.category){
-      case "place":
+      case "region":
       case "attribute":
         // チェックボックスの真偽を逆にする
         config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
@@ -146,14 +182,12 @@ class Main extends Component {
 
     // 場所による絞り込み
     // filterPlaceKey = ["hokkaido","tohoku"]
-    let filterPlaceKey = this.state.config.place.filter(p=>p.value).map(p=>p.key)
-  　console.log(filterPlaceKey)
+    let filterPlaceKey = this.state.config.region.filter(p=>p.value).map(p=>p.key)
 
     this.state.spot.forEach(s=>{
       // this.state.spot[0] ~ [this.state.spot.length -1] までの area 属性を調べる
       if(filterPlaceKey.length > 0){
         s.isActive = filterPlaceKey.includes(s.area);
-        console.log(s.isActive)
       } else {
         s.isActive = true
       }
@@ -172,7 +206,6 @@ class Main extends Component {
           if(s[key] === false) s.isActive = false
         })
         //s.isActive = true
-        console.log(s.isActive)
         return s
       })
     }
@@ -200,7 +233,6 @@ class Main extends Component {
 
     // this.state.spotにfilterをかけて、sがactiveなものだけ取り出し、spotに一つ一つ取り出す
     this.state.spot.filter(s=>s.isActive).forEach((spot)=>{
-      console.log(spot)
       let latLng = new window.google.maps.LatLng( spot.lat, spot.lng );
       let marker = new window.google.maps.Marker({
         map: this.map,
@@ -214,7 +246,7 @@ class Main extends Component {
       let button = document.createElement("input")
       button.type = "button"
       button.value = "詳細画面へ"
-      button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
+      //button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
       info.appendChild(spotName)
       info.appendChild(button)
 
@@ -267,6 +299,18 @@ class Main extends Component {
 
   render() {
     return (
+      <div className="outer" data-view={this.state.view}>
+
+        {/*背景を押したらdefaultのviewに戻る?*/}
+        {
+          ["post"].includes(this.state.view)
+          ?
+          <span className="modal-background" onClick={()=>{ this.updateView({ view: "default" }) }}></span>
+          :
+          null
+        }
+
+
       <div className="App">
           <Header name={this.state.name} />
           <div className="flex-container">
@@ -276,7 +320,7 @@ class Main extends Component {
             <div className="pane">
 
 
-              <button type="button" name="post">
+              <button type="button" name="post" onClick={()=> {this.updateView({ view: "post" }) }} >
                 投稿する
               </button>
 
@@ -286,14 +330,14 @@ class Main extends Component {
                 <h2 className="nav-section-hd">場所から探す</h2>
                 <ul className="nav-list">
                   {
-                    this.state.config.place.map((data,i)=>{
+                    this.state.config.region.map((data,i)=>{
                       return (
                         <li
                           key={`place${i}`}
                           className="nav-row checkbox"
                           onClick={
                             ()=>{ this.updateConfig({
-                              category: "place",
+                              category: "region",
                               index: i
                             })}
                           }
@@ -333,12 +377,58 @@ class Main extends Component {
                   }
                 </ul>
               </section>
-
-
           </div>
         </div>
-            <Link to={`/detail/aaa/`}>詳細ページへ</Link>
+
+
+        {
+          this.state.view === "post"
+          ?
+          <section className="post">
+            <figure className= "post-image">
+            </figure>
+            <select name="region-name" id="region-name" className="region-score">
+              <option value="1">北海道</option>
+              <option value="2">東北</option>
+              <option value="3">関東</option>
+              <option value="4">北陸・甲信越</option>
+              <option value="5">東海</option>
+              <option value="6">近畿</option>
+              <option value="7">中国</option>
+              <option value="8">中国</option>
+              <option value="9">九州・沖縄</option>
+            </select>
+            <div className="post-place">
+              <div className="post-place-name">地名</div>
+              <input type="text" id="post-input-place-name" className="input-place-name"></input>
+            </div>
+            <div className="post-address">
+              <div className="post-address-content">住所</div>
+              <input type="text" id="post-input-address-content" className="input-address-content"></input>
+            </div>
+            <div className="post-star">
+              <div className="evaluate-star">評価をつける</div>
+              <div className="chage-post-star">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div className="post-attribute">
+              <input type="button" className="post-hasBench" value="ベンチがある"></input>
+              <input type="button" className="post-hasRoof" value="屋根がある"></input>
+              <input type="button" className="post-hasToilet" value="トイレがある"></input>
+            </div>
+            <div className="posting">
+              <input type="button" className="posting" value="投稿する"></input>
+            </div>
+
+          </section>
+          :null
+
+
+        }
+
       </div>
+    </div>
+
+
     );
   }
 }
