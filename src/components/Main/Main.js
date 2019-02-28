@@ -232,12 +232,7 @@ class Main extends Component {
         //s.isActive = true
         return s
       })
-    } /*else {
-      spot = spot.map(s=>{
-        s.isActive = true
-        return s
-      })
-    }*/
+    }
     this.putMarker()
   }
 
