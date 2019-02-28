@@ -13,7 +13,6 @@ class Main extends Component {
     super(props);
     this.state = {
 
-      name: "野宿びより",
       spot: [],
       selectedSpot: null,
       config: {
@@ -22,49 +21,6 @@ class Main extends Component {
       },
       view: "default",
       nowLocation: []
-
-      //
-      // spot: [
-      //   { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
-      //   { id: 2, name: "道の駅 YOU・遊・もり", address: "〒049-2311 北海道茅部郡森町上台町326-18", place: "北海道", area: "hokkaido" , isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 42.102251, lng: 140.568183},
-      //   { id: 3, name: "道の駅 厳美渓谷", address: "〒021-0101 岩手県一関市厳美町沖野々220-1", place: "東北", area: "tohoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 38.946439, lng: 141.052885},
-      //   { id: 4, name: "道の駅　きららあじす", address: "〒754-1277　山口県山口市阿知須509-88", place: "中国", area: "tyugoku", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: false, lat: 34.012855, lng: 131.369561},
-      //   { id: 5, name: "道の駅 させぼっくす", address: "〒858-0917 長崎県佐世保市愛宕町11", place: "九州・沖縄", area: "kyusyuokinawa", isActive: false, image: 0, score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 33.201749, lng: 129.671847}
-      // ],
-      //
-      // selectedSpot: null, // 詳細,レビュー画面に対応するspotをセットする
-      // config: {
-      //
-      //   region: [
-      //     { label: "北海道", key: "hokkaido", value: false },
-      //     { label: "東北", key: "tohoku", value: false },
-      //     { label: "関東", key: "kanto", value: false },
-      //     { label: "北陸・甲信越", key: "hokurikukousinetu", value: false },
-      //     { label: "東海", key: "tokai", value: false },
-      //     { label: "近畿", key: "kinki", value: false },
-      //     { label: "中国", key: "tyugoku", value: false },
-      //     { label: "四国", key: "sikoku", value: false },
-      //     { label: "九州・沖縄", key: "kyusyuokinawa", value: false }
-      //   ],
-      //
-      //   attribute: [
-      //     { label: "ベンチがある", key: "hasBench", value: false },
-      //     { label: "屋根がある", key: "hasRoof", value: false},
-      //     { label: "トイレがある", key: "hasToilet", value: false},
-      //   ],
-      //
-      // },
-      //
-      // view: "default", // post
-      // nowLocation: [
-      //  {data: []},
-  		//  {lat: 35.645843},
-  		// 	{lng: 139.704582},
-  		// 	{alt: 0},
-  		// 	{accLatlng: 0},
-  		// 	{heading: 0}
-      // ]
-
     }
 
       this.watcher = window.setInterval(()=>{
@@ -78,18 +34,19 @@ class Main extends Component {
   }
 
   componentWillMount(){
-    // this.startFetching()
-    this.fetchTaskSpot()
-    this.fetchTaskConfig()
-    this.fetchTaskNowLocation()
+    this.startFetching()
+    // this.fetchTaskSpot()
+    // this.fetchTaskConfig()
+    // this.fetchTaskNowLocation()
   }
 
   startFetching(){
       // name, spot, config, nowLocation を取得する
       let resource = ["name","spot","config","nowLocation"]
       resource.map(r=>{
+        // fetch(`http://localhost:3001/${r}/1`)
         fetch(`http://localhost:3001/${r}`)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(json=>{
           console.log(json)
           this.setState({
@@ -99,32 +56,32 @@ class Main extends Component {
       })
   }
 
-  fetchTaskSpot(){
-    fetch("http://localhost:3001/spot") // データを取得しに行く
-    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-      this.setState({ spot: json }) // Stateを更新する
-    })
-    console.log(this.state.spot)
-  }
-
-  fetchTaskConfig(){
-    fetch("http://localhost:3001/config") // データを取得しに行く
-    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-      this.setState({ config: json }) // Stateを更新する
-    })
-    console.log(this.state.config)
-  }
-
-  fetchTaskNowLocation(){
-    fetch("http://localhost:3001/nowLocation") // データを取得しに行く
-    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-      this.setState({ nowLocation: json }) // Stateを更新する
-    })
-    console.log(this.state.nowLocation)
-  }
+  // fetchTaskSpot(){
+  //   fetch("http://localhost:3001/spot") // データを取得しに行く
+  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+  //     this.setState({ spot: json }) // Stateを更新する
+  //   })
+  //   console.log(this.state.spot)
+  // }
+  //
+  // fetchTaskConfig(){
+  //   fetch("http://localhost:3001/config") // データを取得しに行く
+  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+  //     this.setState({ config: json }) // Stateを更新する
+  //   })
+  //   console.log(this.state.config)
+  // }
+  //
+  // fetchTaskNowLocation(){
+  //   fetch("http://localhost:3001/nowLocation") // データを取得しに行く
+  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
+  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
+  //     this.setState({ nowLocation: json }) // Stateを更新する
+  //   })
+  //   console.log(this.state.nowLocation)
+  // }
 
 
   updateView(option = {}){
@@ -268,7 +225,10 @@ class Main extends Component {
       let button = document.createElement("input")
       button.type = "button"
       button.value = "詳細画面へ"
-      //button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
+      // button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
+      button.onclick = ()=>{
+        browserHistory.push(`/detail/${1}/`)
+      }
       info.appendChild(spotName)
       info.appendChild(button)
 
@@ -320,6 +280,11 @@ class Main extends Component {
 
 
   render() {
+
+    let star = ""
+    for(let i = 0; i<3; i++) star += "⭐️"
+
+    console.log(this.refs)
     return (
       <div className="outer" data-view={this.state.view}>
 
@@ -334,7 +299,7 @@ class Main extends Component {
 
 
       <div className="App">
-          <Header name={this.state.name} />
+          <Header name={"野宿びより"} />
           <div className="flex-container">
             <div className="pane">
               <div className="map" ref="map-view"></div>
@@ -409,7 +374,7 @@ class Main extends Component {
           <section className="post">
             <figure className= "post-image">
             </figure>
-            <select name="region-name" id="region-name" className="region-score">
+            <select name="region-name" id="region-name" ref="region-name" className="region-score">
               <option value="1">北海道</option>
               <option value="2">東北</option>
               <option value="3">関東</option>
@@ -430,9 +395,10 @@ class Main extends Component {
             </div>
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
-              <div className="chage-post-star">⭐️⭐️⭐️⭐️⭐️</div>
+              <div className="chage-post-star">{star}</div>
             </div>
             <div className="post-attribute">
+              <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div>
               <input type="button" className="post-hasBench" value="ベンチがある"></input>
               <input type="button" className="post-hasRoof" value="屋根がある"></input>
               <input type="button" className="post-hasToilet" value="トイレがある"></input>

@@ -7,6 +7,8 @@ class Detail extends Component {
     super()
   }
   render() {
+    console.log(this.refs)
+
     return (
       <div className="list">
         <div className="list_name">道の駅 五霞</div>
