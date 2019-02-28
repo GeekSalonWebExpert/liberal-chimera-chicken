@@ -23,8 +23,6 @@ class Main extends Component {
       view: "default",
       nowLocation: []
 
-
-
       //
       // spot: [
       //   { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
@@ -450,6 +448,7 @@ class Main extends Component {
         }
 
       </div>
+      <Link to={`/detail/aaa/`}>詳細ページへ</Link>
     </div>
 
 
