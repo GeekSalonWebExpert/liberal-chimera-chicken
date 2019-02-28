@@ -13,7 +13,18 @@ class Main extends Component {
     super(props);
     this.state = {
 
-      // name: "野宿びより",
+      name: "野宿びより",
+      spot: [],
+      selectedSpot: null,
+      config: {
+        region: [],
+        attribute: [],
+      },
+      view: "default",
+      nowLocation: []
+
+
+
       //
       // spot: [
       //   { id: 1, name: "道の駅五霞", address: "〒306-0304 茨城県猿島群五霞町幸主18-1", place: "関東", area: "kanto", isActive: false, image: 0 , score: 5, hasToilet: true, hasRoof: true, hasBench: true, lat: 36.115163, lng: 139.734986},
@@ -69,39 +80,52 @@ class Main extends Component {
   }
 
   componentWillMount(){
-    this.fetchTasks()
+    // this.startFetching()
+    this.fetchTaskSpot()
+    this.fetchTaskConfig()
+    this.fetchTaskNowLocation()
   }
 
-  fetchTasks(){
-    fetch("http://localhost:3001/name") // データを取得しに行く
-    .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-    .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-      this.setState({ name: json }) // Stateを更新する
-    })
+  startFetching(){
+      // name, spot, config, nowLocation を取得する
+      let resource = ["name","spot","config","nowLocation"]
+      resource.map(r=>{
+        fetch(`http://localhost:3001/${r}`)
+        .then(response => response.json)
+        .then(json=>{
+          console.log(json)
+          this.setState({
+            [r]: json
+          })
+        })
+      })
   }
 
-  fetchTasks(){
+  fetchTaskSpot(){
     fetch("http://localhost:3001/spot") // データを取得しに行く
     .then( response => response.json() ) // json型のレスポンスをオブジェクトに
     .then( json => { // オブジェクトに変換したレスポンスを受け取り、
       this.setState({ spot: json }) // Stateを更新する
     })
+    console.log(this.state.spot)
   }
 
-  fetchTasks(){
+  fetchTaskConfig(){
     fetch("http://localhost:3001/config") // データを取得しに行く
     .then( response => response.json() ) // json型のレスポンスをオブジェクトに
     .then( json => { // オブジェクトに変換したレスポンスを受け取り、
       this.setState({ config: json }) // Stateを更新する
     })
+    console.log(this.state.config)
   }
 
-  fetchTasks(){
+  fetchTaskNowLocation(){
     fetch("http://localhost:3001/nowLocation") // データを取得しに行く
     .then( response => response.json() ) // json型のレスポンスをオブジェクトに
     .then( json => { // オブジェクトに変換したレスポンスを受け取り、
       this.setState({ nowLocation: json }) // Stateを更新する
     })
+    console.log(this.state.nowLocation)
   }
 
 
@@ -182,11 +206,11 @@ class Main extends Component {
 
     // 場所による絞り込み
     // filterPlaceKey = ["hokkaido","tohoku"]
-    let filterPlaceKey = this.state.config.region.filter(p=>p.value).map(p=>p.key)
+    let filterPlaceKey = this.state.config && this.state.config.region && this.state.config.region.filter(p=>p.value).map(p=>p.key)
 
     this.state.spot.forEach(s=>{
       // this.state.spot[0] ~ [this.state.spot.length -1] までの area 属性を調べる
-      if(filterPlaceKey.length > 0){
+      if(filterPlaceKey && filterPlaceKey.length > 0){
         s.isActive = filterPlaceKey.includes(s.area);
       } else {
         s.isActive = true
@@ -195,11 +219,11 @@ class Main extends Component {
 
     // 属性による絞り込み
     // filterAtrKey = ["hasBench","hasRoof","hasToilet"]
-    let filterAtrKey = this.state.config.attribute.filter(a=>a.value).map(a=>a.key)
+    let filterAtrKey = this.state.config && this.state.config.attribute && this.state.config.attribute.filter(a=>a.value).map(a=>a.key)
     let spot = this.state.spot
 
     // filterAtrKeyに値がある時
-    if(filterAtrKey.length > 0){
+    if(filterAtrKey && filterAtrKey.length > 0){
       spot = spot.map(s=>{
         filterAtrKey.forEach(key=>{
           // 例えば、this.state.spotのhasBenchの値がfalseの時、activeをfalseにする
@@ -335,7 +359,7 @@ class Main extends Component {
                 <h2 className="nav-section-hd">場所から探す</h2>
                 <ul className="nav-list">
                   {
-                    this.state.config.region.map((data,i)=>{
+                    this.state.config && this.state.config.region && this.state.config.region.map((data,i)=>{
                       return (
                         <li
                           key={`place${i}`}
@@ -362,7 +386,7 @@ class Main extends Component {
                 <h2 className="nav-section-hd">属性から探す</h2>
                 <ul className="nav-list">
                   {
-                    this.state.config.attribute.map((data,i)=>{
+                    this.state.config && this.state.config.attribute && this.state.config.attribute.map((data,i)=>{
                       return (
                         <li
                           key={`option${i}`}

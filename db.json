@@ -1,6 +1,6 @@
 {
 
-  "name": [{ "name": "野宿びより"}],
+
 
   "spot": [
     { "id": 1, "name": "道の駅五霞", "address": "〒306-0304 茨城県猿島群五霞町幸主18-1", "place": "関東", "area": "kanto", "isActive": false, "image": 0 , "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": true, "lat": 36.115163, "lng": 139.734986},
@@ -27,11 +27,11 @@
       { "label": "ベンチがある", "key": "hasBench", "value": false },
       { "label": "屋根がある", "key": "hasRoof", "value": false},
       { "label": "トイレがある", "key": "hasToilet", "value": false}
-    ]
+    ],
   },
 
-    "nowLocation": [
-      {"data": [], "lat": 35.645843, "lng": 139.704582, "alt": 0, "accLatlng": 0, "heading": 0}
-    ]
+  "nowLocation": [
+    {"data": [], "lat": 35.645843, "lng": 139.704582, "alt": 0, "accLatlng": 0, "heading": 0}
+  ]
 
 }
