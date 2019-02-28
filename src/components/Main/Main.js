@@ -56,33 +56,6 @@ class Main extends Component {
       })
   }
 
-  // fetchTaskSpot(){
-  //   fetch("http://localhost:3001/spot") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ spot: json }) // Stateを更新する
-  //   })
-  //   console.log(this.state.spot)
-  // }
-  //
-  // fetchTaskConfig(){
-  //   fetch("http://localhost:3001/config") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ config: json }) // Stateを更新する
-  //   })
-  //   console.log(this.state.config)
-  // }
-  //
-  // fetchTaskNowLocation(){
-  //   fetch("http://localhost:3001/nowLocation") // データを取得しに行く
-  //   .then( response => response.json() ) // json型のレスポンスをオブジェクトに
-  //   .then( json => { // オブジェクトに変換したレスポンスを受け取り、
-  //     this.setState({ nowLocation: json }) // Stateを更新する
-  //   })
-  //   console.log(this.state.nowLocation)
-  // }
-
 
   updateView(option = {}){
     this.setState({
