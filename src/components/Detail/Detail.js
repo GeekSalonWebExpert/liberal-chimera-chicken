@@ -6,7 +6,7 @@ class Detail extends Component {
   constructor() {
     super()
     this.state = {
-        spot: []
+      spot: []
     }
   }
 

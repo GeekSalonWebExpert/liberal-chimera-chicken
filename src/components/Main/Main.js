@@ -35,9 +35,6 @@ class Main extends Component {
 
   componentWillMount(){
     this.startFetching()
-    // this.fetchTaskSpot()
-    // this.fetchTaskConfig()
-    // this.fetchTaskNowLocation()
   }
 
   startFetching(){
@@ -197,10 +194,11 @@ class Main extends Component {
       let button = document.createElement("input")
       button.type = "button"
       button.value = "詳細画面へ"
-
-      // button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
       button.onclick = ()=>{
-        browserHistory.push(`/detail/${1}/`)
+        this.setState({
+          selectedSpot: spot
+        })
+        browserHistory.push(`/detail/${this.state.selectedSpot.id}/`)
       }
       info.appendChild(spotName)
       info.appendChild(button)
@@ -387,7 +385,6 @@ class Main extends Component {
         }
 
       </div>
-      <Link to={`/detail/aaa/`}>詳細ページへ</Link>
     </div>
 
 
