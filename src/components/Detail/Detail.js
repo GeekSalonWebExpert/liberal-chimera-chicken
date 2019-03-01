@@ -5,19 +5,37 @@ import './Detail.css';
 class Detail extends Component {
   constructor() {
     super()
+    this.state = {
+        spot: []
+    }
   }
-  render() {
+
+componentWillMount(){
+  this.fetchSpot()
+}
+
+ fetchSpot(){
+   fetch("http://localhost:3001/spot/1")
+   .then( response => response.json() )
+   .then( json => {
+     this.setState({ spot: json })
+   })
+ }
+
+ render() {
     console.log(this.refs)
+    let star = ""
+    for(let i = 0; i<this.state.spot.score; i++) star += "⭐️"
 
     return (
       <div className="list">
-        <div className="list_name">道の駅 五霞</div>
+        <div className="list_name">{this.state.spot.name}</div>
           <div className="list_contents">
             <div className="list_image"></div>
             <div className="list_info">
               <div className = "list_evaluation">
-                <div className= "list_star">⭐️⭐️⭐️⭐️⭐️</div>
-                <div className="list_rate">5.0</div>
+                <div className= "list_star">{star}</div>
+                <div className="list_rate">{this.state.spot.score}</div>
               </div>
               <ul className="list_searchword">
                 <li className="list_searchword_item_first">トイレあり</li>
@@ -29,7 +47,7 @@ class Detail extends Component {
         <div className="location">
           <div className="location_info">
             <div className="address">住所</div>
-            <div className="location_address">〒306-0304 茨城県 猿島郡五霞町幸主１８－１</div>
+            <div className="location_address">{this.state.spot.address}</div>
           </div>
             <div className="detail-map"></div>
         </div>
