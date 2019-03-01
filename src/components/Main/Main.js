@@ -6,6 +6,8 @@ import './Main.css';
 
 // Header.jsをインポート
 import Header from '../Header/Header'
+// Detail.jsをインポート
+import Detail from '../Detail/Detail'
 
 class Main extends Component {
 

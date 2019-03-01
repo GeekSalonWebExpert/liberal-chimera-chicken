@@ -3,9 +3,10 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import './Detail.css';
 
 class Detail extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
+      selectedSpot: [],
       spot: []
     }
   }
@@ -15,7 +16,7 @@ componentWillMount(){
 }
 
  fetchSpot(){
-   fetch("http://localhost:3001/spot/")
+   fetch("http://localhost:3001/spot/this.state.selectedSpot.id")
    .then( response => response.json() )
    .then( json => {
      this.setState({ spot: json })
@@ -26,7 +27,7 @@ componentWillMount(){
     console.log(this.refs)
     let star = ""
     for(let i = 0; i<this.state.spot.score; i++) star += "⭐️"
-    
+
     return (
       <div className="list">
         <div className="list_name">{this.state.spot.name}</div>
