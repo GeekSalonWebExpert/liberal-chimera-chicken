@@ -15,7 +15,7 @@ componentWillMount(){
 }
 
  fetchSpot(){
-   fetch("http://localhost:3001/spot/1")
+   fetch("http://localhost:3001/spot/")
    .then( response => response.json() )
    .then( json => {
      this.setState({ spot: json })
@@ -26,7 +26,7 @@ componentWillMount(){
     console.log(this.refs)
     let star = ""
     for(let i = 0; i<this.state.spot.score; i++) star += "⭐️"
-
+    
     return (
       <div className="list">
         <div className="list_name">{this.state.spot.name}</div>
