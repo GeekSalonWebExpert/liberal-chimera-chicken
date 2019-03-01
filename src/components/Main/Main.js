@@ -191,7 +191,6 @@ class Main extends Component {
     this.putMarker()
   }
 
-
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
     if(this.markerList){
@@ -225,6 +224,7 @@ class Main extends Component {
       let button = document.createElement("input")
       button.type = "button"
       button.value = "詳細画面へ"
+
       // button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
       button.onclick = ()=>{
         browserHistory.push(`/detail/${1}/`)
