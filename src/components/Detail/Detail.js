@@ -16,7 +16,7 @@ componentWillMount(){
 }
 
  fetchSpot(){
-   fetch("http://localhost:3001/spot/this.state.selectedSpot.id")
+   fetch(`http://localhost:3001/spot/${this.props.params.id}/`)
    .then( response => response.json() )
    .then( json => {
      this.setState({ spot: json })
