@@ -39,7 +39,7 @@ class Main extends Component {
     // this.fetchTaskConfig()
     // this.fetchTaskNowLocation()
   }
-
+    // db.jsonからデータを取り出す
   startFetching(){
       // name, spot, config, nowLocation を取得する
       let resource = ["name","spot","config","nowLocation"]
@@ -63,7 +63,7 @@ class Main extends Component {
     })
   }
 
-
+// Gmapの表示
   initMap(){
     let self = this
         // Geolocation APIに対応している
@@ -116,7 +116,7 @@ class Main extends Component {
         }
   }
 
-  // チェックボックスにチェックをつける
+  // チェックボックスにチェックをつけている状態にする
   updateConfig(option = {}) {
     let config = this.state.config
     switch(option.category){
@@ -164,7 +164,7 @@ class Main extends Component {
     this.putMarker()
   }
 
-
+// 地図上にマーカーを置く。
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
     if(this.markerList){
