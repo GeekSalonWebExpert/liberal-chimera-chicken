@@ -6,10 +6,10 @@ import './Main.css';
 
 // Header.jsをインポート
 import Header from '../Header/Header'
-// Detail.jsをインポート
-import Detail from '../Detail/Detail'
+
 
 class Main extends Component {
+
 
   constructor(props) {
     super(props);
@@ -25,19 +25,27 @@ class Main extends Component {
       nowLocation: []
     }
 
-      this.watcher = window.setInterval(()=>{
-        if(window.google.maps){
-          clearInterval(this.watcher)
-          this.watcher = null
-          // initMapを呼び出す
-          this.initMap.call(this)
-        }
-      },100)
+    this.watcher = window.setInterval(()=>{
+      if(window.google.maps){
+        clearInterval(this.watcher)
+        this.watcher = null
+        // initMapを呼び出す
+        this.initMap.call(this)
+      }
+    },100)
+
+    this.inputPlace = this.inputPlace.bind(this)
+    this.inputZipCode = this.inputZipCode.bind(this)
+    this.inputAddress = this.inputAddress.bind(this)
+    this.submitTask = this.submitTask.bind(this)
+    this.startFetching = this.startFetching.bind(this)
   }
+
 
   componentWillMount(){
     this.startFetching()
   }
+
 
   startFetching(){
       // name, spot, config, nowLocation を取得する
@@ -47,7 +55,6 @@ class Main extends Component {
         fetch(`http://localhost:3001/${r}`)
         .then(response => response.json())
         .then(json=>{
-          console.log(json)
           this.setState({
             [r]: json
           })
@@ -115,7 +122,7 @@ class Main extends Component {
         }
   }
 
-  // チェックボックスにチェックをつける
+
   updateConfig(option = {}) {
     let config = this.state.config
     switch(option.category){
@@ -162,6 +169,7 @@ class Main extends Component {
     }
     this.putMarker()
   }
+
 
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
@@ -222,6 +230,7 @@ class Main extends Component {
     })
   }
 
+
   // 現在地からのルート検索
   route(latLng){
     var request = {
@@ -251,13 +260,61 @@ class Main extends Component {
     })
   }
 
+  inputPlace(e) {
+    const Places = e.target.value
+    this.setState({ Places: Places })
+    console.dir(Places)
+  }
+
+  inputZipCode(e) {
+    const ZipCodes = e.target.value
+    this.setState({ ZipCodes: ZipCodes })
+    console.dir(ZipCodes);
+  }
+
+  inputAddress(e) {
+    const Addresses = e.target.value
+    this.setState({ Addresses: Addresses })
+    console.dir(Addresses);
+  }
+
+  deleteSpot(spotsId) {
+    fetch("http://localhost:3001/spot/"+spotsId, {
+      method: "DELETE"
+    })
+    .then( this.startFetching )
+  }
+
+
+  submitTask() {
+    console.log(this.state.Places)
+    console.log(this.state.ZipCodes)
+    console.log(this.state.Addresses)
+
+
+    fetch("http://localhost:3001/spot", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      // body: JSON.stringify({ body: this.state.inputText })
+      body: JSON.stringify({
+        'name:': this.state.Places,
+        'zipCode': this.state.ZipCodes,
+        'address': this.state.Addresses,
+        'isActive': false
+      })
+    })
+    .then( this.startFetching )
+  }
+
 
   render() {
+    //let star = ""
+    //for(let i = 0; i<3; i++) star += "⭐️"
+    //console.log(this.refs)
 
-    let star = ""
-    for(let i = 0; i<3; i++) star += "⭐️"
-
-    console.log(this.refs)
     return (
       <div className="outer" data-view={this.state.view}>
 
@@ -347,7 +404,7 @@ class Main extends Component {
           <section className="post">
             <figure className= "post-image">
             </figure>
-            <select name="region-name" id="region-name" ref="region-name" className="region-score">
+            <select id="region-name" ref="region-name" className="region-name">
               <option value="1">北海道</option>
               <option value="2">東北</option>
               <option value="3">関東</option>
@@ -359,25 +416,47 @@ class Main extends Component {
               <option value="9">九州・沖縄</option>
             </select>
             <div className="post-place">
-              <div className="post-place-name">地名</div>
-              <input type="text" id="post-input-place-name" className="input-place-name"></input>
+              <div className="post-place-name">野宿先名</div>
+              <input type="text" id="input-post-place-name" onChange={ this.inputPlace }/>
+            </div>
+            <div className="post-address">
+              <div className="post-address-number">郵便番号</div>
+              <input type="text" id="input-post-address-number" onChange={ this.inputZipCode }/>
             </div>
             <div className="post-address">
               <div className="post-address-content">住所</div>
-              <input type="text" id="post-input-address-content" className="input-address-content"></input>
+              <input type="text" id="input-post-address-content" onChange={ this.inputAddress }></input>
             </div>
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
-              <div className="chage-post-star">{star}</div>
+              {/*<div className="change-post-star">{star}</div>*/}
+              <select name="select-star" id="select-star" ref="select-star" className="select-star">
+                <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+                <option value="4">⭐️⭐️⭐️⭐️</option>
+                <option value="3">⭐️⭐️⭐️</option>
+                <option value="2">⭐️⭐️</option>
+                <option value="1">⭐️</option>
+              </select>
             </div>
             <div className="post-attribute">
-              <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div>
+              {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
+              {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
               <input type="button" className="post-hasBench" value="ベンチがある"></input>
               <input type="button" className="post-hasRoof" value="屋根がある"></input>
               <input type="button" className="post-hasToilet" value="トイレがある"></input>
             </div>
             <div className="posting">
-              <input type="button" className="posting" value="投稿する"></input>
+              <button id="posting" onClick= { this.submitTask }>投稿する</button>
+              {
+                this.state.spot.map( spots => {
+                  return(
+                    <div className="spots" key={ spots.id }>
+                      {spots.id}
+                    <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
+                    </div>
+                  )
+                })
+              }
             </div>
 
           </section>
