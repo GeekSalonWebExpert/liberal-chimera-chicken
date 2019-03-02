@@ -99,7 +99,7 @@ class Main extends Component {
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng,   // 緯度・経度
           			icon:{
-          				fillColor:"#FF0000",
+          				fillColor:"#ED6A5A",
           				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
           				scale: 5,
           			},

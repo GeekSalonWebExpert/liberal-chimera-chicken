@@ -37,6 +37,10 @@ time, mark, audio, video {
 	height: 100%;
 }
 
+.nav-list{
+	margin:50px;
+}
+
 .modal-background {
 	position: absolute;
 	top: 0;
@@ -83,4 +87,38 @@ time, mark, audio, video {
 
 .post-star {
 	display: flex;
+}
+
+button{
+	margin:50px 20px;
+	width:200px;
+	font-size:20px;
+	background-color:#92CBD9;
+	color:white;
+	cursor:pointer;
+	box-shadow:0px 7px #068AAA;
+	outline: none;
+}
+
+button:active{
+	margin:50px 20px;
+	width:200px;
+	font-size:20px;
+	background-color:#92CBD9;
+	color:white;
+	cursor:pointer;
+	box-shadow:none;
+	position:relative;
+	top:6px;
+	outline: none;
+}
+
+button:hover{
+	margin:50px 20px;
+	width:200px;
+	font-size:20px;
+	background-color:#92CBD9;
+	color:white;
+	cursor:pointer;
+	outline: none;
 }
