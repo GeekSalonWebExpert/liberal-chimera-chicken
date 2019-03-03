@@ -84,3 +84,7 @@ time, mark, audio, video {
 .post-star {
 	display: flex;
 }
+
+.post-attribute {
+	list-style: none;
+}

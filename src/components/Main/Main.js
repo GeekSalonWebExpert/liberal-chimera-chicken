@@ -7,6 +7,18 @@ import './Main.css';
 // Header.jsをインポート
 import Header from '../Header/Header'
 
+const regionList = [
+  "北海道",
+  "東北",
+  "関東",
+  "北陸・甲信越",
+  "東海",
+  "近畿",
+  "中国",
+  "四国",
+  "九州・沖縄"
+]
+
 
 class Main extends Component {
 
@@ -115,6 +127,13 @@ class Main extends Component {
           			// 	color:"#ff7fbf
                 // }
               });
+
+              // // 住所から緯度・経度を取得する
+              // var geocoder = new window.google.maps.Geocoder();
+              //
+              // document.getElementById('posting').addEventListener('click', funciton() {
+              //   geocodeAddress(geocoder, map);
+              // });
 
               self.updateConfig()
             }
@@ -260,21 +279,48 @@ class Main extends Component {
     })
   }
 
+
+  // function geocodeAddress(geocoder, resultsMap) {
+  //   var address = document.getElementById('input-post-address-content').value;
+  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
+  //     if (status === google.maps.GeocoderStatus.OK) {
+  //       resultsMap.setCenter(results[0].geometry.location);
+  //       var marker = new google.maps.Marker({
+  //         map: resultsMap
+  //         positon: results[0].geometry.location
+  //       });
+  //       this.setState({
+  //         postLat: results[0].geometry.location.lat(),
+  //         postLng: results[0].geometry.location.lng()
+  //       })
+  //     } else {
+  //       alert('Geocode was not successful for the following reason:' + status);
+  //     }
+  // }
+
+
+
+  inputRegion(e){
+    const regionID = e.target.value
+
+  }
+
   inputPlace(e) {
     const Places = e.target.value
-    this.setState({ Places: Places })
+    this.setState({ name: Places })
     console.dir(Places)
   }
 
   inputZipCode(e) {
     const ZipCodes = e.target.value
-    this.setState({ ZipCodes: ZipCodes })
+    this.setState({ zipCode: ZipCodes })
     console.dir(ZipCodes);
   }
 
   inputAddress(e) {
     const Addresses = e.target.value
-    this.setState({ Addresses: Addresses })
+    this.setState({ address: Addresses })
     console.dir(Addresses);
   }
 
@@ -287,7 +333,7 @@ class Main extends Component {
 
 
   submitTask() {
-    console.log(this.state.Places)
+    console.log(this.state.name)
     console.log(this.state.ZipCodes)
     console.log(this.state.Addresses)
 
@@ -300,10 +346,12 @@ class Main extends Component {
       },
       // body: JSON.stringify({ body: this.state.inputText })
       body: JSON.stringify({
-        'name:': this.state.Places,
-        'zipCode': this.state.ZipCodes,
-        'address': this.state.Addresses,
-        'isActive': false
+        "name": this.state.name,
+        "zipCode": this.state.zipCode,
+        "address": this.state.address,
+        "isActive": false,
+        "lat": this.state.postLat,
+        "lng": this.state.postLng
       })
     })
     .then( this.startFetching )
@@ -313,7 +361,7 @@ class Main extends Component {
   render() {
     //let star = ""
     //for(let i = 0; i<3; i++) star += "⭐️"
-    //console.log(this.refs)
+    console.log(this.refs["region-name"] && this.refs["region-name"].value)
 
     return (
       <div className="outer" data-view={this.state.view}>
@@ -405,15 +453,21 @@ class Main extends Component {
             <figure className= "post-image">
             </figure>
             <select id="region-name" ref="region-name" className="region-name">
-              <option value="1">北海道</option>
-              <option value="2">東北</option>
-              <option value="3">関東</option>
-              <option value="4">北陸・甲信越</option>
-              <option value="5">東海</option>
-              <option value="6">近畿</option>
-              <option value="7">中国</option>
-              <option value="8">中国</option>
-              <option value="9">九州・沖縄</option>
+            {
+              regionList.map((region,i)=>{
+                return <option value={i}>{region}</option>
+              })
+            }
+              {// <option value="0" id="hokkaido">北海道</option>
+              // <option value="1" id="tohoku">東北</option>
+              // <option value="2" id="kanto">関東</option>
+              // <option value="3" id="hokurikukousinetu">北陸・甲信越</option>
+              // <option value="4" id="tokai">東海</option>
+              // <option value="5" id="kinki">近畿</option>
+              // <option value="6" id="tyugoku">中国</option>
+              // <option value="7" id="sikoku">四国</option>
+              // <option value="8" id="kyusyuokinawa">九州・沖縄</option>
+            }
             </select>
             <div className="post-place">
               <div className="post-place-name">野宿先名</div>
@@ -431,25 +485,33 @@ class Main extends Component {
               <div className="evaluate-star">評価をつける</div>
               {/*<div className="change-post-star">{star}</div>*/}
               <select name="select-star" id="select-star" ref="select-star" className="select-star">
-                <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
-                <option value="4">⭐️⭐️⭐️⭐️</option>
-                <option value="3">⭐️⭐️⭐️</option>
-                <option value="2">⭐️⭐️</option>
-                <option value="1">⭐️</option>
+                <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
+                <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
+                <option value="3" id="3">⭐️⭐️⭐️</option>
+                <option value="2" id="2">⭐️⭐️</option>
+                <option value="1" id="1">⭐️</option>
               </select>
             </div>
-            <div className="post-attribute">
+            <ul className="post-attribute">
               {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
               {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
-              <input type="button" className="post-hasBench" value="ベンチがある"></input>
-              <input type="button" className="post-hasRoof" value="屋根がある"></input>
-              <input type="button" className="post-hasToilet" value="トイレがある"></input>
-            </div>
+              {
+                this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
+                  return (
+                    <li>
+                      <input type="checkbox" className="attribute-check" checked="checked"></input>
+                      {data.label}
+                    </li>
+                  )
+                })
+              }
+            </ul>
             <div className="posting">
               <button id="posting" onClick= { this.submitTask }>投稿する</button>
               {
                 this.state.spot.map( spots => {
                   return(
+                    console.log(spots),
                     <div className="spots" key={ spots.id }>
                       {spots.id}
                     <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
