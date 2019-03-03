@@ -3,10 +3,9 @@
     {
       "id": 1,
       "name": "道の駅五霞",
-      "zipCode": "〒306-0304",
+      "zipcode": "〒306-0304",
       "address": "茨城県猿島群五霞町幸主18-1",
-      "region": "関東",
-      "area": "kanto",
+      "area": "関東",
       "isActive": false,
       "image": 0,
       "star": 5,
@@ -19,10 +18,9 @@
     {
       "id": 2,
       "name": "道の駅 YOU・遊・もり",
-      "zipCode": "〒049-2311",
+      "zipcode": "〒049-2311",
       "address": "北海道茅部郡森町上台町326-18",
-      "region": "北海道",
-      "area": "hokkaido",
+      "area": "北海道",
       "isActive": false,
       "image": 0,
       "star": 5,
@@ -35,10 +33,9 @@
     {
       "id": 3,
       "name": "道の駅 厳美渓谷",
-      "zipCode": "〒021-0101",
+      "zipcode": "〒021-0101",
       "address": "岩手県一関市厳美町沖野々220-1",
-      "region": "東北",
-      "area": "tohoku",
+      "area": "東北",
       "isActive": false,
       "image": 0,
       "star": 5,
@@ -51,10 +48,9 @@
     {
       "id": 4,
       "name": "道の駅　きららあじす",
-      "zipCode": "〒754-1277",
+      "zipcode": "〒754-1277",
       "address": "山口県山口市阿知須509-88",
-      "region": "中国",
-      "area": "tyugoku",
+      "area": "中国",
       "isActive": false,
       "image": 0,
       "star": 5,
@@ -67,10 +63,9 @@
     {
       "id": 5,
       "name": "道の駅 させぼっくす",
-      "zipCode": "〒858-0917",
+      "zipcode": "〒858-0917",
       "address": "長崎県佐世保市愛宕町11",
-      "region": "九州・沖縄",
-      "area": "kyusyuokinawa",
+      "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
       "star": 5,
@@ -81,65 +76,63 @@
       "lng": 129.671847
     },
     {
-      "name:": "道の駅",
-      "zipCode": "111-1111",
-      "address": "東京都",
+      "name": "道の駅",
+      "zipcode": "111-1111",
+      "address": "東京都渋谷区",
       "isActive": false,
+      "area": "関東",
+      "star": "3",
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
       "id": 6
-    },
-    {
-      "name:": "あいうえお",
-      "zipCode": "111-1111",
-      "address": "東京都",
-      "isActive": false,
-      "id": 7
     }
   ],
   "config": {
     "region": [
       {
         "label": "北海道",
-        "key": "hokkaido",
+        "key": "北海道",
         "value": false
       },
       {
         "label": "東北",
-        "key": "tohoku",
+        "key": "東北",
         "value": false
       },
       {
         "label": "関東",
-        "key": "kanto",
+        "key": "関東",
         "value": false
       },
       {
         "label": "北陸・甲信越",
-        "key": "hokurikukousinetu",
+        "key": "北陸・甲信越",
         "value": false
       },
       {
         "label": "東海",
-        "key": "tokai",
+        "key": "東海",
         "value": false
       },
       {
         "label": "近畿",
-        "key": "kinki",
+        "key": "近畿",
         "value": false
       },
       {
         "label": "中国",
-        "key": "tyugoku",
+        "key": "中国",
         "value": false
       },
       {
         "label": "四国",
-        "key": "sikoku",
+        "key": "四国",
         "value": false
       },
       {
         "label": "九州・沖縄",
-        "key": "kyusyuokinawa",
+        "key": "九州・沖縄",
         "value": false
       }
     ],
