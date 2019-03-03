@@ -16,6 +16,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	font-family: "Hiragino Kaku Gothic ProN";
 	vertical-align: baseline;
 }
 
@@ -28,8 +29,9 @@ time, mark, audio, video {
 }
 
 .map {
-	height: 700px;
-	width: 1000px;
+	height: 1000px;
+	width: 1500px;
+	margin:40px 40px;
 }
 
 .outer {
@@ -38,7 +40,7 @@ time, mark, audio, video {
 }
 
 .nav-list{
-	margin:50px;
+	margin:15px;
 }
 
 .modal-background {
@@ -93,32 +95,110 @@ button{
 	margin:50px 20px;
 	width:200px;
 	font-size:20px;
-	background-color:#92CBD9;
+	background-color:#34B9DB;
 	color:white;
 	cursor:pointer;
 	box-shadow:0px 7px #068AAA;
 	outline: none;
+	border: none;
+	border-radius: 7px;
 }
 
 button:active{
-	margin:50px 20px;
-	width:200px;
-	font-size:20px;
-	background-color:#92CBD9;
-	color:white;
-	cursor:pointer;
 	box-shadow:none;
 	position:relative;
-	top:6px;
-	outline: none;
+	top:5px;
 }
 
 button:hover{
-	margin:50px 20px;
-	width:200px;
+	background-color:#59C1DB;
+}
+
+/* .details{
+	background-color:#34B9DB;
+	display: block;
 	font-size:20px;
-	background-color:#92CBD9;
+} */
+
+.nav-section-hd{
+	font-size:20px;
 	color:white;
-	cursor:pointer;
-	outline: none;
+	background-color:#4EBFDB;
+	border-radius: 7px;
+	text-align: center;
+}
+
+/* .checkbox{
+	color:#4EBFDB;
+}
+
+.nav-row{
+	padding-left: 20px;
+  position:relative;
+  margin-right: 20px;
+}
+
+.nav-row:before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.checkbox:checked{
+  color: #009a9a;
+}
+
+.checkbox:after{
+	content: "";
+ display: block;
+ position: absolute;
+ top: -5px;
+ left: 5px;
+ width: 7px;
+ height: 14px;
+ transform: rotate(40deg);
+ border-bottom: 3px solid #009a9a;
+ border-right: 3px solid #009a9a;
+} */
+
+
+.checkbox01-input{
+  display: none;
+}
+.checkbox01-parts{
+  padding-left: 20px;
+  position:relative;
+  margin-right: 20px;
+}
+.checkbox01-parts::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+.checkbox01-input:checked + .checkbox01-parts{
+  color: #009a9a;
+}
+.checkbox01-input:checked + .checkbox01-parts::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid #009a9a;
+  border-right: 3px solid #009a9a;
 }

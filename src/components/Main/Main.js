@@ -6,8 +6,6 @@ import './Main.css';
 
 // Header.jsをインポート
 import Header from '../Header/Header'
-// Detail.jsをインポート
-import Detail from '../Detail/Detail'
 
 class Main extends Component {
 
@@ -37,8 +35,11 @@ class Main extends Component {
 
   componentWillMount(){
     this.startFetching()
+    // this.fetchTaskSpot()
+    // this.fetchTaskConfig()
+    // this.fetchTaskNowLocation()
   }
-
+    // db.jsonからデータを取り出す
   startFetching(){
       // name, spot, config, nowLocation を取得する
       let resource = ["name","spot","config","nowLocation"]
@@ -62,7 +63,7 @@ class Main extends Component {
     })
   }
 
-
+// Gmapの表示
   initMap(){
     let self = this
         // Geolocation APIに対応している
@@ -99,7 +100,7 @@ class Main extends Component {
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng,   // 緯度・経度
           			icon:{
-          				fillColor:"#ED6A5A",
+          				fillColor:"#FF0000",
           				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
           				scale: 5,
           			},
@@ -115,7 +116,7 @@ class Main extends Component {
         }
   }
 
-  // チェックボックスにチェックをつける
+  // チェックボックスにチェックをつけている状態にする
   updateConfig(option = {}) {
     let config = this.state.config
     switch(option.category){
@@ -163,6 +164,7 @@ class Main extends Component {
     this.putMarker()
   }
 
+// 地図上にマーカーをおく
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
     if(this.markerList){
@@ -196,11 +198,9 @@ class Main extends Component {
       let button = document.createElement("input")
       button.type = "button"
       button.value = "詳細画面へ"
+      // button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
       button.onclick = ()=>{
-        this.setState({
-          selectedSpot: spot
-        })
-        browserHistory.push(`/detail/${this.state.selectedSpot.id}/`)
+        browserHistory.push(`/detail/${1}/`)
       }
       info.appendChild(spotName)
       info.appendChild(button)
@@ -302,8 +302,10 @@ class Main extends Component {
                             })}
                           }
                           data-checked={data.value}>
-                          <input type="checkbox" className="checkbox" />
-                          {data.label}
+                          <label>
+                          <input type="checkbox" className="checkbox01-input" />
+                          <span class="checkbox01-parts">{data.label}</span>
+                          </label>
                         </li>
                       )
                     })
@@ -329,8 +331,10 @@ class Main extends Component {
                             })}
                           }
                           data-checked={data.value}>
-                          <input type="checkbox" className="checkbox" />
-                          {data.label}
+                          <label>
+                          <input type="checkbox" className="checkbox01-input" />
+                          <span class="checkbox01-parts">{data.label}</span>
+                          </label>
                         </li>
                       )
                     })
@@ -379,7 +383,6 @@ class Main extends Component {
             <div className="posting">
               <input type="button" className="posting" value="投稿する"></input>
             </div>
-
           </section>
           :null
 
@@ -387,6 +390,7 @@ class Main extends Component {
         }
 
       </div>
+      <Link to={`/detail/aaa/`} clssName="details">詳細ページへ</Link>
     </div>
 
 
