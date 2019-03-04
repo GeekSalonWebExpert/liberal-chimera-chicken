@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 import Core from './Core';
 import './Main.css';
 
-// Header.jsをインポート
-import Header from '../Header/Header'
 
 const areaList = [
   "北海道",
@@ -438,7 +436,9 @@ class Main extends Component {
 
 
       <div className="App">
-          <Header name={"野宿びより"} />
+          <div className="header">
+            <h2 className="title">野宿びより</h2>
+          </div>
           <div className="flex-container">
             <div className="pane01">
               <div class="css-fukidashi">

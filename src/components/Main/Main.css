@@ -208,3 +208,14 @@ time, mark, audio, video {
 .button-post:hover + .fukidashi {
   display: block;
 }
+
+.header {
+  background-color: rgb(242,162,64);
+}
+
+.title {
+	font-family: "Hiragino Kaku Gothic ProN";
+  font-size: 50px;
+  color: white;
+  margin-left: 20px;
+}
