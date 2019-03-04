@@ -441,69 +441,70 @@ class Main extends Component {
           <Header name={"野宿びより"} />
           <div className="flex-container">
             <div className="pane01">
+              <div class="css-fukidashi">
+                <button type="button" name="post" className="button-post" onClick={()=> {this.updateView({ view: "post" }) }} >
+                  投稿する
+                </button>
+                <p class="fukidashi">場所を投稿しよう！</p>
+              </div>
 
-                    <button type="button" name="post" className="button-post" onClick={()=> {this.updateView({ view: "post" }) }} >
-                      投稿する
-                    </button>
+              {/*場所から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">場所から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config && this.state.config.region && this.state.config.region.map((data,i)=>{
+                      return (
+                        <li
+                          key={`place${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=>{ this.updateConfig({
+                              category: "region",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <label>
+                           <input type="checkbox" className="checkbox01-input"/>
+                           <span class="checkbox01-parts">{data.label}</span>
+                          </label>
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
 
 
-                    {/*場所から探す*/}
-                    <section className="nav-section">
-                      <h2 className="nav-section-hd">場所から探す</h2>
-                      <ul className="nav-list">
-                        {
-                          this.state.config && this.state.config.region && this.state.config.region.map((data,i)=>{
-                            return (
-                              <li
-                                key={`place${i}`}
-                                className="nav-row checkbox"
-                                onClick={
-                                  ()=>{ this.updateConfig({
-                                    category: "region",
-                                    index: i
-                                  })}
-                                }
-                                data-checked={data.value}>
-                                <label>
-                                 <input type="checkbox" className="checkbox01-input"/>
-                                 <span class="checkbox01-parts">{data.label}</span>
-                                </label>
-                              </li>
-                            )
-                          })
-                        }
-                      </ul>
-                    </section>
-
-
-                    {/*属性から探す*/}
-                    <section className="nav-section">
-                      <h2 className="nav-section-hd">属性から探す</h2>
-                      <ul className="nav-list">
-                        {
-                          this.state.config && this.state.config.attribute && this.state.config.attribute.map((data,i)=>{
-                            return (
-                              <li
-                                key={`option${i}`}
-                                className="nav-row checkbox"
-                                onClick={
-                                  ()=> { this.updateConfig({
-                                    category: "attribute",
-                                    index: i
-                                  })}
-                                }
-                                data-checked={data.value}>
-                                <label>
-                                 <input type="checkbox" className="checkbox01-input"/>
-                                 <span class="checkbox01-parts">{data.label}</span>
-                                </label>
-                              </li>
-                            )
-                          })
-                        }
-                      </ul>
-                    </section>
-                  </div>
+              {/*属性から探す*/}
+              <section className="nav-section">
+                <h2 className="nav-section-hd">属性から探す</h2>
+                <ul className="nav-list">
+                  {
+                    this.state.config && this.state.config.attribute && this.state.config.attribute.map((data,i)=>{
+                      return (
+                        <li
+                          key={`option${i}`}
+                          className="nav-row checkbox"
+                          onClick={
+                            ()=> { this.updateConfig({
+                              category: "attribute",
+                              index: i
+                            })}
+                          }
+                          data-checked={data.value}>
+                          <label>
+                           <input type="checkbox" className="checkbox01-input"/>
+                           <span class="checkbox01-parts">{data.label}</span>
+                          </label>
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </section>
+            </div>
 
             <div className="pane02">
               <div className="map" ref="map-view"></div>
