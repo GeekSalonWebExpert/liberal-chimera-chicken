@@ -76,16 +76,49 @@
       "lng": 129.671847
     },
     {
-      "name": "道の駅",
-      "zipcode": "111-1111",
-      "address": "東京都渋谷区",
-      "isActive": false,
+      "id": 6,
+      "name": "仁井田駅",
+      "zipcode": "329-1200",
+      "address": "栃木県塩谷郡高根沢町大路文挾28",
       "area": "関東",
-      "star": "3",
+      "isActive": false,
+      "image": 0,
+      "star": 4,
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
-      "id": 6
+      "lat": 36.657207,
+      "lng": 140.029853
+    },
+    {
+      "id": 7,
+      "name": "周防久保駅",
+      "zipcode": "774-0000",
+      "address": "山口県下松市大字河内795",
+      "area": "中国",
+      "isActive": false,
+      "image": 0,
+      "star": 1,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 34.029191,
+      "lng": 131.919121
+    },
+    {
+      "id": 8,
+      "name": "田儀駅",
+      "zipcode": "693-0000",
+      "address": "島根県出雲市多岐町口田儀2016",
+      "area": "中国",
+      "isActive": false,
+      "image": 0,
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 35.274978,
+      "lng": 132.589452
     }
   ],
   "config": {
