@@ -528,6 +528,9 @@ class Main extends Component {
           this.state.view === "post"
           ?
           <section className="post">
+          <div className="header">
+            <h2 className="title-post">野宿場所投稿フォーム</h2>
+          </div>
             <figure className= "post-image">
             </figure>
             <div class="cp_ipselect cp_sl02">

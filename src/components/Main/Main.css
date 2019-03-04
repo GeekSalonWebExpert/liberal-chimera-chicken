@@ -224,6 +224,16 @@ time, mark, audio, video {
 }
 
 /* 投稿画面 */
+.title-post {
+	font-family: "Hiragino Kaku Gothic ProN";
+  font-size: 50px;
+  color: white;
+  margin-left: 20px;
+	margin-bottom:30px;
+}
+
+
+
 .cp_ipselect {
 	overflow: hidden;
 	width: 90%;
