@@ -7,12 +7,25 @@ import './Main.css';
 // Header.jsをインポート
 import Header from '../Header/Header'
 
+const areaList = [
+  "北海道",
+  "東北",
+  "関東",
+  "北陸・甲信越",
+  "東海",
+  "近畿",
+  "中国",
+  "四国",
+  "九州・沖縄"
+]
+
+
 class Main extends Component {
+
 
   constructor(props) {
     super(props);
     this.state = {
-
       spot: [],
       selectedSpot: null,
       config: {
@@ -20,26 +33,33 @@ class Main extends Component {
         attribute: [],
       },
       view: "default",
-      nowLocation: []
+      nowLocation: [],
     }
 
-      this.watcher = window.setInterval(()=>{
-        if(window.google.maps){
-          clearInterval(this.watcher)
-          this.watcher = null
-          // initMapを呼び出す
-          this.initMap.call(this)
-        }
-      },100)
+    this.watcher = window.setInterval(()=>{
+      if(window.google.maps){
+        clearInterval(this.watcher)
+        this.watcher = null
+        // initMapを呼び出す
+        this.initMap.call(this)
+      }
+    },100)
+
+    this.inputArea = this.inputArea.bind(this)
+    this.inputPlace = this.inputPlace.bind(this)
+    this.inputZipCode = this.inputZipCode.bind(this)
+    this.inputAddress = this.inputAddress.bind(this)
+    this.inputStar = this.inputStar.bind(this)
+    this.posting = this.posting.bind(this)
+    this.startFetching = this.startFetching.bind(this)
   }
+
 
   componentWillMount(){
     this.startFetching()
-    // this.fetchTaskSpot()
-    // this.fetchTaskConfig()
-    // this.fetchTaskNowLocation()
   }
-    // db.jsonからデータを取り出す
+
+
   startFetching(){
       // name, spot, config, nowLocation を取得する
       let resource = ["name","spot","config","nowLocation"]
@@ -48,7 +68,6 @@ class Main extends Component {
         fetch(`http://localhost:3001/${r}`)
         .then(response => response.json())
         .then(json=>{
-          console.log(json)
           this.setState({
             [r]: json
           })
@@ -63,7 +82,7 @@ class Main extends Component {
     })
   }
 
-// Gmapの表示
+
   initMap(){
     let self = this
         // Geolocation APIに対応している
@@ -87,7 +106,7 @@ class Main extends Component {
               var mapLatLng = new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng);
               // マップオプションを変数に格納
               var mapOptions = {
-                zoom : 7,          // 拡大倍率
+                zoom : 6.1,          // 拡大倍率
                 center : mapLatLng  // 緯度・経度
               };
               // マップオブジェクト作成
@@ -110,18 +129,26 @@ class Main extends Component {
                 // }
               });
 
+              // // 住所から緯度・経度を取得する
+              // var geocoder = new window.google.maps.Geocoder();
+              //
+              // document.getElementById('posting').addEventListener('click', funciton() {
+              //   geocodeAddress(geocoder, map);
+              // });
+
               self.updateConfig()
             }
           );
         }
   }
 
-  // チェックボックスにチェックをつけている状態にする
+
   updateConfig(option = {}) {
     let config = this.state.config
     switch(option.category){
       case "region":
       case "attribute":
+        // 見せかけのチェックボックス
         // チェックボックスの真偽を逆にする
         config[ option.category ][ option.index ].value = !config[ option.category ][ option.index ].value
         this.setState({
@@ -164,7 +191,7 @@ class Main extends Component {
     this.putMarker()
   }
 
-// 地図上にマーカーをおく
+
   putMarker(o = {}){
     // 前回のマーカー、infoWindowを消去
     if(this.markerList){
@@ -198,9 +225,11 @@ class Main extends Component {
       let button = document.createElement("input")
       button.type = "button"
       button.value = "詳細画面へ"
-      // button.onClick = ()=>{this.updateView({view: "detail", data: spot})}
       button.onclick = ()=>{
-        browserHistory.push(`/detail/${1}/`)
+        this.setState({
+          selectedSpot: spot
+        })
+        browserHistory.push(`/detail/${this.state.selectedSpot.id}/`)
       }
       info.appendChild(spotName)
       info.appendChild(button)
@@ -221,6 +250,7 @@ class Main extends Component {
 
     })
   }
+
 
   // 現在地からのルート検索
   route(latLng){
@@ -252,12 +282,146 @@ class Main extends Component {
   }
 
 
+  // function geocodeAddress(geocoder, resultsMap) {
+  //   var address = document.getElementById('input-post-address-content').value;
+  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
+  //     if (status === google.maps.GeocoderStatus.OK) {
+  //       resultsMap.setCenter(results[0].geometry.location);
+  //       var marker = new google.maps.Marker({
+  //         map: resultsMap
+  //         positon: results[0].geometry.location
+  //       });
+  //       this.setState({
+  //         postLat: results[0].geometry.location.lat(),
+  //         postLng: results[0].geometry.location.lng()
+  //       })
+  //     } else {
+  //       alert('Geocode was not successful for the following reason:' + status);
+  //     }
+  // }
+
+
+
+  inputArea(e){
+    const areaID = e.target.value
+    this.setState({ areas: areaList[areaID]})
+    //console.dir(areaID)
+  }
+
+  inputPlace(e) {
+    const places = e.target.value
+    this.setState({ places: places })
+    //console.dir(places)
+  }
+
+  inputZipCode(e) {
+    const zipcodes = e.target.value
+    this.setState({ zipcodes: zipcodes })
+    //console.dir(zipcodes);
+  }
+
+  inputAddress(e) {
+    const addresses = e.target.value
+    this.setState({ addresses: addresses })
+    console.dir(addresses);
+  }
+
+  inputStar(e) {
+    const stars = e.target.value
+    this.setState({ stars: stars })
+    console.dir(stars)
+  }
+
+  // inputing(e) {
+  //   const = [area]
+  // }
+
+
+  inputAttribute(o) {
+    /*{
+      attribute: "hasBench",
+      value: false
+    }*/
+    // this.setState({ hasBench: false })
+    console.log({ [o.attribute]: o.value })
+    this.setState({ [o.attribute]: o.value })
+  }
+
+
+
+  deleteSpot(spotsId) {
+    fetch("http://localhost:3001/spot/"+spotsId, {
+      method: "DELETE"
+    })
+    .then( this.startFetching )
+  }
+
+
+  posting() {
+    let refNames = Object.keys(this.refs)
+    refNames.forEach(ref=>{
+      console.log(this.refs[ref].checked)
+      switch(ref){
+        case "map-view":
+        break
+        case "area-name":
+          this.refs[ref].value = 0
+        break
+        case "input-place":
+          this.refs[ref].value = ""
+        break
+        case "input-zipcode":
+          this.refs[ref].value = ""
+        break
+        case "input-address":
+          this.refs[ref].value = ""
+        break
+        case "select-star":
+          this.refs[ref].value = 5
+        break
+        case "attribute-check":
+          this.refs[ref].checked = false
+        break
+      }
+    })
+
+    //if(!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length) {
+    if(!this.state.places) {
+      this.setState({ showError: true })
+      return false
+    }
+
+    fetch("http://localhost:3001/spot", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      // body: JSON.stringify({ body: this.state.inputText })
+      body: JSON.stringify({
+        "name": this.state.places,
+        "zipcode": this.state.zipcodes,
+        "address": this.state.addresses,
+        "isActive": false,
+        "area": this.state.areas || "北海道",
+        "star": this.state.stars || 5,
+        "hasToilet": this.state.hasToilet || false,
+        "hasRoof": this.state.hasRoof || false,
+        "hasBench": this.state.hasBench || false,
+        "lat": this.state.postLat,
+        "lng": this.state.postLng
+      })
+    })
+    .then( this.startFetching )
+  }
+
+
   render() {
+    //let star = ""
+    //for(let i = 0; i<3; i++) star += "⭐️"
+    //console.log(this.refs["region-name"] && this.refs["region-name"].value)
 
-    let star = ""
-    for(let i = 0; i<3; i++) star += "⭐️"
-
-    console.log(this.refs)
     return (
       <div className="outer" data-view={this.state.view}>
 
@@ -265,6 +429,8 @@ class Main extends Component {
         {
           ["post"].includes(this.state.view)
           ?
+          //trueかfalseかによってcssを変える
+          //<span className={this.state.config.attribute.hasRoof ? "modal-background checked": "modal-background"} onClick={()=>{ this.updateView({ view: "default" }) }}></span>
           <span className="modal-background" onClick={()=>{ this.updateView({ view: "default" }) }}></span>
           :
           null
@@ -275,73 +441,78 @@ class Main extends Component {
           <Header name={"野宿びより"} />
           <div className="flex-container">
             <div className="pane">
+
+                    <button type="button" name="post" onClick={()=> {this.updateView({ view: "post" }) }} >
+                      投稿する
+                    </button>
+
+
+                    {/*場所から探す*/}
+                    <section className="nav-section">
+                      <h2 className="nav-section-hd">場所から探す</h2>
+                      <ul className="nav-list">
+                        {
+                          this.state.config && this.state.config.region && this.state.config.region.map((data,i)=>{
+                            return (
+                              <li
+                                key={`place${i}`}
+                                className="nav-row checkbox"
+                                onClick={
+                                  ()=>{ this.updateConfig({
+                                    category: "region",
+                                    index: i
+                                  })}
+                                }
+                                data-checked={data.value}>
+                                <input type="checkbox" className="checkbox" />
+                                {data.label}
+                              </li>
+                            )
+                          })
+                        }
+                      </ul>
+                    </section>
+
+
+                    {/*属性から探す*/}
+                    <section className="nav-section">
+                      <h2 className="nav-section-hd">属性から探す</h2>
+                      <ul className="nav-list">
+                        {
+                          this.state.config && this.state.config.attribute && this.state.config.attribute.map((data,i)=>{
+                            return (
+                              <li
+                                key={`option${i}`}
+                                className="nav-row checkbox"
+                                onClick={
+                                  ()=> { this.updateConfig({
+                                    category: "attribute",
+                                    index: i
+                                  })}
+                                }
+                                data-checked={data.value}>
+                                <input type="checkbox" className="checkbox" />
+                                {data.label}
+                              </li>
+                            )
+                          })
+                        }
+                      </ul>
+                    </section>
+                  </div>
+
+            <div className="pane">
               <div className="map" ref="map-view"></div>
             </div>
-            <div className="pane">
-
-
-              <button type="button" name="post" onClick={()=> {this.updateView({ view: "post" }) }} >
-                投稿する
-              </button>
-
-
-              {/*場所から探す*/}
-              <section className="nav-section">
-                <h2 className="nav-section-hd">場所から探す</h2>
-                <ul className="nav-list">
-                  {
-                    this.state.config && this.state.config.region && this.state.config.region.map((data,i)=>{
-                      return (
-                        <li
-                          key={`place${i}`}
-                          className="nav-row checkbox"
-                          onClick={
-                            ()=>{ this.updateConfig({
-                              category: "region",
-                              index: i
-                            })}
-                          }
-                          data-checked={data.value}>
-                          <label>
-                          <input type="checkbox" className="checkbox01-input" />
-                          <span class="checkbox01-parts">{data.label}</span>
-                          </label>
-                        </li>
-                      )
-                    })
-                  }
-                </ul>
-              </section>
-
-
-              {/*属性から探す*/}
-              <section className="nav-section">
-                <h2 className="nav-section-hd">属性から探す</h2>
-                <ul className="nav-list">
-                  {
-                    this.state.config && this.state.config.attribute && this.state.config.attribute.map((data,i)=>{
-                      return (
-                        <li
-                          key={`option${i}`}
-                          className="nav-row checkbox"
-                          onClick={
-                            ()=> { this.updateConfig({
-                              category: "attribute",
-                              index: i
-                            })}
-                          }
-                          data-checked={data.value}>
-                          <label>
-                          <input type="checkbox" className="checkbox01-input" />
-                          <span class="checkbox01-parts">{data.label}</span>
-                          </label>
-                        </li>
-                      )
-                    })
-                  }
-                </ul>
-              </section>
           </div>
+
+
+        <div className="alert">
+          {
+            this.state.showError
+            &&
+            <div className="post-alert"></div>
+          }
         </div>
 
 
@@ -351,38 +522,67 @@ class Main extends Component {
           <section className="post">
             <figure className= "post-image">
             </figure>
-            <select name="region-name" id="region-name" ref="region-name" className="region-score">
-              <option value="1">北海道</option>
-              <option value="2">東北</option>
-              <option value="3">関東</option>
-              <option value="4">北陸・甲信越</option>
-              <option value="5">東海</option>
-              <option value="6">近畿</option>
-              <option value="7">中国</option>
-              <option value="8">中国</option>
-              <option value="9">九州・沖縄</option>
+            <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+            {
+              areaList.map((area,i)=>{
+                return <option value={i}>{area}</option>
+              })
+            }
             </select>
             <div className="post-place">
-              <div className="post-place-name">地名</div>
-              <input type="text" id="post-input-place-name" className="input-place-name"></input>
+              <div className="post-place-name">野宿先名</div>
+              <input type="text" id="input-place" ref="input-place" onChange={ this.inputPlace }/>
+            </div>
+            <div className="post-address">
+              <div className="post-address-number">郵便番号</div>
+              <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ this.inputZipCode }/>
             </div>
             <div className="post-address">
               <div className="post-address-content">住所</div>
-              <input type="text" id="post-input-address-content" className="input-address-content"></input>
+              <input type="text" id="input-address" ref="input-address" onChange={ this.inputAddress }></input>
             </div>
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
-              <div className="chage-post-star">{star}</div>
+              {/*<div className="change-post-star">{star}</div>*/}
+              <select ref="select-star" className="select-star" onChange={ this.inputStar }>
+                <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
+                <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
+                <option value="3" id="3">⭐️⭐️⭐️</option>
+                <option value="2" id="2">⭐️⭐️</option>
+                <option value="1" id="1">⭐️</option>
+              </select>
             </div>
-            <div className="post-attribute">
-              <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div>
-              <input type="button" className="post-hasBench" value="ベンチがある"></input>
-              <input type="button" className="post-hasRoof" value="屋根がある"></input>
-              <input type="button" className="post-hasToilet" value="トイレがある"></input>
-            </div>
+            <ul className="post-attribute">
+              {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
+              {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
+              {
+                this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
+                  return (
+                    <li ref="attribute-check">
+                      <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
+                        const value = e.target.checked
+                        this.inputAttribute({ attribute: data.key, value: value })
+                      } }></input>
+                      {data.label}
+                    </li>
+                  )
+                })
+              }
+            </ul>
             <div className="posting">
-              <input type="button" className="posting" value="投稿する"></input>
+              <button id="posting" onClick= { this.posting }>投稿する</button>
+              {
+                this.state.spot.map( spots => {
+                  return(
+                    <div className="spots" key={ spots.id }>
+                      {spots.id}
+                    <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
+                    </div>
+                  )
+                })
+              }
             </div>
+
           </section>
           :null
 
@@ -390,10 +590,7 @@ class Main extends Component {
         }
 
       </div>
-      <Link to={`/detail/aaa/`} clssName="details">詳細ページへ</Link>
     </div>
-
-
     );
   }
 }

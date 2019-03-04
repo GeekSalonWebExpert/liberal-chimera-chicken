@@ -1,35 +1,167 @@
 {
-
   "spot": [
-    { "id": 1, "name": "道の駅五霞", "zipCode": "〒306-0304", "address": "茨城県猿島群五霞町幸主18-1", "place": "関東", "area": "kanto", "isActive": false, "image": 0 , "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": true, "lat": 36.115163, "lng": 139.734986},
-    { "id": 2, "name": "道の駅 YOU・遊・もり", "zipCode": "〒049-2311", "address": "北海道茅部郡森町上台町326-18", "place": "北海道", "area": "hokkaido" , "isActive": false, "image": 0, "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": false, "lat": 42.102251, "lng": 140.568183},
-    { "id": 3, "name": "道の駅 厳美渓谷", "zipCode": "〒021-0101", "address": "岩手県一関市厳美町沖野々220-1", "place": "東北", "area": "tohoku", "isActive": false, "image": 0, "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": false, "lat": 38.946439, "lng": 141.052885},
-    { "id": 4, "name": "道の駅　きららあじす", "zipCode": "〒754-1277", "address": "山口県山口市阿知須509-88", "place": "中国", "area": "tyugoku", "isActive": false, "image": 0, "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": false, "lat": 34.012855, "lng": 131.369561},
-    { "id": 5, "name": "道の駅 させぼっくす", "zipCode": "〒858-0917", "address": "長崎県佐世保市愛宕町11", "place": "九州・沖縄", "area": "kyusyuokinawa", "isActive": false, "image": 0, "score": 5, "hasToilet": true, "hasRoof": true, "hasBench": true, "lat": 33.201749, "lng": 129.671847}
+    {
+      "id": 1,
+      "name": "道の駅五霞",
+      "zipcode": "〒306-0304",
+      "address": "茨城県猿島群五霞町幸主18-1",
+      "area": "関東",
+      "isActive": false,
+      "image": 0,
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 36.115163,
+      "lng": 139.734986
+    },
+    {
+      "id": 2,
+      "name": "道の駅 YOU・遊・もり",
+      "zipcode": "〒049-2311",
+      "address": "北海道茅部郡森町上台町326-18",
+      "area": "北海道",
+      "isActive": false,
+      "image": 0,
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 42.102251,
+      "lng": 140.568183
+    },
+    {
+      "id": 3,
+      "name": "道の駅 厳美渓谷",
+      "zipcode": "〒021-0101",
+      "address": "岩手県一関市厳美町沖野々220-1",
+      "area": "東北",
+      "isActive": false,
+      "image": 0,
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 38.946439,
+      "lng": 141.052885
+    },
+    {
+      "id": 4,
+      "name": "道の駅　きららあじす",
+      "zipcode": "〒754-1277",
+      "address": "山口県山口市阿知須509-88",
+      "area": "中国",
+      "isActive": false,
+      "image": 0,
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 34.012855,
+      "lng": 131.369561
+    },
+    {
+      "id": 5,
+      "name": "道の駅 させぼっくす",
+      "zipcode": "〒858-0917",
+      "address": "長崎県佐世保市愛宕町11",
+      "area": "九州・沖縄",
+      "isActive": false,
+      "image": 0,
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 33.201749,
+      "lng": 129.671847
+    },
+    {
+      "name": "道の駅",
+      "zipcode": "111-1111",
+      "address": "東京都渋谷区",
+      "isActive": false,
+      "area": "関東",
+      "star": "3",
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "id": 6
+    }
   ],
-
   "config": {
     "region": [
-      { "label": "北海道", "key": "hokkaido", "value": false },
-      { "label": "東北", "key": "tohoku", "value": false },
-      { "label": "関東", "key": "kanto", "value": false },
-      { "label": "北陸・甲信越", "key": "hokurikukousinetu", "value": false },
-      { "label": "東海", "key": "tokai", "value": false },
-      { "label": "近畿", "key": "kinki", "value": false },
-      { "label": "中国", "key": "tyugoku", "value": false },
-      { "label": "四国", "key": "sikoku", "value": false },
-      { "label": "九州・沖縄", "key": "kyusyuokinawa", "value": false }
+      {
+        "label": "北海道",
+        "key": "北海道",
+        "value": false
+      },
+      {
+        "label": "東北",
+        "key": "東北",
+        "value": false
+      },
+      {
+        "label": "関東",
+        "key": "関東",
+        "value": false
+      },
+      {
+        "label": "北陸・甲信越",
+        "key": "北陸・甲信越",
+        "value": false
+      },
+      {
+        "label": "東海",
+        "key": "東海",
+        "value": false
+      },
+      {
+        "label": "近畿",
+        "key": "近畿",
+        "value": false
+      },
+      {
+        "label": "中国",
+        "key": "中国",
+        "value": false
+      },
+      {
+        "label": "四国",
+        "key": "四国",
+        "value": false
+      },
+      {
+        "label": "九州・沖縄",
+        "key": "九州・沖縄",
+        "value": false
+      }
     ],
-
     "attribute": [
-      { "label": "ベンチがある", "key": "hasBench", "value": false },
-      { "label": "屋根がある", "key": "hasRoof", "value": false},
-      { "label": "トイレがある", "key": "hasToilet", "value": false}
+      {
+        "label": "ベンチがある",
+        "key": "hasBench",
+        "value": false
+      },
+      {
+        "label": "屋根がある",
+        "key": "hasRoof",
+        "value": false
+      },
+      {
+        "label": "トイレがある",
+        "key": "hasToilet",
+        "value": false
+      }
     ]
   },
-
   "nowLocation": [
-    {"data": [], "lat": 35.645843, "lng": 139.704582, "alt": 0, "accLatlng": 0, "heading": 0}
+    {
+      "data": [],
+      "lat": 35.645843,
+      "lng": 139.704582,
+      "alt": 0,
+      "accLatlng": 0,
+      "heading": 0
+    }
   ]
-
 }
