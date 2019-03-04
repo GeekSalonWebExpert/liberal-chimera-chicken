@@ -97,7 +97,7 @@ time, mark, audio, video {
 	margin:80px 50px;
 }
 
-
+/* 投稿ボタン */
 .button-post {
 	color:white;
   padding: 10px 40px;
@@ -118,13 +118,14 @@ time, mark, audio, video {
 }
 
 .button-post:hover{
-  background-color:#4EBFDB;
+  background-color:#80C99D;
 }
 
 .nav-section{
 	/* margin:20px; */
 }
 
+/* チェックボックス */
 .nav-section-hd{
 	background-color:#5dca88;
 	border-radius:5px;
@@ -136,6 +137,7 @@ time, mark, audio, video {
 .checkbox01-input{
   display: none;
 }
+
 .checkbox01-parts{
   padding-left: 20px;
   position:relative;
@@ -173,7 +175,7 @@ time, mark, audio, video {
   border-bottom: 3px solid #009a9a;
   border-right: 3px solid #009a9a;
 }
-
+/* 投稿ボタン吹き出し */
 .css-fukidashi {
       padding: 0;
       margin: 0;
@@ -185,11 +187,12 @@ time, mark, audio, video {
   top: 0;
   left: 200px;
   padding: 16px;
-	margin:100px 0px 0px 0px;
-  background: #33cc99;
+	margin:90px 0px 0px 0px;
+  background: #545E75;
   color: #fff;
   font-weight: bold;
 	border-radius: 4px;
+	z-index:10;
 }
 .fukidashi:after {
   position: absolute;
@@ -200,7 +203,7 @@ time, mark, audio, video {
   margin-left: 10px;
   border: solid transparent;
   border-color: rgba(51, 204, 153, 0);
-  border-top-color: #33cc99;
+  border-top-color: #545E75;
   border-width: 10px;
   pointer-events: none;
   content: " ";
@@ -218,4 +221,117 @@ time, mark, audio, video {
   font-size: 50px;
   color: white;
   margin-left: 20px;
+}
+
+/* 投稿画面 */
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl02 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl02::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl02:after {
+	position: absolute;
+	top: 0;
+	right: 2.5em;
+	bottom: 0;
+	width: 1px;
+	content: '';
+	border-left: 1px solid #bbbbbb;
+}
+.cp_ipselect.cp_sl02 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl02 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl02::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl02:after {
+	position: absolute;
+	top: 0;
+	right: 2.5em;
+	bottom: 0;
+	width: 1px;
+	content: '';
+	border-left: 1px solid #bbbbbb;
+}
+.cp_ipselect.cp_sl02 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
 }

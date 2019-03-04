@@ -448,7 +448,7 @@ class Main extends Component {
                 <button type="button" name="post" className="button-post" onClick={()=> {this.updateView({ view: "post" }) }} >
                   投稿する
                 </button>
-                <p class="fukidashi">場所を投稿しよう！</p>
+                <p class="fukidashi">あなたの利用した野宿先を投稿しませんか？</p>
               </div>
 
               {/*場所から探す*/}
@@ -552,13 +552,16 @@ class Main extends Component {
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
               {/*<div className="change-post-star">{star}</div>*/}
-              <select ref="select-star" className="select-star" onChange={ this.inputStar }>
-                <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
-                <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
-                <option value="3" id="3">⭐️⭐️⭐️</option>
-                <option value="2" id="2">⭐️⭐️</option>
-                <option value="1" id="1">⭐️</option>
-              </select>
+                <div class="cp_ipselect cp_sl02">
+                  <select ref="select-star" className="select-star" onChange={ this.inputStar }>
+                    <option value="" hidden>5段階評価</option>
+                    <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
+                    <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
+                    <option value="3" id="3">⭐️⭐️⭐️</option>
+                    <option value="2" id="2">⭐️⭐️</option>
+                    <option value="1" id="1">⭐️</option>
+                  </select>
+                </div>
             </div>
             <ul className="post-attribute">
               {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
@@ -571,14 +574,18 @@ class Main extends Component {
                         const value = e.target.checked
                         this.inputAttribute({ attribute: data.key, value: value })
                       } }></input>
-                      {data.label}
+                      <label>
+                       <input type="checkbox" className="checkbox01-input"/>
+                       <span class="checkbox01-parts">{data.label}</span>
+                      </label>
+
                     </li>
                   )
                 })
               }
             </ul>
             <div className="posting">
-              <button id="posting" onClick= { this.posting }>投稿する</button>
+              <button id="posting" className="button-post" onClick= { this.posting }>投稿する</button>
               {
                 this.state.spot.map( spots => {
                   return(
