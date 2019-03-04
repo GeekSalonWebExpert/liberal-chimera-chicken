@@ -530,24 +530,27 @@ class Main extends Component {
           <section className="post">
             <figure className= "post-image">
             </figure>
-            <select ref="area-name" className="area-name" onChange={ this.inputArea }>
-            {
-              areaList.map((area,i)=>{
-                return <option value={i}>{area}</option>
-              })
-            }
-            </select>
+            <div class="cp_ipselect cp_sl02">
+              <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+                <option value="" hidden>地域選択</option>
+                {
+                  areaList.map((area,i)=>{
+                    return <option value={i}>{area}</option>
+                  })
+                }
+              </select>
+            </div>
             <div className="post-place">
               <div className="post-place-name">野宿先名</div>
-              <input type="text" id="input-place" ref="input-place" onChange={ this.inputPlace }/>
+              <input type="text" id="input-place" className="text" ref="input-place" onChange={ this.inputPlace }/>
             </div>
             <div className="post-address">
               <div className="post-address-number">郵便番号</div>
-              <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ this.inputZipCode }/>
+              <input type="text" id="input-zipcode" className="text" ref="input-zipcode" onChange={ this.inputZipCode }/>
             </div>
             <div className="post-address">
               <div className="post-address-content">住所</div>
-              <input type="text" id="input-address" ref="input-address" onChange={ this.inputAddress }></input>
+              <input type="text" id="input-address" className="text" ref="input-address" onChange={ this.inputAddress }></input>
             </div>
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
