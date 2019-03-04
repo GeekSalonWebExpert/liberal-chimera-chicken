@@ -29,7 +29,7 @@ time, mark, audio, video {
 
 .map {
 	height: 1000px;
-	width: 1000px;
+	width: 1500px;
 }
 
 .outer {
@@ -89,9 +89,19 @@ time, mark, audio, video {
 	list-style: none;
 }
 
+.pane01{
+	margin:80px 50px;
+}
+
+.pane02{
+	margin:80px 50px;
+}
+
 
 .button-post {
-  padding: 15px 40px;
+	color:white;
+  padding: 10px 40px;
+	margin:20px;
   background-color: #5dca88;
   cursor: pointer;
   box-shadow: 0 7px #1a7940;
@@ -104,4 +114,8 @@ time, mark, audio, video {
   box-shadow:none;
   position:relative;
   top:7px;
+}
+
+.nav-section{
+	margin:20px;
 }

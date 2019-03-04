@@ -440,7 +440,7 @@ class Main extends Component {
       <div className="App">
           <Header name={"野宿びより"} />
           <div className="flex-container">
-            <div className="pane">
+            <div className="pane01">
 
                     <button type="button" name="post" className="button-post" onClick={()=> {this.updateView({ view: "post" }) }} >
                       投稿する
@@ -501,7 +501,7 @@ class Main extends Component {
                     </section>
                   </div>
 
-            <div className="pane">
+            <div className="pane02">
               <div className="map" ref="map-view"></div>
             </div>
           </div>
