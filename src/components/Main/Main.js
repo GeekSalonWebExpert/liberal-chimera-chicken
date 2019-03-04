@@ -457,7 +457,7 @@ class Main extends Component {
                       return (
                         <li
                           key={`place${i}`}
-                          className="nav-row checkbox"
+                          className="checkbox"
                           onClick={
                             ()=>{ this.updateConfig({
                               category: "region",
@@ -581,7 +581,7 @@ class Main extends Component {
                   return(
                     <div className="spots" key={ spots.id }>
                       {spots.id}
-                    <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
+                    {/*<button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>*/}
                     </div>
                   )
                 })
@@ -590,10 +590,7 @@ class Main extends Component {
 
           </section>
           :null
-
-
         }
-
       </div>
     </div>
     );
