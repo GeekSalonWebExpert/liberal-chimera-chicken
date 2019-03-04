@@ -464,8 +464,10 @@ class Main extends Component {
                                   })}
                                 }
                                 data-checked={data.value}>
-                                <input type="checkbox" className="checkbox" />
-                                {data.label}
+                                <label>
+                                 <input type="checkbox" className="checkbox01-input"/>
+                                 <span class="checkbox01-parts">{data.label}</span>
+                                </label>
                               </li>
                             )
                           })
@@ -491,8 +493,10 @@ class Main extends Component {
                                   })}
                                 }
                                 data-checked={data.value}>
-                                <input type="checkbox" className="checkbox" />
-                                {data.label}
+                                <label>
+                                 <input type="checkbox" className="checkbox01-input"/>
+                                 <span class="checkbox01-parts">{data.label}</span>
+                                </label>
                               </li>
                             )
                           })
