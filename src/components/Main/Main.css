@@ -88,3 +88,20 @@ time, mark, audio, video {
 .post-attribute {
 	list-style: none;
 }
+
+
+.button-post {
+  padding: 15px 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  box-shadow: 0 7px #1a7940;
+	border-radius:5px;
+	outline: 0;
+  border:0;
+}
+
+.button-post:active{
+  box-shadow:none;
+  position:relative;
+  top:7px;
+}
