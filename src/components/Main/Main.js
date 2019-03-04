@@ -121,6 +121,9 @@ class Main extends Component {
           				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
           				scale: 5,
           			},
+                // icon:{
+                //   url:'sleepingbag.png',
+                // }
           			// label:{
           			// 	text:"現在地",
           			// 	color:"#ff7fbf

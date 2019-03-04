@@ -5,12 +5,6 @@ import './App.css';
 
 // Main.jsをインポート
 import Main from './components/Main/Main'
-// Header.jsをインポート
-import Header from './components/Header/Header'
-// Map.jsをインポート
-import Map from './components/Map/Map'
-// Search.jsをインポート
-import Search from './components/Search/Search'
 // Detail.jsをインポート
 import Detail from './components/Detail/Detail'
 
