@@ -540,18 +540,16 @@ class Main extends Component {
                 }
               </select>
             </div>
-            <div className="post-place">
-              <div className="post-place-name">野宿先名</div>
-              <input type="text" id="input-place" className="text" ref="input-place" onChange={ this.inputPlace }/>
+            <div className="cp_iptxt post-place-name">
+            	<input type="text" placeholder="野宿先名" id="input-place" className="text" ref="input-place" onChange={ this.inputPlace }/>
             </div>
-            <div className="post-address">
-              <div className="post-address-number">郵便番号</div>
-              <input type="text" id="input-zipcode" className="text" ref="input-zipcode" onChange={ this.inputZipCode }/>
+            <div className="cp_iptxt post-address-number">
+            	<input type="text" placeholder="郵便番号" id="input-zipcode" className="text" ref="input-zipcode" onChange={ this.inputZipCode }/>
             </div>
-            <div className="post-address">
-              <div className="post-address-content">住所</div>
-              <input type="text" id="input-address" className="text" ref="input-address" onChange={ this.inputAddress }></input>
+            <div className="cp_iptxt post-address-content">
+            	<input type="text" placeholder="住所"/>
             </div>
+
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
               {/*<div className="change-post-star">{star}</div>*/}
@@ -573,7 +571,7 @@ class Main extends Component {
                 this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
                   return (
                     <li ref="attribute-check">
-                      <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
+                      <input type="checkbox"  className="checkbox01-input attribute-check" onChange={ (e)=>{
                         const value = e.target.checked
                         this.inputAttribute({ attribute: data.key, value: value })
                       } }></input>
@@ -581,7 +579,6 @@ class Main extends Component {
                        <input type="checkbox" className="checkbox01-input"/>
                        <span class="checkbox01-parts">{data.label}</span>
                       </label>
-
                     </li>
                   )
                 })
@@ -600,7 +597,6 @@ class Main extends Component {
                 })
               }
             </div>
-
           </section>
           :null
         }

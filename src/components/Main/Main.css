@@ -339,10 +339,6 @@ time, mark, audio, video {
 /* テキスト */
 .text{
 	outline: 0;
-	border:0;
-}
-.text:focus {
-    border:solid 1px #EEA34A
 }
 
 .cp_iptxt {
