@@ -178,39 +178,33 @@ time, mark, audio, video {
       padding: 0;
       margin: 0;
     }
-    .text {
-      width: 200px;
-      position: relative;
-      margin:80px 50px 50px;
-      padding: 20px;
-      border: 1px solid #ccc;
-    }
-    .fukidashi {
-      display: none;
-      width: 200px;
-      position: absolute;
-      top: 0;
-      left: 250px;
-      padding: 16px;
-      border-radius: 5px;
-      background: #33cc99;
-      color: #fff;
-      font-weight: bold;
-    }
-    .fukidashi:after {
-      position: absolute;
-      width: 0;
-      height: 0;
-      left: 0;
-      bottom: -19px;
-      margin-left: 10px;
-      border: solid transparent;
-      border-color: rgba(51, 204, 153, 0);
-      border-top-color: #33cc99;
-      border-width: 10px;
-      pointer-events: none;
-      content: " ";
-    }
-    .button-post:hover + .fukidashi {
-      display: block;
-    }
+.fukidashi {
+  display: none;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  padding: 16px;
+	margin:100px 0px 0px 0px;
+  background: #33cc99;
+  color: #fff;
+  font-weight: bold;
+	border-radius: 4px;
+}
+.fukidashi:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border: solid transparent;
+  border-color: rgba(51, 204, 153, 0);
+  border-top-color: #33cc99;
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+.button-post:hover + .fukidashi {
+  display: block;
+}
