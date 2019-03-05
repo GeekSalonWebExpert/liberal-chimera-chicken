@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import Core from './Core';
 import './Main.css';
+// import '../../css/main.styl';
 
 
 const areaList = [
