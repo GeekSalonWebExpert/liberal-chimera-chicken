@@ -4,10 +4,9 @@ import './App.css';
 
 
 // Main.jsをインポート
-import Main from './components/Main/Main'
+import Main from './js/Main/Main'
 // Detail.jsをインポート
-import Detail from './components/Detail/Detail'
-
+import Detail from './js/Detail/Detail'
 
 
 class App extends Component {
