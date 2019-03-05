@@ -106,7 +106,7 @@ video {
   height: 100%;
 }
 .modal-background {
-  postion: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -194,44 +194,42 @@ video {
   padding: 10px 40px;
   margin: 20px;
 }
-.checkbox01-input {
-  display: none;
-}
-.checkbox01-parts {
-  padding-left: 20px;
+.nav-row {
   position: relative;
-  margin-right: 20px;
-  margin: 20px;
+  padding: 6px 0 6px 30px;
+  font-size: 12px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.12s ease;
+  transition: opacity 0.12s ease;
 }
-.checkbox01-parts:hover {
-  color: #63adf2;
+.nav-row:not(.radio):hover {
+  opacity: 0.7;
 }
-.checkbox01-parts:before {
-  content: "";
-  display: block;
+.nav-row.checkbox[data-checked]:after {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #999;
-  border-radius: 4px;
-}
-.checkbox01-input:checked + .checkbox01-parts {
-  color: #009a9a;
-}
-.checkbox01-input:checked + .checkbox01-parts::after {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   content: "";
+  width: 17px;
+  height: 17px;
+  border: 1px solid #aaa;
   display: block;
+}
+.nav-row.checkbox[data-checked="true"]:before {
   position: absolute;
-  top: -5px;
-  left: 5px;
-  width: 7px;
-  height: 14px;
-  -webkit-transform: rotate(40deg);
-          transform: rotate(40deg);
-  border-bottom: 3px solid #009a9a;
-  border-right: 3px solid #009a9a;
+  top: 48%;
+  left: 6px;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  content: "";
+  width: 4px;
+  height: 10px;
+  background-color: transparent;
+  border-color: transparent #d22a2a #d22a2a transparent;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
 }
 /* 投稿画面吹き出し */
 .css-fukidashi {
@@ -258,11 +256,11 @@ video {
   height: 0;
   left: 0;
   bottom: -19px;
-  marigin-left: 10px;
+  margin-left: 10px;
   border: solid transparent;
   border-color: rgba(51,204,153,0);
   border-top-color: rgba(51,204,153,0);
-  boreder-width: 10px;
+  border-width: 10px;
   pointer-events: none;
   content: " ";
 }
@@ -301,7 +299,7 @@ video {
        appearance: none;
 }
 .cp_ipselect select::-ms-expand {
-  diplay: none;
+  display: none;
 }
 .cp_ipselect.cp_sl02 {
   position: relative;
@@ -310,7 +308,7 @@ video {
   background: #fff;
 }
 .cp_ipselect.cp_sl02::before {
-  postion: absolute;
+  position: absolute;
   top: 0.8em;
   right: 0.9em;
   width: 0;
@@ -323,7 +321,7 @@ video {
   pointer-events: none;
 }
 .cp_ipselect.cp_sl02:after {
-  postion: absolute;
+  position: absolute;
   top: 0;
   right: 2.5em;
   bottom: 0;
@@ -361,13 +359,13 @@ video {
   display: none;
 }
 .cp_ipselect.cp_sl02 {
-  positon: relative;
+  position: relative;
   border: 1px solid #bbb;
   border-radius: 2px;
   background: #fff;
 }
 .cp_ipselect.cp_sl02::before {
-  postion: absolute;
+  position: absolute;
   top: 0.8em;
   right: 0.9em;
   width: 0;
@@ -380,7 +378,7 @@ video {
   pointer-events: none;
 }
 .cp_ipselect.cp_sl02:after {
-  postion: absolute;
+  position: absolute;
   top: 0;
   right: 2.5em;
   bottom: 0;

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import Core from './Core';
-import './Main.css';
-// import '../../css/main.styl';
+// import './Main.css';
 
 
 const areaList = [
@@ -461,7 +460,7 @@ class Main extends Component {
                       return (
                         <li
                           key={`place${i}`}
-                          className="checkbox"
+                          className="nav-row checkbox"
                           onClick={
                             ()=>{ this.updateConfig({
                               category: "region",
@@ -469,10 +468,13 @@ class Main extends Component {
                             })}
                           }
                           data-checked={data.value}>
-                          <label>
-                           <input type="checkbox" className="checkbox01-input"/>
-                           <span class="checkbox01-parts">{data.label}</span>
-                          </label>
+                          {data.label}
+                          {/*
+                            <label>
+                             <input type="checkbox" className="checkbox01-input"/>
+                             <span class="checkbox01-parts">{data.label}</span>
+                            </label>
+                          */}
                         </li>
                       )
                     })
@@ -498,10 +500,13 @@ class Main extends Component {
                             })}
                           }
                           data-checked={data.value}>
-                          <label>
-                           <input type="checkbox" className="checkbox01-input"/>
-                           <span class="checkbox01-parts">{data.label}</span>
-                          </label>
+                          {data.label}
+                          {/*
+                            <label>
+                             <input type="checkbox" className="checkbox01-input"/>
+                             <span class="checkbox01-parts">{data.label}</span>
+                            </label>
+                          */}
                         </li>
                       )
                     })
