@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+/* html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -97,7 +97,7 @@ time, mark, audio, video {
 	margin:80px 50px;
 }
 
-/* 投稿ボタン */
+
 .button-post {
 	color:white;
   padding: 10px 40px;
@@ -122,10 +122,10 @@ time, mark, audio, video {
 }
 
 .nav-section{
-	/* margin:20px; */
+	margin:20px;
 }
 
-/* チェックボックス */
+
 .nav-section-hd{
 	background-color:#5dca88;
 	border-radius:5px;
@@ -163,6 +163,7 @@ time, mark, audio, video {
 .checkbox01-input:checked + .checkbox01-parts{
   color: #009a9a;
 }
+
 .checkbox01-input:checked + .checkbox01-parts::after{
   content: "";
   display: block;
@@ -175,11 +176,12 @@ time, mark, audio, video {
   border-bottom: 3px solid #009a9a;
   border-right: 3px solid #009a9a;
 }
-/* 投稿ボタン吹き出し */
+
 .css-fukidashi {
       padding: 0;
       margin: 0;
-    }
+}
+
 .fukidashi {
   display: none;
   width: 200px;
@@ -223,7 +225,6 @@ time, mark, audio, video {
   margin-left: 20px;
 }
 
-/* 投稿画面 */
 .cp_ipselect {
 	overflow: hidden;
 	width: 90%;
@@ -334,4 +335,4 @@ time, mark, audio, video {
 .cp_ipselect.cp_sl02 select {
 	padding: 8px 38px 8px 8px;
 	color: #666666;
-}
+} */
