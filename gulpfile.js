@@ -31,7 +31,7 @@ var cssTask = function(){
   .pipe(autoprefixer({
     browsers: ['last 2 versions']
   }))
-  .pipe(gulp.dest("build/"))
+  .pipe(gulp.dest("public/"))
 
 }
 

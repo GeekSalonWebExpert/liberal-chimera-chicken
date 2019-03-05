@@ -1,0 +1,392 @@
+.my-style {
+  display: block;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.nav-list {
+  list-style: none;
+}
+.map {
+  height: 1000px;
+  width: 1500px;
+}
+.outer {
+  position: relative;
+  height: 100%;
+}
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  display: block;
+  background: rgba(0,0,0,0.3);
+  z-index: 1024;
+  cursor: pointer;
+}
+.post {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  width: 64%;
+  height: 94%;
+  -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.4);
+          box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  padding: 20px;
+  background: #fff;
+  z-index: 1029;
+}
+.post-image {
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  postion: relative;
+  overflow: hidden;
+  background-color: #dcd8b2;
+}
+.post-place {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.post-address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.post-star {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.post-attribute {
+  list-style: none;
+}
+.pane01 {
+  margin: 80px 50px;
+}
+.pane02 {
+  margin: 80px 50px;
+}
+/* 投稿ボタン */
+.button-post {
+  color: #fff;
+  padding: 10px 10px;
+  margin: 20px;
+  margin-left: 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  -webkit-box-shadow: 0 7px #1a7940;
+          box-shadow: 0 7px #1a7940;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+}
+.button-post:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  position: relative;
+  top: 7px;
+}
+.button-post:hover {
+  background: #80c99d;
+}
+.nav-section-hd {
+  background-color: #5dca88;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 40px;
+  margin: 20px;
+}
+.nav-row {
+  position: relative;
+  padding: 6px 0 6px 30px;
+  font-size: 12px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.12s ease;
+  transition: opacity 0.12s ease;
+}
+.nav-row:not(.radio):hover {
+  opacity: 0.7;
+}
+.nav-row.checkbox[data-checked]:after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  content: "";
+  width: 17px;
+  height: 17px;
+  border: 1px solid #aaa;
+  display: block;
+}
+.nav-row.checkbox[data-checked="true"]:before {
+  position: absolute;
+  top: 48%;
+  left: 6px;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  content: "";
+  width: 4px;
+  height: 10px;
+  background-color: transparent;
+  border-color: transparent #d22a2a #d22a2a transparent;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+}
+/* 投稿画面吹き出し */
+.css-fukidashi {
+  padding: 0;
+  margin: 0;
+}
+.fukidashi {
+  display: none;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  padding: 16px;
+  margin: 90px 0px 0px 0px;
+  background: #545e75;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 10px;
+}
+.fukidashi:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border: solid transparent;
+  border-color: rgba(51,204,153,0);
+  border-top-color: rgba(51,204,153,0);
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+.button-post:hover + .fukidashi {
+  display: block;
+}
+.header {
+  background-color: #f2a240;
+}
+.title {
+  font-family: "Hiragino Kaku Gothic ProN";
+  font-size: 50px;
+  color: #fff;
+  margin-left: 20px;
+}
+.cp_ipselect {
+  overflow: hidden;
+  width: 90%;
+  margin: 2em auto;
+  text-align: center;
+}
+.cp_ipselect select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+  display: none;
+}
+.cp_ipselect.cp_sl02 {
+  position: relative;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  background: #fff;
+}
+.cp_ipselect.cp_sl02::before {
+  position: absolute;
+  top: 0.8em;
+  right: 0.9em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #666;
+  pointer-events: none;
+}
+.cp_ipselect.cp_sl02:after {
+  position: absolute;
+  top: 0;
+  right: 2.5em;
+  bottom: 0;
+  width: 1px;
+  content: '';
+  border-left: 1px solid #bbb;
+}
+.cp_ipselect.cp_sl02 select {
+  padding: 8px 38px 8px 8px;
+  color: #666;
+}
+.cp_ipselect {
+  overflow: hidden;
+  width: 90%;
+  margin: 2em auto;
+  text-align: center;
+}
+.cp_ipselect select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+  display: none;
+}
+.cp_ipselect.cp_sl02 {
+  position: relative;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  background: #fff;
+}
+.cp_ipselect.cp_sl02::before {
+  position: absolute;
+  top: 0.8em;
+  right: 0.9em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #666;
+  pointer-events: none;
+}
+.cp_ipselect.cp_sl02:after {
+  position: absolute;
+  top: 0;
+  right: 2.5em;
+  bottom: 0;
+  width: 1px;
+  content: '';
+  border-left: 1px solid #bbb;
+}
+.cp_ipselect.cp_sl02 select {
+  padding: 8px 38px 8px 8px;
+  color: #666;
+}
