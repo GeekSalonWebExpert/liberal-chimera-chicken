@@ -529,7 +529,7 @@ class Main extends Component {
           ?
           <section className="post">
           <div className="header">
-            <h2 className="title-post">野宿場所投稿フォーム</h2>
+            <h2 className="form-title">野宿場所投稿フォーム</h2>
           </div>
             <figure className= "post-image">
             </figure>
@@ -567,6 +567,9 @@ class Main extends Component {
                   </select>
                 </div>
             </div>
+
+        
+
             <ul className="post-attribute">
               {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
               {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}

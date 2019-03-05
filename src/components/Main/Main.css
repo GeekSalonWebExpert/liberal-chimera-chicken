@@ -56,7 +56,7 @@ time, mark, audio, video {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   width: 64%;
-  height: 94%;
+  height: 1000px;
   box-shadow: 0 0 8px rgba(0,0,0,.4);
 	padding: 20px;
   background: #fff;
@@ -224,7 +224,7 @@ time, mark, audio, video {
 }
 
 /* 投稿画面 */
-.title-post {
+.form-title {
 	font-family: "Hiragino Kaku Gothic ProN";
   font-size: 50px;
   color: white;
