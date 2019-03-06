@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import Core from './Core';
-// import './Main.css';
+import './Main.css';
 
 
 const areaList = [
@@ -425,6 +425,7 @@ class Main extends Component {
           <div className="header">
             <h2 className="title">野宿びより</h2>
           </div>
+
           <div className="flex-container">
             <div className="pane01">
               <div class="css-fukidashi">
@@ -577,16 +578,12 @@ class Main extends Component {
               {
                 this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
                   return (
-                    <li ref="attribute-check">
+                    <li ref="attribute-check" >
                       <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
                         const value = e.target.checked
                         this.inputAttribute({ attribute: data.key, value: value })
                       } }></input>
-                      <label>
-                       <input type="checkbox" className="checkbox01-input"/>
-                       <span class="checkbox01-parts">{data.label}</span>
-                      </label>
-
+                       {data.label}
                     </li>
                   )
                 })
