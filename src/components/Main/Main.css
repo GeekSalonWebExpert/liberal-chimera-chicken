@@ -214,6 +214,7 @@ time, mark, audio, video {
 
 .header {
   background-color: rgb(242,162,64);
+	color:white;
 }
 
 .title {
@@ -232,6 +233,9 @@ time, mark, audio, video {
 	margin-bottom:30px;
 }
 
+.header-post{
+	background-color:rgb(242,162,64);
+}
 
 
 .cp_ipselect {

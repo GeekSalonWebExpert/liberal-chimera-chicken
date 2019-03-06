@@ -517,9 +517,10 @@ class Main extends Component {
           this.state.view === "post"
           ?
           <section className="post">
-          <div className="header">
-            <h2 className="form-title">野宿場所投稿フォーム</h2>
+          <div className="header-post">
+            <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
           </div>
+          <div className="main-post">
             <figure className= "post-image">
             </figure>
             <select ref="area-name" className="area-name" onChange={ this.inputArea }>
@@ -568,7 +569,7 @@ class Main extends Component {
                 </div>
             </div>
 
-        
+
 
             <ul className="post-attribute">
               {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
@@ -604,7 +605,7 @@ class Main extends Component {
                 })
               }
             </div>
-
+          </div>
           </section>
           :null
         }

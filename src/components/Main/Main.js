@@ -529,8 +529,9 @@ class Main extends Component {
           ?
           <section className="post">
           <div className="header">
-            <h2 className="form-title">野宿場所投稿フォーム</h2>
+            <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
           </div>
+          <div className="main">
             <figure className= "post-image">
             </figure>
             <div class="cp_ipselect cp_sl02">
@@ -603,6 +604,7 @@ class Main extends Component {
                 })
               }
             </div>
+          <div className="main">
           </section>
           :null
         }
