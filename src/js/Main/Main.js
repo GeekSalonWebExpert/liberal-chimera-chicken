@@ -523,10 +523,16 @@ class Main extends Component {
           </div>
           <div className="main-post">
             <div className="form-contents">
-              <h1 className="contents-title first">野宿先情報を記入する<span>※必須</span></h1>
+              <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
               <p className="line"> </p>
               <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
-              <p className="">セレクトボックス</p>
+              <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+              {
+                areaList.map((area,i)=>{
+                  return <option value={i}>{area}</option>
+                })
+              }
+              </select>
               <div><input class="information-form" type="text" placeholder="野宿先名称"/></div>
               <div><input class="information-form" type="text" placeholder="〒郵便番号"/></div>
               <div><input class="information-form" type="text" placeholder="住所"/></div>
