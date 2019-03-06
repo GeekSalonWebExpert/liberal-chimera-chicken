@@ -521,9 +521,11 @@ class Main extends Component {
           <div className="header-post">
             <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
           </div>
+
           <div className="main-post">
-            <figure className= "post-image">
-            </figure>
+            <div className="post-image">
+            </div>
+
             <select ref="area-name" className="area-name" onChange={ this.inputArea }>
             {
               areaList.map((area,i)=>{
@@ -578,7 +580,7 @@ class Main extends Component {
               {
                 this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
                   return (
-                    <li ref="attribute-check" >
+                    <li ref="attribute-check" className="check-post">
                       <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
                         const value = e.target.checked
                         this.inputAttribute({ attribute: data.key, value: value })
