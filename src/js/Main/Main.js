@@ -521,6 +521,29 @@ class Main extends Component {
           <div className="header-post">
             <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
           </div>
+          <div className="main-post">
+            <div className="form-contents">
+              <h1 className="contents-title first">野宿先情報を記入する</h1>
+              <p className="line"> </p>
+              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+            </div>
+            <div className="form-contents">
+              <h1 className="contents-title">評価する</h1>
+              <p className="line"> </p>
+              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+            </div>
+            <div className="form-contents">
+              <h1 className="contents-title">レビューする</h1>
+              <p className="line"> </p>
+              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+            </div>
+            <div className="form-contents">
+              <h1 className="contents-title">画像をアップロードする</h1>
+              <p className="line"> </p>
+              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+            </div>
+          </div>
+
 
           <div className="main-post">
             <div className="post-image">
@@ -605,6 +628,7 @@ class Main extends Component {
               }
             </div>
           </div>
+
           </section>
           :null
         }

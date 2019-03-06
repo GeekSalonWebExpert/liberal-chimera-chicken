@@ -139,13 +139,43 @@ video {
   text-align: center;
   border-radius: 5px;
   width: 100%;
+  margin-bottom: 15px;
+}
+.main-post {
+  margin-bottom: 15px;
+}
+.form-contents {
+  height: 100px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
+.form-contents.first {
+  margin-top: 15px;
+}
+.contents-title {
+  color: #9a9a9a;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.line {
+  border-bottom: dashed 2px #9a9a9a;
+  width: 95%;
+  margin: 5px auto;
+}
+.txt-contents {
+  color: #9a9a9a;
+  margin-left: 20px;
 }
 .post-image {
-  width: 300px;
   height: 300px;
   max-width: 100%;
-  margin: 15px auto 20px;
-  postion: relative;
+  margin-top: 15px;
+  position: relative;
   overflow: hidden;
   background-color: #dcd8b2;
   width: 100%;
