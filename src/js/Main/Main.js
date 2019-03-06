@@ -536,7 +536,7 @@ class Main extends Component {
               <div><input class="information-form" type="text" placeholder="野宿先名称"/></div>
               <div><input class="information-form" type="text" placeholder="〒郵便番号"/></div>
               <div><input class="information-form" type="text" placeholder="住所"/></div>
-              <p className="txt-contents">◼︎ 当てはまる項目を洗濯してください。</p>
+              <p className="txt-contents">◼︎ 当てはまる項目を選択してください。</p>
             </div>
             <div className="form-contents">
               <h1 className="contents-title">評価する<span>※必須</span></h1>
