@@ -17,6 +17,13 @@ const areaList = [
   "九州・沖縄"
 ]
 
+const inputList = [
+  "places",
+  "zipcodes",
+  "addresses",
+  "stars"
+]
+
 
 class Main extends Component {
 
@@ -44,10 +51,11 @@ class Main extends Component {
     },100)
 
     this.inputArea = this.inputArea.bind(this)
-    this.inputPlace = this.inputPlace.bind(this)
-    this.inputZipCode = this.inputZipCode.bind(this)
-    this.inputAddress = this.inputAddress.bind(this)
-    this.inputStar = this.inputStar.bind(this)
+    this.inputText = this.inputText.bind(this)
+    // this.inputPlace = this.inputPlace.bind(this)
+    // this.inputZipCode = this.inputZipCode.bind(this)
+    // this.inputAddress = this.inputAddress.bind(this)
+    // this.inputStar = this.inputStar.bind(this)
     this.posting = this.posting.bind(this)
     this.startFetching = this.startFetching.bind(this)
   }
@@ -116,21 +124,20 @@ class Main extends Component {
               var marker = new window.google.maps.Marker({
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng,   // 緯度・経度
+                animation: window.google.maps.Animation.BOUNCE, // アニメーション
           			icon:{
           				fillColor:"#FF0000",
           				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                  //path: 'sleepingbag.png',
           				scale: 5,
-          			},
-                // icon:{
-                //   url:'sleepingbag.png',
-                // }
-          			// label:{
+          			}
+                // label:{
           			// 	text:"現在地",
           			// 	color:"#ff7fbf
                 // }
               });
 
-              // // 住所から緯度・経度を取得する
+              // 住所から緯度・経度を取得する
               // var geocoder = new window.google.maps.Geocoder();
               //
               // document.getElementById('posting').addEventListener('click', funciton() {
@@ -310,34 +317,10 @@ class Main extends Component {
     //console.dir(areaID)
   }
 
-  inputPlace(e) {
-    const places = e.target.value
-    this.setState({ places: places })
-    //console.dir(places)
+  inputText(o) {
+    console.log({ [o.input]: o.value })
+    this.setState({ [o.input]: o.value })
   }
-
-  inputZipCode(e) {
-    const zipcodes = e.target.value
-    this.setState({ zipcodes: zipcodes })
-    //console.dir(zipcodes);
-  }
-
-  inputAddress(e) {
-    const addresses = e.target.value
-    this.setState({ addresses: addresses })
-    console.dir(addresses);
-  }
-
-  inputStar(e) {
-    const stars = e.target.value
-    this.setState({ stars: stars })
-    console.dir(stars)
-  }
-
-  // inputing(e) {
-  //   const = [area]
-  // }
-
 
   inputAttribute(o) {
     /*{
@@ -388,10 +371,10 @@ class Main extends Component {
     })
 
     //if(!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length) {
-    if(!this.state.places) {
+    {/*if(!this.state.places) {
       this.setState({ showError: true })
       return false
-    }
+    }*/}
 
     fetch("http://localhost:3001/spot", {
       method: "POST",
@@ -545,21 +528,33 @@ class Main extends Component {
             </select>
             <div className="post-place">
               <div className="post-place-name">野宿先名</div>
-              <input type="text" id="input-place" ref="input-place" onChange={ this.inputPlace }/>
+              <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
+                const value = e.target.value
+                this.inputText({ input: inputList[0], value: value })
+              } }></input>
             </div>
             <div className="post-address">
               <div className="post-address-number">郵便番号</div>
-              <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ this.inputZipCode }/>
+              <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
+                const value = e.target.value
+                this.inputText({ input: inputList[1], value: value })
+              } }></input>
             </div>
             <div className="post-address">
               <div className="post-address-content">住所</div>
-              <input type="text" id="input-address" ref="input-address" onChange={ this.inputAddress }></input>
+              <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
+                const value = e.target.value
+                this.inputText({ input: inputList[2], value: value })
+              } }></input>
             </div>
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
               {/*<div className="change-post-star">{star}</div>*/}
                 <div class="cp_ipselect cp_sl02">
-                  <select ref="select-star" className="select-star" onChange={ this.inputStar }>
+                  <select ref="select-star" className="select-star" onChange={ (e)=>{
+                    const value = e.target.value
+                    this.inputText({ input: inputList[3], value: value })
+                  } }>
                     <option value="" hidden>5段階評価</option>
                     <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
                     <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
@@ -597,7 +592,7 @@ class Main extends Component {
                   return(
                     <div className="spots" key={ spots.id }>
                       {spots.id}
-                    {/*<button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>*/}
+                    <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
                     </div>
                   )
                 })
