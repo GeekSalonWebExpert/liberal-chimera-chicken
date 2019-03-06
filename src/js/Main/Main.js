@@ -523,19 +523,25 @@ class Main extends Component {
           </div>
           <div className="main-post">
             <div className="form-contents">
-              <h1 className="contents-title first">野宿先情報を記入する</h1>
+              <h1 className="contents-title first">野宿先情報を記入する<span>※必須</span></h1>
               <p className="line"> </p>
               <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+              <p className="">セレクトボックス</p>
+              <div><input class="information-form" type="text" placeholder="野宿先名称"/></div>
+              <div><input class="information-form" type="text" placeholder="〒郵便番号"/></div>
+              <div><input class="information-form" type="text" placeholder="住所"/></div>
+              <p className="txt-contents">◼︎ 当てはまる項目を洗濯してください。</p>
             </div>
             <div className="form-contents">
-              <h1 className="contents-title">評価する</h1>
+              <h1 className="contents-title">評価する<span>※必須</span></h1>
               <p className="line"> </p>
-              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+              <p className="txt-contents">◼︎ 野宿先を総合評価5点満点で採点してください。☆の部分をクリックすると、</p>
+              <p className="txt-contents">&nbsp;&nbsp;&nbsp;&nbsp;右側に1〜5の点数が表示されます。</p>
             </div>
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
               <p className="line"> </p>
-              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+
             </div>
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
