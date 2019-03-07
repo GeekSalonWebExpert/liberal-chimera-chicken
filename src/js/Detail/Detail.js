@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
-import './Detail.css';
+import '../../css/Detail.css';
 
 class Detail extends Component {
   constructor(props) {

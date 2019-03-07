@@ -127,15 +127,6 @@
       "lat": 35.274978,
       "lng": 132.589452,
       "comment": []
-    },
-    {
-      "isActive": false,
-      "area": "北海道",
-      "star": 5,
-      "hasToilet": false,
-      "hasRoof": false,
-      "hasBench": false,
-      "id": 9
     }
   ],
   "config": {
