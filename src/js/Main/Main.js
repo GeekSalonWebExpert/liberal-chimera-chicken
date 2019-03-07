@@ -533,9 +533,24 @@ class Main extends Component {
                 })
               }
               </select>
-              <div><input class="information-form" type="text" placeholder="野宿先名称"/></div>
-              <div><input class="information-form" type="text" placeholder="〒郵便番号"/></div>
-              <div><input class="information-form" type="text" placeholder="住所"/></div>
+              <div className="post-place">
+                <input type="text" id="input-place" className="information-form" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[0], value: value })
+                } }></input>
+              </div>
+              <div className="post-address">
+                <input type="text" id="input-zipcode" className="information-form" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[1], value: value })
+                } }></input>
+              </div>
+              <div className="post-address">
+                <input type="text" id="input-address" className="information-form" ref="input-address" placeholder="住所" onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[2], value: value })
+                } }></input>
+              </div>
               <p className="txt-contents">◼︎ 当てはまる項目を選択してください。</p>
             </div>
             <div className="form-contents">
