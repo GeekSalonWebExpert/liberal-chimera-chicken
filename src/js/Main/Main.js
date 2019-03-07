@@ -570,11 +570,23 @@ class Main extends Component {
                 }
               </ul>
             </div>
-            <div className="form-contents">
+            <div className="form-contents rating">
               <h1 className="contents-title">評価する<span>※必須</span></h1>
               <p className="line"> </p>
-              <p className="txt-contents">◼︎ 野宿先を総合評価5点満点で採点してください。☆の部分をクリックすると、</p>
-              <p className="txt-contents">&nbsp;&nbsp;&nbsp;&nbsp;右側に1〜5の点数が表示されます。</p>
+              <p className="txt-contents">◼︎ 野宿先を総合評価5点満点で採点してください。☆の部分をクリックすると、右側に1〜5の点数が表示されます。</p>
+              <div class="cp_ipselect cp_sl02">
+                <select ref="select-star" className="select-star" onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[3], value: value })
+                } }>
+                  <option value="" hidden>5段階評価</option>
+                  <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
+                  <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
+                  <option value="3" id="3">⭐️⭐️⭐️</option>
+                  <option value="2" id="2">⭐️⭐️</option>
+                  <option value="1" id="1">⭐️</option>
+                </select>
+              </div>
             </div>
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
