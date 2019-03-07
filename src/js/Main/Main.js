@@ -552,6 +552,23 @@ class Main extends Component {
                 } }></input>
               </div>
               <p className="txt-contents">◼︎ 当てはまる項目を選択してください。</p>
+              <ul className="post-attribute">
+                {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
+                {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
+                {
+                  this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
+                    return (
+                      <li ref="attribute-check" className="check-post">
+                        <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
+                          const value = e.target.checked
+                          this.inputAttribute({ attribute: data.key, value: value })
+                        } }></input>
+                         {data.label}
+                      </li>
+                    )
+                  })
+                }
+              </ul>
             </div>
             <div className="form-contents">
               <h1 className="contents-title">評価する<span>※必須</span></h1>

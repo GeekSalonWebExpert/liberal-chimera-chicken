@@ -157,7 +157,7 @@ video {
   color: #9a9a9a;
   font-size: 25px;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 span {
   color: #f24333;
@@ -174,16 +174,22 @@ p {
 }
 .txt-contents {
   color: #9a9a9a;
-  margin-left: 20px;
+  margin-left: 40px;
   margin-top: 15px;
 }
 .information-form {
-  margin-left: 20px;
+  margin-left: 60px;
   margin-top: 10px;
+}
+.check-post {
+  color: #9a9a9a;
+}
+.address {
+  width: 500px;
 }
 .area-name {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 60px;
 }
 .post-image {
   height: 300px;
@@ -205,6 +211,12 @@ p {
 }
 .post-attribute {
   list-style: none;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+.attribute-check {
+  color: #9a9a9a;
+  margin-left: 20px;
 }
 .pane01 {
   margin: 80px 50px;
