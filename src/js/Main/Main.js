@@ -535,43 +535,48 @@ class Main extends Component {
           this.state.view === "post"
           ?
           <section className="post">
-          <div className="header-post">
-            <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
-          </div>
-          <div className="main-post">
-            <div className="form-contents">
-              <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
-              <p className="line"> </p>
-              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
-              <select ref="area-name" className="area-name" onChange={ this.inputArea }>
-              {
-                areaList.map((area,i)=>{
-                  return <option value={i}>{area}</option>
-                })
-              }
-              </select>
+            <div className="header-post">
+              <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
+            </div>
+
+            <div className="main-post">
+              <div className="form-contents">
+                <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
+                <p className="line"> </p>
+                <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+
+                <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+                {
+                  areaList.map((area,i)=>{
+                    return <option value={i}>{area}</option>
+                  })
+                }
+          　　　</select>
+              </div>
+
               <div className="post-place">
                 <input type="text" id="input-place" className="information-form" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
                   const value = e.target.value
                   this.inputText({ input: inputList[0], value: value })
                 } }></input>
               </div>
+
               <div className="post-address">
                 <input type="text" id="input-zipcode" className="information-form" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
                   const value = e.target.value
                   this.inputText({ input: inputList[1], value: value })
                 } }></input>
               </div>
+
               <div className="post-address">
                 <input type="text" id="input-address" className="information-form" ref="input-address" placeholder="住所" onChange={ (e)=>{
                   const value = e.target.value
                   this.inputText({ input: inputList[2], value: value })
                 } }></input>
               </div>
+
               <p className="txt-contents">◼︎ 当てはまる項目を選択してください。</p>
               <ul className="post-attribute">
-                {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
-                {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
                 {
                   this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
                     return (
@@ -587,6 +592,7 @@ class Main extends Component {
                 }
               </ul>
             </div>
+
             <div className="form-contents rating">
               <h1 className="contents-title">評価する<span>※必須</span></h1>
               <p className="line"> </p>
@@ -605,185 +611,42 @@ class Main extends Component {
                 </select>
               </div>
             </div>
+
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
               <p className="line"> </p>
               <textarea className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。"></textarea>
             </div>
+
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
               <p className="line"> </p>
               <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
             </div>
-          </div>
 
 
           <div className="main-post">
             <div className="post-image">
-            </div>
+          </div>
 
-            <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+          <div className="posting">
+            <button id="posting" className="button-post" onClick= { this.posting }>投稿する</button>
             {
-              areaList.map((area,i)=>{
-                return <option value={i}>{area}</option>
-              })
-            }
-            </select>
-
-            <div className="post-place">
-              <div className="post-place-name">野宿先名</div>
-              <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
-                const value = e.target.value
-                this.inputText({ input: inputList[0], value: value })
-              } }></input>
-            </div>
-
-            <div className="post-address">
-              <div className="post-address-number">郵便番号</div>
-              <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
-                const value = e.target.value
-                this.inputText({ input: inputList[1], value: value })
-              } }></input>
-            </div>
-
-            <div className="post-address">
-              <div className="post-address-content">住所</div>
-              <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
-                const value = e.target.value
-                this.inputText({ input: inputList[2], value: value })
-              } }></input>
-            </div>
-
-            <div className="post-star">
-              <div className="evaluate-star">評価をつける</div>
-              {/*<div className="change-post-star">{star}</div>*/}
-                <div class="cp_ipselect cp_sl02">
-                  <select ref="select-star" className="select-star" onChange={ (e)=>{
-                    const value = e.target.value
-                    this.inputText({ input: inputList[3], value: value })
-                  } }>
-                    <option value="" hidden>5段階評価</option>
-                    <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
-                    <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
-                    <option value="3" id="3">⭐️⭐️⭐️</option>
-                    <option value="2" id="2">⭐️⭐️</option>
-                    <option value="1" id="1">⭐️</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-
-
-            <ul className="post-attribute">
-              {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
-              {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
-              {
-                this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
-                  return (
-                    <li ref="attribute-check" className="check-post">
-                      <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
-                        const value = e.target.checked
-                        this.inputAttribute({ attribute: data.key, value: value })
-                      } }></input>
-                       {data.label}
-                    </li>
+              this.state.spot.map( spots => {
+                return(
+                  <div className="spots" key={ spots.id }>
+                    {spots.id}
+                  <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
+                  </div>
                   )
                 })
-              }
-            </ul>
-
-            <div className="posting">
-              <button id="posting" className="button-post" onClick= { this.posting }>投稿する</button>
-              {
-                areaList.map((area,i)=>{
-                  return <option value={i}>{area}</option>
-                })
-              }
-            </div>
-
-              <div className="post-place">
-                <div className="post-place-name">野宿先名</div>
-                <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[0], value: value })
-                } }></input>
-              </div>
-
-              <div className="post-address">
-                <div className="post-address-number">郵便番号</div>
-                <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[1], value: value })
-                } }></input>
-              </div>
-
-              <div className="post-address">
-                <div className="post-address-content">住所</div>
-                <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[2], value: value })
-                } }></input>
-              </div>
-
-              <div className="post-star">
-                <div className="evaluate-star">評価をつける</div>
-                {/*<div className="change-post-star">{star}</div>*/}
-                  <div class="cp_ipselect cp_sl02">
-                    <select ref="select-star" className="select-star" onChange={ (e)=>{
-                      const value = e.target.value
-                      this.inputText({ input: inputList[3], value: value })
-                    } }>
-                      <option value="" hidden>5段階評価</option>
-                      <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
-                      <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
-                      <option value="3" id="3">⭐️⭐️⭐️</option>
-                      <option value="2" id="2">⭐️⭐️</option>
-                      <option value="1" id="1">⭐️</option>
-                    </select>
-                  </div>
-              </div>
-
-              <ul className="post-attribute">
-                {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
-                {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
-                {
-                  this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
-                    return (
-                      <li ref="attribute-check">
-                        <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
-                          const value = e.target.checked
-                          this.inputAttribute({ attribute: data.key, value: value })
-                        } }></input>
-                        <label>
-                         <input type="checkbox" className="checkbox01-input"/>
-                         <span class="checkbox01-parts">{data.label}</span>
-                        </label>
-
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-
-              <div className="post">
-                <button id="posting" className="posting" onClick= { this.posting }>投稿する</button>
-                {
-                  this.state.spot.map( spots => {
-                    return(
-                      <div className="spots" key={ spots.id }>
-                        {spots.id}
-                      <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
-                      </div>
-                    )
-                  })
-                }
-              </div>
-
-          </section>
+            }
+          </div>
+        </div>
+        </section>
 
 
-          :null
+        :null
         }
       </div>
     </div>
