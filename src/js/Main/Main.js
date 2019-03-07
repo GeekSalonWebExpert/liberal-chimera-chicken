@@ -596,7 +596,28 @@ class Main extends Component {
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
               <p className="line"> </p>
-              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+              <p className="txt-contents">◼︎ レビューに関連する画像ファイルを1点アップロードすることができます。</p>
+              <div className="form-upload">
+                <button id="upload" className="upload">アップロードする</button>
+              </div>
+            </div>
+            <div className="message-space">
+              <p className="form-message">野宿びよりは、『ご自身が実際に利用』した信頼度の高いレビューで、</p>
+              <p className="form-message">お互いに「野宿者の役に立つ生きた情報」を共有する事を目的としたサイトです。</p>
+              <p className="form-message">必ず、ご自身が実際に使用したものについてレビューしてください。</p>
+            </div>
+            <div className="posting">
+              <button id="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
+              {
+                this.state.spot.map( spots => {
+                  return(
+                    <div className="spots" key={ spots.id }>
+                      {spots.id}
+                    <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
 

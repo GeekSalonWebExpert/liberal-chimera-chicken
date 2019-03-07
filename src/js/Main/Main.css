@@ -158,7 +158,7 @@ video {
 }
 .form-review {
   margin-left: 60px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 80%;
   height: 50%;
   border-radius: 5px;
@@ -191,6 +191,38 @@ p {
 .information-form {
   margin-left: 60px;
   margin-top: 10px;
+}
+.form-message {
+  color: #f2a240;
+  text-align: center;
+}
+.message-space {
+  height: 100px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
+.posting {
+  text-align: center;
+}
+.form-upload {
+  margin-top: 50px;
+  text-align: center;
+}
+.upload {
+  background-color: #fff;
+  color: #f2a240;
+}
+.upload:hover {
+  background-color: #fff8f4;
+  color: #f2a240;
+}
+.upload:active {
+  background-color: #f2a240;
+  color: #fff;
 }
 .check-post {
   color: #9a9a9a;
