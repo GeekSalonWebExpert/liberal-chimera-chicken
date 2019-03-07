@@ -644,27 +644,7 @@ class Main extends Component {
                 })
               }
             </div>
-
-
-          <div className="main-post">
-            <div className="post-image">
-          </div>
-
-          <div className="posting">
-            <button id="posting" className="button-post" onClick= { this.posting }>投稿する</button>
-            {
-              this.state.spot.map( spots => {
-                return(
-                  <div className="spots" key={ spots.id }>
-                    {spots.id}
-                  <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
-                  </div>
-                  )
-                })
-            }
-          </div>
-        </div>
-        </section>
+          </section>
 
 
         :null
