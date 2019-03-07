@@ -25,6 +25,13 @@ time, mark, audio, video {
 .flex-container
   display flex
 
+  .title
+    font-family "Hiragino Kaku Gothic ProN"
+    font-size 50px
+    color white
+    margin-left 20px
+
+
 .nav-list
   list-style none
 
@@ -59,15 +66,84 @@ time, mark, audio, video {
   padding 20px
   background #fff
   z-index 1029
+  background-color #FAFFF2
+  border-radius 5px
 
-.post-image
-  width 300px
+.header-post
+  text-align:center
+  border-radius 5px
+  width 100%
+  margin-bottom 15px
+
+.form-title
+  margin-bottom 20px
+
+.form-contents
   height 300px
   max-width 100%
-  margin 0 auto 20px
-  postion relative
+  position relative
+  overflow hidden
+  background-color white
+  width 100%
+  border-radius 5px
+
+.rating
+  height 200px
+
+.form-review
+  margin-left 60px
+  margin-top 10px
+  width 80%
+  height 50%
+  border-radius 5px
+  border solid  2px rgb(154,154,154)
+
+.contents-title
+  color rgb(154,154,154)
+  font-size 25px
+  margin-top 10px
+  margin-left 40px
+
+span
+  color #F24333
+  font-size 15px
+  margin-left 5px
+
+p
+  color rgb(154,154,154)
+
+.line
+  border-bottom dashed 2px rgb(154,154,154)
+  width 95%
+  margin: 5px auto;
+
+.txt-contents
+  color rgb(154,154,154)
+  margin-left 40px
+  margin-top 15px
+
+.information-form
+ margin-left 60px
+ margin-top 10px
+
+.check-post
+  color rgb(154,154,154)
+
+.address
+  width 500px
+
+.area-name
+  margin-top 10px
+  margin-left 60px
+
+.post-image
+  height 300px
+  max-width 100%
+  margin-top 15px
+  position relative
   overflow hidden
   background-color rgb(220,216,178)
+  width 100%
 
 .post-place
   display flex
@@ -80,6 +156,12 @@ time, mark, audio, video {
 
 .post-attribute
   list-style none
+  margin-top 10px
+  margin-left 40px
+
+.attribute-check
+  color rgb(154,154,154)
+  margin-left 20px
 
 .pane01
   margin 80px 50px
@@ -186,120 +268,13 @@ time, mark, audio, video {
   display block
 
 .header
-  background-color rgb(242,162,64);
+  background-color rgb(242,162,64)
 
-.title
-  font-family "Hiragino Kaku Gothic ProN"
-  font-size 50px
+.header-post
   color white
-  margin-left 20px
+  background-color rgb(242,162,64)
+  margin auto
+  font-size 40px
 
-.cp_ipselect
-  overflow hidden
-  width 90%
-  margin 2em auto
-  text-align center
-
-.cp_ipselect select
-  width 100%
-  padding-right 1em
-  cursor pointer
-  text-indent 0.01px
-  text-overflow ellipsis
-  border none
-  outline none
-  background transparent
-  background-image none
-  box-shadow none
-  -webkit-appearance none
-  appearance none
-
-.cp_ipselect select::-ms-expand
-  diplay none
-
-.cp_ipselect.cp_sl02
-  position relative
-  border 1px solid #bbbbbb
-  border-radius 2px
-  background #ffffff
-
-.cp_ipselect.cp_sl02::before
-  position absolute
-  top 0.8em
-  right 0.9em
-  width 0
-  height 0
-  padding 0
-  content ''
-  border-left 6px solid transparent
-  border-right 6px solid transparent
-  border-top 6px solid #666666
-  pointer-events none
-
-.cp_ipselect.cp_sl02:after
-  position absolute
-  top 0
-  right 2.5em
-  bottom 0
-  width 1px
-  content ''
-  border-left 1px solid #bbbbbb
-
-.cp_ipselect.cp_sl02 select
-  padding 8px 38px 8px 8px
-  color #666666
-
-.cp_ipselect
-  overflow hidden
-  width 90%
-  margin 2em auto
-  text-align center
-
-.cp_ipselect select
-  width 100%
-  padding-right 1em
-  cursor pointer
-  text-indent 0.01px
-  text-overflow ellipsis
-  border none
-  outline none
-  background transparent
-  background-image none
-  box-shadow none
-  -webkit-appearance none
-  appearance none
-
-.cp_ipselect select::-ms-expand
-  display:none
-
-.cp_ipselect.cp_sl02
-  position relative
-  border 1px solid #bbbbbb
-  border-radius 2px
-  background #ffffff
-
-.cp_ipselect.cp_sl02::before
-  position absolute
-  top 0.8em
-  right 0.9em
-  width 0
-  height 0
-  padding 0
-  content ''
-  border-left 6px solid transparent
-  border-right 6px solid transparent
-  border-top 6px solid #666666
-  pointer-events none
-
-.cp_ipselect.cp_sl02:after
-  position absolute
-  top 0
-  right 2.5em
-  bottom 0
-  width 1px
-  content ''
-  border-left 1px solid #bbbbbb
-
-.cp_ipselect.cp_sl02 select
-  padding 8px 38px 8px 8px
-  color #666666
+.check-post
+  float left

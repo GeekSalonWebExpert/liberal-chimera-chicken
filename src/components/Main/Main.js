@@ -17,15 +17,9 @@ const areaList = [
   "九州・沖縄"
 ]
 
-const inputList = [
-  "places",
-  "zipcodes",
-  "addresses",
-  "stars"
-]
-
 
 class Main extends Component {
+
 
   constructor(props) {
     super(props);
@@ -50,7 +44,10 @@ class Main extends Component {
     },100)
 
     this.inputArea = this.inputArea.bind(this)
-    this.inputText = this.inputText.bind(this)
+    this.inputPlace = this.inputPlace.bind(this)
+    this.inputZipCode = this.inputZipCode.bind(this)
+    this.inputAddress = this.inputAddress.bind(this)
+    this.inputStar = this.inputStar.bind(this)
     this.posting = this.posting.bind(this)
     this.startFetching = this.startFetching.bind(this)
   }
@@ -119,70 +116,32 @@ class Main extends Component {
               var marker = new window.google.maps.Marker({
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng,   // 緯度・経度
-                animation: window.google.maps.Animation.BOUNCE, // アニメーション
           			icon:{
           				fillColor:"#FF0000",
           				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                  //path: 'sleepingbag.png',
           				scale: 5,
-          			}
-                // label:{
+          			},
+                // icon:{
+                //   url:'sleepingbag.png',
+                // }
+          			// label:{
           			// 	text:"現在地",
           			// 	color:"#ff7fbf
                 // }
               });
 
-              {/*
-              // 住所から緯度・経度を取得する
-              var geocoder = new window.google.maps.Geocoder();
-
-              document.getElementById('posting').addEventListener('click', function() {
-                geocoder.geocode({
-                  places: document.getElementById('places').value
-                },function(results,status){
-                  if (status !== 'OK') {
-                    alert('Failed: ' + status);
-                    return;
-                  }
-                  // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-                  // results[0].geometry.location
-                  if (results[0]) {
-                    this.setState({
-                      postLat: results[0].geometry.location.lat(),
-                      postLng: results[0].geometry.location.lng()
-                    })
-                  } else {
-                    alert('No results found');
-                    return
-                  }
-                });
-              });
-              */}
+              // // 住所から緯度・経度を取得する
+              // var geocoder = new window.google.maps.Geocoder();
+              //
+              // document.getElementById('posting').addEventListener('click', funciton() {
+              //   geocodeAddress(geocoder, map);
+              // });
 
               self.updateConfig()
             }
           );
         }
   }
-
-  // function geocodeAddress(geocoder, resultsMap) {
-  //   var address = document.getElementById('input-post-address-content').value;
-  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
-  //     if (status === google.maps.GeocoderStatus.OK) {
-  //       resultsMap.setCenter(results[0].geometry.location);
-  //       var marker = new google.maps.Marker({
-  //         map: resultsMap
-  //         positon: results[0].geometry.location
-  //       });
-  //       this.setState({
-  //         postLat: results[0].geometry.location.lat(),
-  //         postLng: results[0].geometry.location.lng()
-  //       })
-  //     } else {
-  //       alert('Geocode was not successful for the following reason:' + status);
-  //     }
-  // }
 
 
   updateConfig(option = {}) {
@@ -324,7 +283,24 @@ class Main extends Component {
   }
 
 
-
+  // function geocodeAddress(geocoder, resultsMap) {
+  //   var address = document.getElementById('input-post-address-content').value;
+  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
+  //     if (status === google.maps.GeocoderStatus.OK) {
+  //       resultsMap.setCenter(results[0].geometry.location);
+  //       var marker = new google.maps.Marker({
+  //         map: resultsMap
+  //         positon: results[0].geometry.location
+  //       });
+  //       this.setState({
+  //         postLat: results[0].geometry.location.lat(),
+  //         postLng: results[0].geometry.location.lng()
+  //       })
+  //     } else {
+  //       alert('Geocode was not successful for the following reason:' + status);
+  //     }
+  // }
 
 
 
@@ -334,10 +310,34 @@ class Main extends Component {
     //console.dir(areaID)
   }
 
-  inputText(o) {
-    console.log({ [o.input]: o.value })
-    this.setState({ [o.input]: o.value })
+  inputPlace(e) {
+    const places = e.target.value
+    this.setState({ places: places })
+    //console.dir(places)
   }
+
+  inputZipCode(e) {
+    const zipcodes = e.target.value
+    this.setState({ zipcodes: zipcodes })
+    //console.dir(zipcodes);
+  }
+
+  inputAddress(e) {
+    const addresses = e.target.value
+    this.setState({ addresses: addresses })
+    console.dir(addresses);
+  }
+
+  inputStar(e) {
+    const stars = e.target.value
+    this.setState({ stars: stars })
+    console.dir(stars)
+  }
+
+  // inputing(e) {
+  //   const = [area]
+  // }
+
 
   inputAttribute(o) {
     /*{
@@ -388,10 +388,10 @@ class Main extends Component {
     })
 
     //if(!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length) {
-    {/*if(!this.state.places) {
+    if(!this.state.places) {
       this.setState({ showError: true })
       return false
-    }*/}
+    }
 
     fetch("http://localhost:3001/spot", {
       method: "POST",
@@ -442,14 +442,13 @@ class Main extends Component {
           <div className="header">
             <h2 className="title">野宿びより</h2>
           </div>
-
           <div className="flex-container">
             <div className="pane01">
-              <div className="css-fukidashi">
+              <div class="css-fukidashi">
                 <button type="button" name="post" className="button-post" onClick={()=> {this.updateView({ view: "post" }) }} >
                   投稿する
                 </button>
-                <p className="fukidashi">あなたの利用した野宿先を投稿しませんか？</p>
+                <p class="fukidashi">あなたの利用した野宿先を投稿しませんか？</p>
               </div>
 
               {/*場所から探す*/}
@@ -461,7 +460,7 @@ class Main extends Component {
                       return (
                         <li
                           key={`place${i}`}
-                          className="nav-row checkbox"
+                          className="checkbox"
                           onClick={
                             ()=>{ this.updateConfig({
                               category: "region",
@@ -469,13 +468,10 @@ class Main extends Component {
                             })}
                           }
                           data-checked={data.value}>
-                          {data.label}
-                          {/*
-                            <label>
-                             <input type="checkbox" className="checkbox01-input"/>
-                             <span class="checkbox01-parts">{data.label}</span>
-                            </label>
-                          */}
+                          <label>
+                           <input type="checkbox" className="checkbox01-input"/>
+                           <span class="checkbox01-parts">{data.label}</span>
+                          </label>
                         </li>
                       )
                     })
@@ -501,13 +497,10 @@ class Main extends Component {
                             })}
                           }
                           data-checked={data.value}>
-                          {data.label}
-                          {/*
-                            <label>
-                             <input type="checkbox" className="checkbox01-input"/>
-                             <span class="checkbox01-parts">{data.label}</span>
-                            </label>
-                          */}
+                          <label>
+                           <input type="checkbox" className="checkbox01-input"/>
+                           <span class="checkbox01-parts">{data.label}</span>
+                          </label>
                         </li>
                       )
                     })
@@ -535,133 +528,37 @@ class Main extends Component {
           this.state.view === "post"
           ?
           <section className="post">
-          <div className="header-post">
+          <div className="header">
             <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
           </div>
-          <div className="main-post">
-            <div className="form-contents">
-              <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
-              <p className="line"> </p>
-              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+          <div className="main">
+            <figure className= "post-image">
+            </figure>
+            <div class="cp_ipselect cp_sl02">
               <select ref="area-name" className="area-name" onChange={ this.inputArea }>
-              {
-                areaList.map((area,i)=>{
-                  return <option value={i}>{area}</option>
-                })
-              }
-              </select>
-              <div className="post-place">
-                <input type="text" id="input-place" className="information-form" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[0], value: value })
-                } }></input>
-              </div>
-              <div className="post-address">
-                <input type="text" id="input-zipcode" className="information-form" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[1], value: value })
-                } }></input>
-              </div>
-              <div className="post-address">
-                <input type="text" id="input-address" className="information-form" ref="input-address" placeholder="住所" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[2], value: value })
-                } }></input>
-              </div>
-              <p className="txt-contents">◼︎ 当てはまる項目を選択してください。</p>
-              <ul className="post-attribute">
-                {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
-                {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
+                <option value="" hidden>地域選択</option>
                 {
-                  this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
-                    return (
-                      <li ref="attribute-check" className="check-post">
-                        <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
-                          const value = e.target.checked
-                          this.inputAttribute({ attribute: data.key, value: value })
-                        } }></input>
-                         {data.label}
-                      </li>
-                    )
+                  areaList.map((area,i)=>{
+                    return <option value={i}>{area}</option>
                   })
                 }
-              </ul>
+              </select>
             </div>
-            <div className="form-contents rating">
-              <h1 className="contents-title">評価する<span>※必須</span></h1>
-              <p className="line"> </p>
-              <p className="txt-contents">◼︎ 野宿先を総合評価5点満点で採点してください。☆の部分をクリックすると、右側に1〜5の点数が表示されます。</p>
-              <div class="cp_ipselect cp_sl02">
-                <select ref="select-star" className="select-star" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[3], value: value })
-                } }>
-                  <option value="" hidden>5段階評価</option>
-                  <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
-                  <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
-                  <option value="3" id="3">⭐️⭐️⭐️</option>
-                  <option value="2" id="2">⭐️⭐️</option>
-                  <option value="1" id="1">⭐️</option>
-                </select>
-              </div>
+            <div className="cp_iptxt post-place-name">
+            	<input type="text" placeholder="野宿先名" id="input-place" className="text" ref="input-place" onChange={ this.inputPlace }/>
             </div>
-            <div className="form-contents">
-              <h1 className="contents-title">レビューする</h1>
-              <p className="line"> </p>
-              <textarea className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。"></textarea>
+            <div className="cp_iptxt post-address-number">
+            	<input type="text" placeholder="郵便番号" id="input-zipcode" className="text" ref="input-zipcode" onChange={ this.inputZipCode }/>
             </div>
-            <div className="form-contents">
-              <h1 className="contents-title">画像をアップロードする</h1>
-              <p className="line"> </p>
-              <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
-            </div>
-          </div>
-
-
-          <div className="main-post">
-            <div className="post-image">
-            </div>
-
-            <select ref="area-name" className="area-name" onChange={ this.inputArea }>
-            {
-              areaList.map((area,i)=>{
-                return <option value={i}>{area}</option>
-              })
-            }
-            </select>
-
-            <div className="post-place">
-              <div className="post-place-name">野宿先名</div>
-              <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
-                const value = e.target.value
-                this.inputText({ input: inputList[0], value: value })
-              } }></input>
-            </div>
-
-            <div className="post-address">
-              <div className="post-address-number">郵便番号</div>
-              <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
-                const value = e.target.value
-                this.inputText({ input: inputList[1], value: value })
-              } }></input>
-            </div>
-
-            <div className="post-address">
-              <div className="post-address-content">住所</div>
-              <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
-                const value = e.target.value
-                this.inputText({ input: inputList[2], value: value })
-              } }></input>
+            <div className="cp_iptxt post-address-content">
+            	<input type="text" placeholder="住所"/>
             </div>
 
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
               {/*<div className="change-post-star">{star}</div>*/}
                 <div class="cp_ipselect cp_sl02">
-                  <select ref="select-star" className="select-star" onChange={ (e)=>{
-                    const value = e.target.value
-                    this.inputText({ input: inputList[3], value: value })
-                  } }>
+                  <select ref="select-star" className="select-star" onChange={ this.inputStar }>
                     <option value="" hidden>5段階評価</option>
                     <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
                     <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
@@ -670,7 +567,6 @@ class Main extends Component {
                     <option value="1" id="1">⭐️</option>
                   </select>
                 </div>
-              </div>
             </div>
 
 
@@ -681,108 +577,35 @@ class Main extends Component {
               {
                 this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
                   return (
-                    <li ref="attribute-check" className="check-post">
-                      <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
+                    <li ref="attribute-check">
+                      <input type="checkbox"  className="checkbox01-input attribute-check" onChange={ (e)=>{
                         const value = e.target.checked
                         this.inputAttribute({ attribute: data.key, value: value })
                       } }></input>
-                       {data.label}
+                      <label>
+                       <input type="checkbox" className="checkbox01-input"/>
+                       <span class="checkbox01-parts">{data.label}</span>
+                      </label>
                     </li>
                   )
                 })
               }
             </ul>
-
             <div className="posting">
               <button id="posting" className="button-post" onClick= { this.posting }>投稿する</button>
               {
-                areaList.map((area,i)=>{
-                  return <option value={i}>{area}</option>
+                this.state.spot.map( spots => {
+                  return(
+                    <div className="spots" key={ spots.id }>
+                      {spots.id}
+                    {/*<button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>*/}
+                    </div>
+                  )
                 })
               }
             </div>
-
-              <div className="post-place">
-                <div className="post-place-name">野宿先名</div>
-                <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[0], value: value })
-                } }></input>
-              </div>
-
-              <div className="post-address">
-                <div className="post-address-number">郵便番号</div>
-                <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[1], value: value })
-                } }></input>
-              </div>
-
-              <div className="post-address">
-                <div className="post-address-content">住所</div>
-                <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
-                  const value = e.target.value
-                  this.inputText({ input: inputList[2], value: value })
-                } }></input>
-              </div>
-
-              <div className="post-star">
-                <div className="evaluate-star">評価をつける</div>
-                {/*<div className="change-post-star">{star}</div>*/}
-                  <div class="cp_ipselect cp_sl02">
-                    <select ref="select-star" className="select-star" onChange={ (e)=>{
-                      const value = e.target.value
-                      this.inputText({ input: inputList[3], value: value })
-                    } }>
-                      <option value="" hidden>5段階評価</option>
-                      <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
-                      <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
-                      <option value="3" id="3">⭐️⭐️⭐️</option>
-                      <option value="2" id="2">⭐️⭐️</option>
-                      <option value="1" id="1">⭐️</option>
-                    </select>
-                  </div>
-              </div>
-
-              <ul className="post-attribute">
-                {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
-                {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
-                {
-                  this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
-                    return (
-                      <li ref="attribute-check">
-                        <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
-                          const value = e.target.checked
-                          this.inputAttribute({ attribute: data.key, value: value })
-                        } }></input>
-                        <label>
-                         <input type="checkbox" className="checkbox01-input"/>
-                         <span class="checkbox01-parts">{data.label}</span>
-                        </label>
-
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-
-              <div className="post">
-                <button id="posting" className="posting" onClick= { this.posting }>投稿する</button>
-                {
-                  this.state.spot.map( spots => {
-                    return(
-                      <div className="spots" key={ spots.id }>
-                        {spots.id}
-                      <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
-                      </div>
-                    )
-                  })
-                }
-              </div>
-
+          <div className="main">
           </section>
-
-
           :null
         }
       </div>
