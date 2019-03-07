@@ -27,7 +27,6 @@ const inputList = [
 
 class Main extends Component {
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -52,10 +51,6 @@ class Main extends Component {
 
     this.inputArea = this.inputArea.bind(this)
     this.inputText = this.inputText.bind(this)
-    // this.inputPlace = this.inputPlace.bind(this)
-    // this.inputZipCode = this.inputZipCode.bind(this)
-    // this.inputAddress = this.inputAddress.bind(this)
-    // this.inputStar = this.inputStar.bind(this)
     this.posting = this.posting.bind(this)
     this.startFetching = this.startFetching.bind(this)
   }
@@ -137,18 +132,57 @@ class Main extends Component {
                 // }
               });
 
+              {/*
               // 住所から緯度・経度を取得する
-              // var geocoder = new window.google.maps.Geocoder();
-              //
-              // document.getElementById('posting').addEventListener('click', funciton() {
-              //   geocodeAddress(geocoder, map);
-              // });
+              var geocoder = new window.google.maps.Geocoder();
+
+              document.getElementById('posting').addEventListener('click', function() {
+                geocoder.geocode({
+                  places: document.getElementById('places').value
+                },function(results,status){
+                  if (status !== 'OK') {
+                    alert('Failed: ' + status);
+                    return;
+                  }
+                  // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+                  // results[0].geometry.location
+                  if (results[0]) {
+                    this.setState({
+                      postLat: results[0].geometry.location.lat(),
+                      postLng: results[0].geometry.location.lng()
+                    })
+                  } else {
+                    alert('No results found');
+                    return
+                  }
+                });
+              });
+              */}
 
               self.updateConfig()
             }
           );
         }
   }
+
+  // function geocodeAddress(geocoder, resultsMap) {
+  //   var address = document.getElementById('input-post-address-content').value;
+  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
+  //     if (status === google.maps.GeocoderStatus.OK) {
+  //       resultsMap.setCenter(results[0].geometry.location);
+  //       var marker = new google.maps.Marker({
+  //         map: resultsMap
+  //         positon: results[0].geometry.location
+  //       });
+  //       this.setState({
+  //         postLat: results[0].geometry.location.lat(),
+  //         postLng: results[0].geometry.location.lng()
+  //       })
+  //     } else {
+  //       alert('Geocode was not successful for the following reason:' + status);
+  //     }
+  // }
 
 
   updateConfig(option = {}) {
@@ -290,24 +324,7 @@ class Main extends Component {
   }
 
 
-  // function geocodeAddress(geocoder, resultsMap) {
-  //   var address = document.getElementById('input-post-address-content').value;
-  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
-  //     if (status === google.maps.GeocoderStatus.OK) {
-  //       resultsMap.setCenter(results[0].geometry.location);
-  //       var marker = new google.maps.Marker({
-  //         map: resultsMap
-  //         positon: results[0].geometry.location
-  //       });
-  //       this.setState({
-  //         postLat: results[0].geometry.location.lat(),
-  //         postLng: results[0].geometry.location.lng()
-  //       })
-  //     } else {
-  //       alert('Geocode was not successful for the following reason:' + status);
-  //     }
-  // }
+
 
 
 
@@ -428,11 +445,11 @@ class Main extends Component {
 
           <div className="flex-container">
             <div className="pane01">
-              <div class="css-fukidashi">
+              <div className="css-fukidashi">
                 <button type="button" name="post" className="button-post" onClick={()=> {this.updateView({ view: "post" }) }} >
                   投稿する
                 </button>
-                <p class="fukidashi">あなたの利用した野宿先を投稿しませんか？</p>
+                <p className="fukidashi">あなたの利用した野宿先を投稿しませんか？</p>
               </div>
 
               {/*場所から探す*/}
@@ -633,6 +650,7 @@ class Main extends Component {
               })
             }
             </select>
+
             <div className="post-place">
               <div className="post-place-name">野宿先名</div>
               <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
@@ -640,6 +658,7 @@ class Main extends Component {
                 this.inputText({ input: inputList[0], value: value })
               } }></input>
             </div>
+
             <div className="post-address">
               <div className="post-address-number">郵便番号</div>
               <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
@@ -647,6 +666,7 @@ class Main extends Component {
                 this.inputText({ input: inputList[1], value: value })
               } }></input>
             </div>
+
             <div className="post-address">
               <div className="post-address-content">住所</div>
               <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
@@ -654,6 +674,7 @@ class Main extends Component {
                 this.inputText({ input: inputList[2], value: value })
               } }></input>
             </div>
+
             <div className="post-star">
               <div className="evaluate-star">評価をつける</div>
               {/*<div className="change-post-star">{star}</div>*/}
@@ -670,6 +691,7 @@ class Main extends Component {
                     <option value="1" id="1">⭐️</option>
                   </select>
                 </div>
+              </div>
             </div>
 
 
@@ -691,22 +713,97 @@ class Main extends Component {
                 })
               }
             </ul>
+
             <div className="posting">
               <button id="posting" className="button-post" onClick= { this.posting }>投稿する</button>
               {
-                this.state.spot.map( spots => {
-                  return(
-                    <div className="spots" key={ spots.id }>
-                      {spots.id}
-                    <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
-                    </div>
-                  )
+                areaList.map((area,i)=>{
+                  return <option value={i}>{area}</option>
                 })
               }
             </div>
-          </div>
+
+              <div className="post-place">
+                <div className="post-place-name">野宿先名</div>
+                <input type="text" id="input-place" ref="input-place" onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[0], value: value })
+                } }></input>
+              </div>
+
+              <div className="post-address">
+                <div className="post-address-number">郵便番号</div>
+                <input type="text" id="input-zipcode" ref="input-zipcode" onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[1], value: value })
+                } }></input>
+              </div>
+
+              <div className="post-address">
+                <div className="post-address-content">住所</div>
+                <input type="text" id="input-address" ref="input-address" onChange={ (e)=>{
+                  const value = e.target.value
+                  this.inputText({ input: inputList[2], value: value })
+                } }></input>
+              </div>
+
+              <div className="post-star">
+                <div className="evaluate-star">評価をつける</div>
+                {/*<div className="change-post-star">{star}</div>*/}
+                  <div class="cp_ipselect cp_sl02">
+                    <select ref="select-star" className="select-star" onChange={ (e)=>{
+                      const value = e.target.value
+                      this.inputText({ input: inputList[3], value: value })
+                    } }>
+                      <option value="" hidden>5段階評価</option>
+                      <option value="5" id="5">⭐️⭐️⭐️⭐️⭐️</option>
+                      <option value="4" id="4">⭐️⭐️⭐️⭐️</option>
+                      <option value="3" id="3">⭐️⭐️⭐️</option>
+                      <option value="2" id="2">⭐️⭐️</option>
+                      <option value="1" id="1">⭐️</option>
+                    </select>
+                  </div>
+              </div>
+
+              <ul className="post-attribute">
+                {/* <div className="post-hasBench" data-checked={this.state.something ? "checked" : ""}>ベンチがある</div> */}
+                {/* <input className="post-hasBench" data-checked={this.state.spot.hasBench ? "check" : "">ベンチがある</input> */}
+                {
+                  this.state.config && this.state.config.attribute && this.state.config.attribute.map( data => {
+                    return (
+                      <li ref="attribute-check">
+                        <input type="checkbox"  className="attribute-check" onChange={ (e)=>{
+                          const value = e.target.checked
+                          this.inputAttribute({ attribute: data.key, value: value })
+                        } }></input>
+                        <label>
+                         <input type="checkbox" className="checkbox01-input"/>
+                         <span class="checkbox01-parts">{data.label}</span>
+                        </label>
+
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+
+              <div className="post">
+                <button id="posting" className="posting" onClick= { this.posting }>投稿する</button>
+                {
+                  this.state.spot.map( spots => {
+                    return(
+                      <div className="spots" key={ spots.id }>
+                        {spots.id}
+                      <button className="delete" onClick={ ()=>{ this.deleteSpot(spots.id) }}>削除する</button>
+                      </div>
+                    )
+                  })
+                }
+              </div>
 
           </section>
+
+
           :null
         }
       </div>
