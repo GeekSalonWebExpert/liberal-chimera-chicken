@@ -156,6 +156,14 @@ video {
 .rating {
   height: 200px;
 }
+.form-review {
+  margin-left: 60px;
+  margin-top: 10px;
+  width: 80%;
+  height: 50%;
+  border-radius: 5px;
+  border: solid 2px #9a9a9a;
+}
 .contents-title {
   color: #9a9a9a;
   font-size: 25px;

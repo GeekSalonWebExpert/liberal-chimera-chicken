@@ -591,7 +591,7 @@ class Main extends Component {
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
               <p className="line"> </p>
-
+              <textarea className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。"></textarea>
             </div>
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
