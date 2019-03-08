@@ -1,15 +1,5 @@
 {
-  "spot": [
-    {
-      "isActive": false,
-      "area": "北海道",
-      "star": 5,
-      "hasToilet": false,
-      "hasRoof": false,
-      "hasBench": false,
-      "id": 1
-    }
-  ],
+  "spot": [],
   "config": {
     "region": [
       {
