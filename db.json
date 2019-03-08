@@ -1,5 +1,358 @@
 {
+<<<<<<< HEAD
   "spot": [],
+=======
+  "spot": [
+    {
+      "id": 1,
+      "name": "道の駅五霞",
+      "zipcode": "〒306-0304",
+      "address": "茨城県猿島群五霞町幸主18-1",
+      "area": "関東",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 36.115163,
+      "lng": 139.734986,
+      "review": []
+    },
+    {
+      "id": 2,
+      "name": "道の駅 YOU・遊・もり",
+      "zipcode": "〒049-2311",
+      "address": "北海道茅部郡森町上台町326-18",
+      "area": "北海道",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 42.102251,
+      "lng": 140.568183,
+      "review": []
+    },
+    {
+      "id": 3,
+      "name": "道の駅 厳美渓谷",
+      "zipcode": "〒021-0101",
+      "address": "岩手県一関市厳美町沖野々220-1",
+      "area": "東北",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 38.946439,
+      "lng": 141.052885,
+      "review": []
+    },
+    {
+      "id": 4,
+      "name": "道の駅　きららあじす",
+      "zipcode": "〒754-1277",
+      "address": "山口県山口市阿知須509-88",
+      "area": "中国",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 34.012855,
+      "lng": 131.369561,
+      "review": []
+    },
+    {
+      "id": 5,
+      "name": "道の駅 させぼっくす",
+      "zipcode": "〒858-0917",
+      "address": "長崎県佐世保市愛宕町11",
+      "area": "九州・沖縄",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 33.201749,
+      "lng": 129.671847,
+      "review": []
+    },
+    {
+      "id": 6,
+      "name": "仁井田駅",
+      "zipcode": "329-1200",
+      "address": "栃木県塩谷郡高根沢町大路文挾28",
+      "area": "関東",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        4
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 36.657207,
+      "lng": 140.029853,
+      "review": [
+        "冷え込むけど戸は閉まるし長い椅子もある"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "周防久保駅",
+      "zipcode": "774-0000",
+      "address": "山口県下松市大字河内795",
+      "area": "中国",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        1
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 34.029191,
+      "lng": 131.919121,
+      "review": [
+        "戸は閉まらないし地元のヤンキーがバイクで駅舎に突っ込んで来た",
+        "虫がいっぱい"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "田儀駅",
+      "zipcode": "693-0000",
+      "address": "島根県出雲市多岐町口田儀2016",
+      "area": "中国",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 35.274978,
+      "lng": 132.589452,
+      "review": [
+        "最高の駅舎。寒いところの駅舎は作りがしっかりしてよい",
+        "近くの海があり、朝の散歩もたのしい"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "道の駅 那須高原友愛の森",
+      "zipcode": "325-0303",
+      "address": "栃木県那須郡那須町高久乙593-8",
+      "area": "関東",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 37.041363,
+      "lng": 140.013984,
+      "review": []
+    },
+    {
+      "id": 10,
+      "name": "道の駅 とわだ とわだとぴあ",
+      "zipcode": "034-0051",
+      "address": "青森県十和田市大字伝法寺平窪37-2",
+      "area": "東北",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 40.574645,
+      "lng": 141.264612,
+      "review": []
+    },
+    {
+      "id": 11,
+      "name": "合浦公園",
+      "zipcode": "030-0902",
+      "address": "青森県青森市合浦2丁目17-50",
+      "area": "東北",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 40.828469,
+      "lng": 140.780401,
+      "review": [
+        "トイレと屋根のある場所が離れている"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "函館公園",
+      "zipcode": "040-0044",
+      "address": "北海道函館市青柳町17-3",
+      "area": "北海道",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 41.755381,
+      "lng": 140.716338,
+      "review": [
+        "夏は蚊が多め"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "道の駅 もち米の里なよろ",
+      "zipcode": "098-0507",
+      "address": "北海道名寄市",
+      "area": "北海道",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 44.287419,
+      "lng": 142.413772,
+      "review": []
+    },
+    {
+      "id": 14,
+      "name": "道の駅 おうむ",
+      "zipcode": "098-1702",
+      "address": "北海道紋別郡雄武町字雄武1885-14",
+      "area": "北海道",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": false,
+      "lat": 44.583023,
+      "lng": 142.959805,
+      "review": [
+        "売店の入り口にしか屋根がない"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "道の駅 風早の郷 風和里",
+      "address": "愛媛県松山市大浦119",
+      "area": "四国",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": false,
+      "hasBench": false,
+      "lat": 44.583023,
+      "lng": 142.959805,
+      "review": []
+    },
+    {
+      "id": 16,
+      "name": "道の駅 むなかた",
+      "address": "福岡県宗像市江口1172",
+      "area": "九州",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 33.848487,
+      "lng": 130.503398,
+      "review": []
+    },
+    {
+      "id": 17,
+      "name": "道の駅 水辺の郷 おおやま",
+      "address": "大分県日田市大山町西大山4106",
+      "area": "九州",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 33.24791,
+      "lng": 130.972093,
+      "review": [
+        "近くに川があり、とても寒い",
+        "早朝に売店のおじさんに起こされる"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "道の駅 厳木",
+      "area": "九州",
+      "isActive": false,
+      "image": 0,
+      "star": [
+        5
+      ],
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 33.311119,
+      "lng": 130.071911,
+      "review": [
+        "屋根が小さく、雨風の強さによっては濡れる"
+      ]
+    },
+    {
+      "name": "札幌駅",
+      "isActive": false,
+      "area": "北海道",
+      "star": 5,
+      "hasToilet": false,
+      "hasRoof": false,
+      "hasBench": false,
+      "id": 19
+    }
+  ],
+>>>>>>> ed0781db3f70ca016232c2329e05525ded20f6e5
   "config": {
     "region": [
       {
