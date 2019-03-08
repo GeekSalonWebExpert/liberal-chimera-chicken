@@ -539,6 +539,7 @@ class Main extends Component {
                 <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
 
                 <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+                  <option value="" hidden>エリア選択</option>
                 {
                   areaList.map((area,i)=>{
                     return <option value={i}>{area}</option>
