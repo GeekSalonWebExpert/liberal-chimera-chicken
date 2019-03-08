@@ -91,7 +91,6 @@ video {
 }
 .flex-container {
   display: flex;
-  background-color: rgb(255,255,255)
 }
 .flex-container .title {
   font-family: "Hiragino Kaku Gothic ProN";
@@ -154,6 +153,15 @@ video {
   width: 100%;
   border-radius: 5px;
 }
+.upload-contents {
+  height: 200px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
 .rating {
   height: 200px;
 }
@@ -198,6 +206,7 @@ p {
   text-align: center;
 }
 .message-space {
+  margin-top: 10px;
   height: 100px;
   max-width: 100%;
   position: relative;
@@ -210,21 +219,32 @@ p {
   text-align: center;
 }
 .form-upload {
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
+/* 画像アップロードボタン */
 .upload {
-  background-color: #fff;
-  color: #f2a240;
-}
-.upload:hover {
-  background-color: #fff8f4;
-  color: #f2a240;
+  color: #fff;
+  padding: 10px 10px;
+  margin: 20px;
+  margin-left: 40px;
+  background-color: #f2a240;
+  cursor: pointer;
+  box-shadow: 0 7px #e07b00;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
 }
 .upload:active {
-  background-color: #f2a240;
-  color: #fff;
+  box-shadow: none;
+  position: relative;
+  top: 7px;
 }
+.upload:hover {
+  background: #f2b974;
+}
+/* 画像アップロードボタン ---> end */
 .check-post {
   color: #9a9a9a;
 }
@@ -264,8 +284,7 @@ p {
 }
 .pane01 {
   margin: 80px 50px;
-  padding-left: 0px;
-  background-color: rgb(229,255,242);
+  background-color: #e5fff2;
 }
 .pane02 {
   margin: 80px 50px;
@@ -273,7 +292,6 @@ p {
 /* 投稿ボタン */
 .button-post {
   color: #fff;
-  padding: 10px 10px;
   margin: 20px;
   margin-left: 40px;
   background-color: #5dca88;
@@ -301,8 +319,8 @@ p {
 .nav-row {
   position: relative;
   padding: 6px 0 6px 30px;
-  margin-left: 30px;
   font-size: 12px;
+  margin-left: 30px;
   cursor: pointer;
   transition: opacity 0.12s ease;
 }
@@ -312,7 +330,7 @@ p {
 .nav-row.checkbox[data-checked]::after {
   position: absolute;
   top: 50%;
-  left: 0px;
+  left: 0;
   transform: translateY(-50%);
   content: "";
   width: 17px;
@@ -337,6 +355,7 @@ p {
 .css-fukidashi {
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 .fukidashi {
   display: none;
@@ -358,11 +377,11 @@ p {
   height: 0;
   left: 0;
   bottom: -19px;
-  margin-left: 10px;
+  marigin-left: 10px;
   border: solid transparent;
   border-color: rgba(51,204,153,0);
   border-top-color: rgba(51,204,153,0);
-  border-width: 10px;
+  boreder-width: 10px;
   pointer-events: none;
   content: " ";
 }
