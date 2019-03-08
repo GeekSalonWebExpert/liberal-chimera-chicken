@@ -133,31 +133,31 @@ class Main extends Component {
                 // }
               });
 
-              // 住所から緯度・経度を取得する
-              var geocoder = new window.google.maps.Geocoder();
-
-              //document.getElementById('posting').addEventListener('click', function() {
-              this.refs["posting"].addEventListener('click', function() {
-                geocoder.geocode({
-                  places: document.getElementById('places').value
-                },function(results,status){
-                  if (status !== 'OK') {
-                    alert('Failed: ' + status);
-                    return;
-                  }
-                  // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-                  // results[0].geometry.location
-                  if (results[0]) {
-                    this.setState({
-                      postLat: results[0].geometry.location.lat(),
-                      postLng: results[0].geometry.location.lng()
-                    })
-                  } else {
-                    alert('No results found');
-                    return
-                  }
-                });
-              });
+              // // 住所から緯度・経度を取得する
+              // var geocoder = new window.google.maps.Geocoder();
+              //
+              // //document.getElementById('posting').addEventListener('click', function() {
+              // this.refs["posting"].addEventListener('click', function() {
+              //   geocoder.geocode({
+              //     places: document.getElementById('places').value
+              //   },function(results,status){
+              //     if (status !== 'OK') {
+              //       alert('Failed: ' + status);
+              //       return;
+              //     }
+              //     // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+              //     // results[0].geometry.location
+              //     if (results[0]) {
+              //       this.setState({
+              //         postLat: results[0].geometry.location.lat(),
+              //         postLng: results[0].geometry.location.lng()
+              //       })
+              //     } else {
+              //       alert('No results found');
+              //       return
+              //     }
+              //   });
+              // });
 
               self.updateConfig()
             }
