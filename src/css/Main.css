@@ -206,7 +206,6 @@ p {
   text-align: center;
 }
 .message-space {
-  margin-top: 10px;
   height: 100px;
   max-width: 100%;
   position: relative;
@@ -214,6 +213,7 @@ p {
   background-color: #fff;
   width: 100%;
   border-radius: 5px;
+  padding-top: 30px;
 }
 .posting {
   text-align: center;
