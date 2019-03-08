@@ -273,6 +273,7 @@ p {
 }
 .pane01 {
   margin: 80px 50px;
+  background-color: #e5fff2;
 }
 .pane02 {
   margin: 80px 50px;
@@ -311,6 +312,7 @@ p {
   position: relative;
   padding: 6px 0 6px 30px;
   font-size: 12px;
+  margin-left: 40px;
   cursor: pointer;
   -webkit-transition: opacity 0.12s ease;
   transition: opacity 0.12s ease;
@@ -369,11 +371,11 @@ p {
   height: 0;
   left: 0;
   bottom: -19px;
-  margin-left: 10px;
+  marigin-left: 10px;
   border: solid transparent;
   border-color: rgba(51,204,153,0);
   border-top-color: rgba(51,204,153,0);
-  border-width: 10px;
+  boreder-width: 10px;
   pointer-events: none;
   content: " ";
 }

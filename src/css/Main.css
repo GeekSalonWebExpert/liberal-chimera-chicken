@@ -91,6 +91,7 @@ video {
 }
 .flex-container {
   display: flex;
+  background-color: rgb(255,255,255)
 }
 .flex-container .title {
   font-family: "Hiragino Kaku Gothic ProN";
@@ -263,6 +264,8 @@ p {
 }
 .pane01 {
   margin: 80px 50px;
+  padding-left: 0px;
+  background-color: rgb(229,255,242);
 }
 .pane02 {
   margin: 80px 50px;
@@ -298,6 +301,7 @@ p {
 .nav-row {
   position: relative;
   padding: 6px 0 6px 30px;
+  margin-left: 30px;
   font-size: 12px;
   cursor: pointer;
   transition: opacity 0.12s ease;
@@ -308,7 +312,7 @@ p {
 .nav-row.checkbox[data-checked]::after {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 0px;
   transform: translateY(-50%);
   content: "";
   width: 17px;
