@@ -133,30 +133,31 @@ class Main extends Component {
                 // }
               });
 
-              // // 住所から緯度・経度を取得する
-              // var geocoder = new window.google.maps.Geocoder();
-              //
-              // document.getElementById('posting').addEventListener('click', function() {
-              //   geocoder.geocode({
-              //     places: document.getElementById('places').value
-              //   },function(results,status){
-              //     if (status !== 'OK') {
-              //       alert('Failed: ' + status);
-              //       return;
-              //     }
-              //     // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-              //     // results[0].geometry.location
-              //     if (results[0]) {
-              //       this.setState({
-              //         postLat: results[0].geometry.location.lat(),
-              //         postLng: results[0].geometry.location.lng()
-              //       })
-              //     } else {
-              //       alert('No results found');
-              //       return
-              //     }
-              //   });
-              // });
+              // 住所から緯度・経度を取得する
+              var geocoder = new window.google.maps.Geocoder();
+
+              //document.getElementById('posting').addEventListener('click', function() {
+              this.refs["posting"].addEventListener('click', function() {
+                geocoder.geocode({
+                  places: document.getElementById('places').value
+                },function(results,status){
+                  if (status !== 'OK') {
+                    alert('Failed: ' + status);
+                    return;
+                  }
+                  // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+                  // results[0].geometry.location
+                  if (results[0]) {
+                    this.setState({
+                      postLat: results[0].geometry.location.lat(),
+                      postLng: results[0].geometry.location.lng()
+                    })
+                  } else {
+                    alert('No results found');
+                    return
+                  }
+                });
+              });
 
               self.updateConfig()
             }
@@ -402,7 +403,6 @@ class Main extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      // body: JSON.stringify({ body: this.state.inputText })
       body: JSON.stringify({
         "name": this.state.places,
         "zipcode": this.state.zipcodes,
@@ -625,7 +625,7 @@ class Main extends Component {
             </div>
 
             <div className="posting">
-              <button id="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
+              <button ref="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
               {
                 this.state.spot.map( spots => {
                   return(

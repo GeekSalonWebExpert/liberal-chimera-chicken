@@ -8,7 +8,7 @@
       "area": "関東",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
@@ -24,7 +24,7 @@
       "area": "北海道",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": false,
@@ -40,7 +40,7 @@
       "area": "東北",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": false,
@@ -56,7 +56,7 @@
       "area": "中国",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": false,
@@ -72,7 +72,7 @@
       "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
@@ -88,13 +88,13 @@
       "area": "関東",
       "isActive": false,
       "image": 0,
-      "star": 4,
+      "star": [4],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
       "lat": 36.657207,
       "lng": 140.029853,
-      "review": []
+      "review": ["冷え込むけど戸は閉まるし長い椅子もある"]
     },
     {
       "id": 7,
@@ -104,13 +104,13 @@
       "area": "中国",
       "isActive": false,
       "image": 0,
-      "star": 1,
+      "star": [1],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
       "lat": 34.029191,
       "lng": 131.919121,
-      "review": []
+      "review": ["戸は閉まらないし地元のヤンキーがバイクで駅舎に突っ込んで来た","虫がいっぱい"]
     },
     {
       "id": 8,
@@ -120,13 +120,13 @@
       "area": "中国",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
       "lat": 35.274978,
       "lng": 132.589452,
-      "review": []
+      "review": ["最高の駅舎。寒いところの駅舎は作りがしっかりしてよい","近くの海があり、朝の散歩もたのしい"]
     },
     {
       "id": 9,
@@ -136,7 +136,7 @@
       "area": "関東",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
@@ -152,7 +152,7 @@
       "area": "東北",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
@@ -168,13 +168,13 @@
       "area": "東北",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
       "lat": 40.828469,
       "lng": 140.780401,
-      "review": []
+      "review": ["トイレと屋根のある場所が離れている"]
     },
     {
       "id": 12,
@@ -184,13 +184,13 @@
       "area": "北海道",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
       "lat": 41.755381,
       "lng": 140.716338,
-      "review": []
+      "review": ["夏は蚊が多め"]
     },
     {
       "id": 13,
@@ -200,7 +200,7 @@
       "area": "北海道",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
@@ -216,13 +216,13 @@
       "area": "北海道",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": false,
       "lat": 44.583023,
       "lng": 142.959805,
-      "review": []
+      "review": ["売店の入り口にしか屋根がない"]
     },
     {
       "id": 15,
@@ -231,7 +231,7 @@
       "area": "四国",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": false,
       "hasBench": false,
@@ -246,7 +246,7 @@
       "area": "九州",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
@@ -261,13 +261,12 @@
       "area": "九州",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
-      "lat": 34.24791,
       "lat": 130.972093,
-      "review": []
+      "review": ["近くに川があり、とても寒い","早朝に売店のおじさんに起こされる"]
     },
     {
       "id": 18,
@@ -275,13 +274,13 @@
       "area": "九州",
       "isActive": false,
       "image": 0,
-      "star": 5,
+      "star": [5],
       "hasToilet": true,
       "hasRoof": true,
       "hasBench": true,
       "lat": 33.311119,
       "lng": 130.071911,
-      "review": []
+      "review": ["屋根が小さく、雨風の強さによっては濡れる"]
     }
   ],
   "config": {
