@@ -391,11 +391,12 @@ class Main extends Component {
       }
     })
 
-    //if(!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length) {
-    {/*if(!this.state.places) {
-      this.setState({ showError: true })
-      return false
-    }*/}
+    if((!this.state.places) || (!this.state.zipcodes) || (!this.state.addresses)) {
+      if(!this.state.places) {
+        this.setState({ showError: true })
+        return false
+      }
+    }
 
     fetch("http://localhost:3001/spot", {
       method: "POST",
@@ -518,7 +519,7 @@ class Main extends Component {
           {
             this.state.showError
             &&
-            <div className="post-alert"></div>
+            <div className="post-alert">エラー</div>
           }
         </div>
 

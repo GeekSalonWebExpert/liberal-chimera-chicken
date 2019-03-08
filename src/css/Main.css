@@ -381,3 +381,8 @@ p {
 .check-post {
   float: left;
 }
+
+.post-alert {
+
+  background-color: red;
+}
