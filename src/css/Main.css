@@ -354,11 +354,11 @@ p {
   height: 0;
   left: 0;
   bottom: -19px;
-  marigin-left: 10px;
+  margin-left: 10px;
   border: solid transparent;
   border-color: rgba(51,204,153,0);
   border-top-color: rgba(51,204,153,0);
-  boreder-width: 10px;
+  border-width: 10px;
   pointer-events: none;
   content: " ";
 }

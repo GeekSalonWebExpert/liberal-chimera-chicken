@@ -51,6 +51,7 @@ class Main extends Component {
 
     this.inputArea = this.inputArea.bind(this)
     this.inputText = this.inputText.bind(this)
+    this.inputReview = this.inputReview.bind(this)
     this.posting = this.posting.bind(this)
     this.startFetching = this.startFetching.bind(this)
   }
@@ -132,32 +133,30 @@ class Main extends Component {
                 // }
               });
 
-              {/*
-              // 住所から緯度・経度を取得する
-              var geocoder = new window.google.maps.Geocoder();
-
-              document.getElementById('posting').addEventListener('click', function() {
-                geocoder.geocode({
-                  places: document.getElementById('places').value
-                },function(results,status){
-                  if (status !== 'OK') {
-                    alert('Failed: ' + status);
-                    return;
-                  }
-                  // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-                  // results[0].geometry.location
-                  if (results[0]) {
-                    this.setState({
-                      postLat: results[0].geometry.location.lat(),
-                      postLng: results[0].geometry.location.lng()
-                    })
-                  } else {
-                    alert('No results found');
-                    return
-                  }
-                });
-              });
-              */}
+              // // 住所から緯度・経度を取得する
+              // var geocoder = new window.google.maps.Geocoder();
+              //
+              // document.getElementById('posting').addEventListener('click', function() {
+              //   geocoder.geocode({
+              //     places: document.getElementById('places').value
+              //   },function(results,status){
+              //     if (status !== 'OK') {
+              //       alert('Failed: ' + status);
+              //       return;
+              //     }
+              //     // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+              //     // results[0].geometry.location
+              //     if (results[0]) {
+              //       this.setState({
+              //         postLat: results[0].geometry.location.lat(),
+              //         postLng: results[0].geometry.location.lng()
+              //       })
+              //     } else {
+              //       alert('No results found');
+              //       return
+              //     }
+              //   });
+              // });
 
               self.updateConfig()
             }
@@ -324,10 +323,6 @@ class Main extends Component {
   }
 
 
-
-
-
-
   inputArea(e){
     const areaID = e.target.value
     this.setState({ areas: areaList[areaID]})
@@ -349,6 +344,11 @@ class Main extends Component {
     this.setState({ [o.attribute]: o.value })
   }
 
+  inputReview(e) {
+    const reviews = e.target.value
+    console.dir(reviews)
+    this.setState({ reviews: reviews })
+  }
 
 
   deleteSpot(spotsId) {
@@ -376,6 +376,9 @@ class Main extends Component {
           this.refs[ref].value = ""
         break
         case "input-address":
+          this.refs[ref].value = ""
+        break
+        case "form-review":
           this.refs[ref].value = ""
         break
         case "select-star":
@@ -411,7 +414,8 @@ class Main extends Component {
         "hasRoof": this.state.hasRoof || false,
         "hasBench": this.state.hasBench || false,
         "lat": this.state.postLat,
-        "lng": this.state.postLng
+        "lng": this.state.postLng,
+        "review": this.state.reviews
       })
     })
     .then( this.startFetching )
@@ -470,12 +474,6 @@ class Main extends Component {
                           }
                           data-checked={data.value}>
                           {data.label}
-                          {/*
-                            <label>
-                             <input type="checkbox" className="checkbox01-input"/>
-                             <span class="checkbox01-parts">{data.label}</span>
-                            </label>
-                          */}
                         </li>
                       )
                     })
@@ -502,12 +500,6 @@ class Main extends Component {
                           }
                           data-checked={data.value}>
                           {data.label}
-                          {/*
-                            <label>
-                             <input type="checkbox" className="checkbox01-input"/>
-                             <span class="checkbox01-parts">{data.label}</span>
-                            </label>
-                          */}
                         </li>
                       )
                     })
@@ -615,7 +607,7 @@ class Main extends Component {
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
               <p className="line"> </p>
-              <textarea className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。"></textarea>
+              <textarea ref="form-review" className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。" onChange={ this.inputReview }></textarea>
             </div>
 
             <div className="form-contents">
@@ -626,11 +618,13 @@ class Main extends Component {
                 <button id="upload" className="upload">アップロードする</button>
               </div>
             </div>
+
             <div className="message-space">
               <p className="form-message">野宿びよりは、『ご自身が実際に利用』した信頼度の高いレビューで、</p>
               <p className="form-message">お互いに「野宿者の役に立つ生きた情報」を共有する事を目的としたサイトです。</p>
               <p className="form-message">必ず、ご自身が実際に使用したものについてレビューしてください。</p>
             </div>
+
             <div className="posting">
               <button id="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
               {
@@ -645,7 +639,6 @@ class Main extends Component {
               }
             </div>
           </section>
-
 
         :null
         }
