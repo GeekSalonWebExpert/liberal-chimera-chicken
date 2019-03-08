@@ -133,7 +133,7 @@ class Main extends Component {
                 // }
               });
 
-              // // 住所から緯度・経度を取得する
+              // 住所から緯度・経度を取得する
               // var geocoder = new window.google.maps.Geocoder();
               //
               // //document.getElementById('posting').addEventListener('click', function() {
