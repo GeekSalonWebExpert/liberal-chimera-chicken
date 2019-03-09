@@ -391,11 +391,12 @@ class Main extends Component {
       }
     })
 
-    //if(!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length) {
-    {/*if(!this.state.places) {
+    if((!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length)) {
+      if(!this.state.places) {
       this.setState({ showError: true })
       return false
-    }*/}
+      }
+    }
 
     fetch("http://localhost:3001/spot", {
       method: "POST",

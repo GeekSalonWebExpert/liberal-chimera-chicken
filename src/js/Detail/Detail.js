@@ -112,7 +112,7 @@ class Detail extends Component {
         <div className="reviewlist">
         <div className="wordofmouth">口コミ</div>
         <div className="review_info">
-          <div className="reviews">{this.state.spot.review}</div>
+        <div className="reviews"></div>
         </div>
         </div>
         </div>
