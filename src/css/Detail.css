@@ -1,56 +1,57 @@
-.list_name {
+.detail_name {
   font-size: 36px;
   font-weight: bold;
   margin-left: 20px;
 }
 
-.list_image {
+.detail_image {
   margin-left: 20px;
   height: 300px;
   width: 300px;
   background-color: rgb(255, 229, 204);
 }
 
-.list_contents {
+.detail_contents {
   display: flex;
 }
 
-.list_evaluation {
+.detail_evaluation {
   display: flex;
 }
 
-.list_star {
+.detail_star {
   margin-left: 20px;
 }
 
-.list_rate {
+.detail_rate {
   margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.list_searchword {
+.detail_searchword {
   list-style: none;
   margin-left: 20px;
   display: flex;
   font-size: 16px;
 }
 
-.list_searchword li {
+.detail_searchword li {
   display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
 }
 
-.list_facility {
+.detail_facility {
   font-size: 18px;
+  font-weight: bolder;
   margin-top: 10px;
   margin-left: 40px;
 }
 
 .hasToilet {
   display: inline-block;
-  color: rgb(0,0,0,1);
+  color: rgb(255,255,255,1);
   background-color: #5dca88;
   margin-top: 20px;
   margin-left: 20px;
@@ -58,7 +59,7 @@
 
 .noToilet {
   display: inline-block;
-  color: rgb(0,0,0,0.1);
+  color: rgb(255,255,255,1);
   background-color: rgb(25,135,22,0.1);
   margin-top: 20px;
   margin-left: 20px;
@@ -66,7 +67,7 @@
 
 .hasBench {
   display: inline-block;
-  color: rgb(0,0,0,1);
+  color: rgb(255,255,255,1);
   background-color: #5dca88;
   margin-top: 20px;
   margin-left: 20px;
@@ -74,7 +75,7 @@
 
 .noBench {
   display: inline-block;
-  color: rgb(0,0,0,0.1);
+  color: rgb(255,255,255,1);
   background-color: rgb(25,135,22,0.1);
   margin-top: 20px;
   margin-left: 20px;
@@ -82,7 +83,7 @@
 
 .hasRoof {
   display: inline-block;
-  color: rgb(0,0,0,1);
+  color: rgb(255,255,255,1);
   background-color: #5dca88;
   margin-top: 20px;
   margin-left: 20px;
@@ -90,7 +91,7 @@
 
 .noRoof {
   display: inline-block;
-  color: rgb(0,0,0,0.1);
+  color: rgb(255,255,255,1);
   background-color: rgb(25,135,22,0.1);
   margin-top: 20px;
   margin-left: 20px;
@@ -103,6 +104,7 @@
 
 .address {
   width: 50px;
+  font-weight: bolder;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -110,6 +112,7 @@
 }
 
 .location_address {
+  font-weight: bolder;
   margin-top: 20px;
   margin-bottom: 0px;
   margin-left: 0px;
@@ -124,6 +127,7 @@
 }
 
 .wordofmouth {
+  font-weight: bolder;
   margin: 20px 0px 20px 20px;
 }
 

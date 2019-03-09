@@ -22,18 +22,18 @@ time, mark, audio, video {
 	vertical-align baseline
 }
 
+.title
+  font-family "Hiragino Kaku Gothic ProN"
+  font-size 40px
+  color white
+  margin-left 40px
+
 .flex-container
   display flex
 
-  .title
-    font-family "Hiragino Kaku Gothic ProN"
-    font-size 50px
-    color white
-    margin-left 20px
-
-
 .nav-list
-  list-style none
+  font-weight bold
+  font-size 50px
 
 .map
   height 1000px
@@ -220,17 +220,16 @@ p
   margin-left 20px
 
 .pane01
-  margin 80px 50px
+  margin 50px 50px
   background-color rgb(229,255,242)
 
 .pane02
-  margin 80px 50px
+  margin 50px 50px
 
 /* 投稿ボタン */
 .button-post
   color white
-  margin 20px
-  margin-left 40px
+  margin-left 0px
   background-color #5dca88
   cursor pointer
   box-shadow 0 7px #1a7940
@@ -265,6 +264,9 @@ p
   transition opacity .12s ease
   &:not(.radio):hover
     opacity .7
+  &.checkbox
+    font-size 16px
+    font-weight bolder
   &.checkbox[data-checked]::after
     position absolute
     top 50%
@@ -301,7 +303,7 @@ p
   top 0
   left 200px
   padding 16px
-  margin 90px 0px 0px 0px
+  margin 30px 0px 0px 0px
   background #545E75
   color #fff
   font-weight bold

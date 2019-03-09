@@ -123,18 +123,13 @@ class Main extends Component {
                 position : mapLatLng,   // 緯度・経度
                 animation: window.google.maps.Animation.DROP, // アニメーション
                 icon : image
-          			// icon:{
-          			// 	fillColor:"#FF0000",
-          			// 	path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-          			// 	scale: 5,
-          			// }
                 // label:{
           			// 	text:"現在地",
           			// 	color:"#ff7fbf
                 // }
               });
 
-              // 住所から緯度・経度を取得する
+              // //住所から緯度・経度を取得する
               // var geocoder = new window.google.maps.Geocoder();
               //
               // //document.getElementById('posting').addEventListener('click', function() {
@@ -447,7 +442,7 @@ class Main extends Component {
 
       <div className="App">
           <div className="header">
-            <h2 className="title">野宿びより</h2>
+            <div className="title">野宿びより</div>
           </div>
 
           <div className="flex-container">

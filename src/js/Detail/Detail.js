@@ -88,19 +88,22 @@ class Detail extends Component {
     for(let i = 0; i<this.state.spot.score; i++) star += "⭐️"
 
     return (
-      <div className="list">
-        <div className="list_name">{this.state.spot.name}</div>
-          <div className="list_contents">
-            <div className="list_image"></div>
-            <div className="list_info">
+      <section className="detail">
+        <div className="detail_header">
+          <div className="detail_title">野宿びより</div>
+        </div>
+        <div className="detail_name">{this.state.spot.name}</div>
+          <div className="detail_contents">
+            <div className="detail_image"></div>
+            <div className="detail_info">
               {/*
-              <div className = "list_evaluation">
-                 <div className= "list_star">{star}</div>
-                 <div className="list_rate">{this.state.spot.score}</div>
+              <div className = "detail_evaluation">
+                 <div className= "detail_star">{star}</div>
+                 <div className="detail_rate">{this.state.spot.score}</div>
               </div>
               */}
-              <div className="list_facility">設備状況</div>
-              <ul className="list_searchword">
+              <div className="detail_facility">設備状況</div>
+              <ul className="detail_searchword">
                 <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
                 <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
                 <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
@@ -124,7 +127,7 @@ class Detail extends Component {
           }
           </div>
         </div>
-      </div>
+      </section>
     )
   }
 }
