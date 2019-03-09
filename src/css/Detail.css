@@ -6,17 +6,15 @@
   font-size: 40px;
   font-weight: bolder;
   color: #fff;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 .detail_name {
   font-weight: bolder;
   font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
+  margin: 30px 0px 30px 50px;
 }
 .detail_image {
-  margin-left: 20px;
+  margin-left: 50px;
   height: 300px;
   width: 300px;
   background-color: #ffe5cc;
@@ -63,7 +61,7 @@
 .noToilet {
   display: inline-block;
   color: #fff;
-  background-color: rgb(93,202,136,0.2);
+  background-color: #5dca88;
   margin-top: 20px;
   margin-left: 20px;
 }
@@ -77,7 +75,7 @@
 .noBench {
   display: inline-block;
   color: #fff;
-  background-color: rgb(93,202,136,0.2);
+  background-color: #5dca88;
   margin-top: 20px;
   margin-left: 20px;
 }
@@ -91,7 +89,7 @@
 .noRoof {
   display: inline-block;
   color: #fff;
-  background-color: rgb(93,202,136,0.2);
+  background-color: #5dca88;
   margin-top: 20px;
   margin-left: 20px;
 }
@@ -101,33 +99,31 @@
 .address {
   width: 50px;
   font-weight: bolder;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 0px;
+  font-size: 18px;
+  margin: 30px 10px 30px 50px;
+  border: solid 1px #000;
+  text-align: center;
 }
 .location_address {
   font-weight: bolder;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 50px;
+  font-size: 18px;
+  margin: 30px 0px 30px 20px;
 }
 .detail-map {
-  margin-left: 20px;
+  margin-left: 50px;
   height: 600px;
   width: 1000px;
   background-color: #ffe5cc;
 }
 .wordofmouth {
   font-weight: bolder;
-  margin: 20px 0px 20px 20px;
+  margin: 30px 0px 30px 50px;
 }
 .review_info {
   display: flex;
 }
 .reviews {
-  margin-left: 20px;
+  margin-left: 50px;
   margin-bottom: 20px;
   height: 200px;
   width: 1000px;
