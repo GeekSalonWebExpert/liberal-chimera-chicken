@@ -92,7 +92,7 @@ class Detail extends Component {
         <div className="detail_header">
           <div className="detail_title">野宿びより</div>
         </div>
-        <div className="detail_name">{this.state.spot.name}</div>
+        <div className="detail_title">{this.state.spot.name}</div>
           <div className="detail_contents">
             <div className="detail_image"></div>
             <div className="detail_info">

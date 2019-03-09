@@ -92,6 +92,7 @@ video {
 .title {
   font-family: "Hiragino Kaku Gothic ProN";
   font-size: 40px;
+  font-weight: bolder;
   color: #fff;
   margin-left: 40px;
 }
