@@ -1,5 +1,5 @@
 .list_name {
-  font-size: 20px;
+  font-size: 36px;
   font-weight: bold;
   margin-left: 20px;
 }
@@ -38,26 +38,64 @@
 
 .list_searchword li {
   display: inline-block;
-  color: rgb(0,0,0,1);
-  background-color: rgb(25,135,22,0.1);
   padding: 10px 20px;
   cursor: pointer;
 }
 
-.list_searchword_item_first {
-  border: solid 1px #000000;
-  margin-top: 20px;
-}
-
-.list_searchword_item {
-  margin-top: 20px;
-  margin-left: 20px;
-  border: solid 1px #000000;
+.list_facility {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 40px;
 }
 
 .hasToilet {
-  background-color: red;
+  display: inline-block;
+  color: rgb(0,0,0,1);
+  background-color: #5dca88;
+  margin-top: 20px;
+  margin-left: 20px;
 }
+
+.noToilet {
+  display: inline-block;
+  color: rgb(0,0,0,0.1);
+  background-color: rgb(25,135,22,0.1);
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.hasBench {
+  display: inline-block;
+  color: rgb(0,0,0,1);
+  background-color: #5dca88;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.noBench {
+  display: inline-block;
+  color: rgb(0,0,0,0.1);
+  background-color: rgb(25,135,22,0.1);
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.hasRoof {
+  display: inline-block;
+  color: rgb(0,0,0,1);
+  background-color: #5dca88;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.noRoof {
+  display: inline-block;
+  color: rgb(0,0,0,0.1);
+  background-color: rgb(25,135,22,0.1);
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 
 .location_info {
   display: flex;

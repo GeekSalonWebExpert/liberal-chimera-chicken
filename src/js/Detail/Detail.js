@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import '../../css/Detail.css';
+import image from '../Image/sleepingbag.png'
 
 class Detail extends Component {
   constructor(props) {
@@ -55,13 +56,14 @@ class Detail extends Component {
               var marker = new window.google.maps.Marker({
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng,   // 緯度・経度
-                animation: window.google.maps.Animation.BOUNCE, // アニメーション
-          			icon:{
-          				fillColor:"#FF0000",
-          				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                  //path: 'sleepingbag.png',
-          				scale: 5,
-          			}
+                animation : window.google.maps.Animation.BOUNCE, // アニメーション
+                icon : image
+          			// icon:{
+          			// 	fillColor:"#FF0000",
+          			// 	path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                //   //path: 'sleepingbag.png',
+          			// 	scale: 5,
+          			// }
               });
             }
           );
@@ -81,7 +83,7 @@ class Detail extends Component {
  }
 
   render() {
-    console.log(this.refs)
+    console.log(this.state.spot.hasToilet)
     let star = ""
     for(let i = 0; i<this.state.spot.score; i++) star += "⭐️"
 
@@ -91,14 +93,17 @@ class Detail extends Component {
           <div className="list_contents">
             <div className="list_image"></div>
             <div className="list_info">
+              {/*
               <div className = "list_evaluation">
-                <div className= "list_star">{star}</div>
-                <div className="list_rate">{this.state.spot.score}</div>
+                 <div className= "list_star">{star}</div>
+                 <div className="list_rate">{this.state.spot.score}</div>
               </div>
+              */}
+              <div className="list_facility">設備状況</div>
               <ul className="list_searchword">
-                <li className="list_searchword_item_first">トイレあり</li>
-                <li className="list_searchword_item">ベンチあり</li>
-                <li className="list_searchword_item">屋根あり</li>
+                <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
+                <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
+                <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
               </ul>
             </div>
           </div>
@@ -110,12 +115,16 @@ class Detail extends Component {
             <div className="detail-map"　ref="map-view"></div>
         </div>
         <div className="reviewlist">
-        <div className="wordofmouth">口コミ</div>
-        <div className="review_info">
-        <div className="reviews"></div>
+          <div className="wordofmouth">口コミ</div>
+          <div className="reviews">
+          {
+             // this.state.spot.review.map( reviewList => {
+             //   return <div className="reviewList"> { reviewList } </div>
+             // } )
+          }
+          </div>
         </div>
-        </div>
-        </div>
+      </div>
     )
   }
 }

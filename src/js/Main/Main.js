@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import Core from './Core';
 import '../../css/Main.css';
+import image from '../Image/sleepingbag.png'
 
 
 const areaList = [
@@ -120,13 +121,13 @@ class Main extends Component {
               var marker = new window.google.maps.Marker({
                 map : self.map,             // 対象の地図オブジェクト
                 position : mapLatLng,   // 緯度・経度
-                animation: window.google.maps.Animation.BOUNCE, // アニメーション
-          			icon:{
-          				fillColor:"#FF0000",
-          				path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                  //path: 'sleepingbag.png',
-          				scale: 5,
-          			}
+                animation: window.google.maps.Animation.DROP, // アニメーション
+                icon : image
+          			// icon:{
+          			// 	fillColor:"#FF0000",
+          			// 	path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+          			// 	scale: 5,
+          			// }
                 // label:{
           			// 	text:"現在地",
           			// 	color:"#ff7fbf
@@ -271,6 +272,7 @@ class Main extends Component {
         this.setState({
           selectedSpot: spot
         })
+        console.log(spot);
         browserHistory.push(`/detail/${this.state.selectedSpot.id}/`)
       }
       info.appendChild(spotName)
@@ -282,7 +284,7 @@ class Main extends Component {
 
       marker.addListener("click",()=>{
         infoWindow.open(self.map,marker);
-        this.route(latLng)
+        //this.route(latLng)
       })
 
       self.markerList = self.markerList || []
@@ -294,34 +296,34 @@ class Main extends Component {
   }
 
 
-  // 現在地からのルート検索
-  route(latLng){
-    var request = {
-      origin: new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng), // 出発地
-      destination: latLng, // 目的地
-      travelMode: window.google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
-    };
-
-    var d = new window.google.maps.DirectionsService(); // ルート検索オブジェクト
-    if(this.directionsRenderer){
-      this.directionsRenderer.setMap(null)
-      this.directionsRenderer = null
-    }
-    this.directionsRenderer = new window.google.maps.DirectionsRenderer({ // ルート描画オブジェクト
-      map: this.map, // 描画先の地図
-      preserveViewport: true, // 描画後に中心点をずらさない
-    });
-
-    // ルート検索
-    var self = this
-    d.route(request, function(result, status){
-      // OKの場合ルート描画
-      if (status == window.google.maps.DirectionsStatus.OK) {
-        // この関数内でIndexを参照するために、↑でselfにthisを代入
-        self.directionsRenderer.setDirections(result);
-      }
-    })
-  }
+  // // 現在地からのルート検索
+  // route(latLng){
+  //   var request = {
+  //     origin: new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng), // 出発地
+  //     destination: latLng, // 目的地
+  //     travelMode: window.google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+  //   };
+  //
+  //   var d = new window.google.maps.DirectionsService(); // ルート検索オブジェクト
+  //   if(this.directionsRenderer){
+  //     this.directionsRenderer.setMap(null)
+  //     this.directionsRenderer = null
+  //   }
+  //   this.directionsRenderer = new window.google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+  //     map: this.map, // 描画先の地図
+  //     preserveViewport: true, // 描画後に中心点をずらさない
+  //   });
+  //
+  //   // ルート検索
+  //   var self = this
+  //   d.route(request, function(result, status){
+  //     // OKの場合ルート描画
+  //     if (status == window.google.maps.DirectionsStatus.OK) {
+  //       // この関数内でIndexを参照するために、↑でselfにthisを代入
+  //       self.directionsRenderer.setDirections(result);
+  //     }
+  //   })
+  // }
 
 
   inputArea(e){
@@ -628,6 +630,7 @@ class Main extends Component {
 
             <div className="posting">
               <button ref="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
+              {/*
               {
                 this.state.spot.map( spots => {
                   return(
@@ -638,6 +641,7 @@ class Main extends Component {
                   )
                 })
               }
+              */}
             </div>
           </section>
 

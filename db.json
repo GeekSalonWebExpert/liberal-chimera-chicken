@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "spot": [],
-=======
   "spot": [
     {
       "id": 1,
@@ -340,19 +337,8 @@
       "review": [
         "屋根が小さく、雨風の強さによっては濡れる"
       ]
-    },
-    {
-      "name": "札幌駅",
-      "isActive": false,
-      "area": "北海道",
-      "star": 5,
-      "hasToilet": false,
-      "hasRoof": false,
-      "hasBench": false,
-      "id": 19
     }
   ],
->>>>>>> ed0781db3f70ca016232c2329e05525ded20f6e5
   "config": {
     "region": [
       {
