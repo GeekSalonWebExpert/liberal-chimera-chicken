@@ -39,6 +39,9 @@ class Main extends Component {
       },
       view: "default",
       nowLocation: [],
+      places: [],
+      zipcodes: [],
+      addresser: []
     }
 
     this.watcher = window.setInterval(()=>{
@@ -129,31 +132,9 @@ class Main extends Component {
                 // }
               });
 
-              // //住所から緯度・経度を取得する
-              // var geocoder = new window.google.maps.Geocoder();
-              //
-              // //document.getElementById('posting').addEventListener('click', function() {
-              // this.refs["posting"].addEventListener('click', function() {
-              //   geocoder.geocode({
-              //     places: document.getElementById('places').value
-              //   },function(results,status){
-              //     if (status !== 'OK') {
-              //       alert('Failed: ' + status);
-              //       return;
-              //     }
-              //     // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-              //     // results[0].geometry.location
-              //     if (results[0]) {
-              //       this.setState({
-              //         postLat: results[0].geometry.location.lat(),
-              //         postLng: results[0].geometry.location.lng()
-              //       })
-              //     } else {
-              //       alert('No results found');
-              //       return
-              //     }
-              //   });
-              // });
+
+
+
 
               self.updateConfig()
             }
@@ -179,7 +160,6 @@ class Main extends Component {
   //       alert('Geocode was not successful for the following reason:' + status);
   //     }
   // }
-
 
   updateConfig(option = {}) {
     let config = this.state.config
@@ -358,65 +338,105 @@ class Main extends Component {
 
 
   posting() {
-    let refNames = Object.keys(this.refs)
-    refNames.forEach(ref=>{
-      console.log(this.refs[ref].checked)
-      switch(ref){
-        case "map-view":
-        break
-        case "area-name":
-          this.refs[ref].value = 0
-        break
-        case "input-place":
-          this.refs[ref].value = ""
-        break
-        case "input-zipcode":
-          this.refs[ref].value = ""
-        break
-        case "input-address":
-          this.refs[ref].value = ""
-        break
-        case "form-review":
-          this.refs[ref].value = ""
-        break
-        case "select-star":
-          this.refs[ref].value = 5
-        break
-        case "attribute-check":
-          this.refs[ref].checked = false
-        break
-      }
+
+    let getLatLng = new Promise((resolve,reject)=>{
+
+      // //住所から緯度・経度を取得する
+      var geocoder = new window.google.maps.Geocoder();
+
+      geocoder.geocode({
+        address: this.state.addresses
+      },(results,status)=>{
+        if (status !== 'OK') {
+          return reject();
+        }
+        // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
+        // results[0].geometry.location
+        if (results[0]) {
+          // this.setState({
+          //   postLat: results[0].geometry.location.lat(),
+          //   postLng: results[0].geometry.location.lng()
+          // })
+          resolve({
+            lat: results[0].geometry.location.lat(),
+            lng: results[0].geometry.location.lng()
+          })
+        } else {
+          return reject()
+        }
+      });
+
     })
 
-    if((!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length)) {
-      if(!this.state.places) {
-      this.setState({ showError: true })
-      return false
-      }
-    }
-
-    fetch("http://localhost:3001/spot", {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "name": this.state.places,
-        "zipcode": this.state.zipcodes,
-        "address": this.state.addresses,
-        "isActive": false,
-        "area": this.state.areas || "北海道",
-        "star": this.state.stars || 5,
-        "hasToilet": this.state.hasToilet || false,
-        "hasRoof": this.state.hasRoof || false,
-        "hasBench": this.state.hasBench || false,
-        "lat": this.state.postLat,
-        "lng": this.state.postLng,
-        "review": this.state.reviews
+    getLatLng.then(latlng=>{
+      // うまくやった時　次にやる事
+      console.log(latlng)
+      /*
+      =====
+      */
+      let refNames = Object.keys(this.refs)
+      refNames.forEach(ref=>{
+        console.log(this.refs[ref].checked)
+        switch(ref){
+          case "map-view":
+          break
+          case "area-name":
+            this.refs[ref].value = 0
+          break
+          case "input-place":
+            this.refs[ref].value = ""
+          break
+          case "input-zipcode":
+            this.refs[ref].value = ""
+          break
+          case "input-address":
+            this.refs[ref].value = ""
+          break
+          case "form-review":
+            this.refs[ref].value = ""
+          break
+          case "select-star":
+            this.refs[ref].value = 5
+          break
+          case "attribute-check":
+            this.refs[ref].checked = false
+          break
+        }
       })
+
+      if((!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length)) {
+        if(!this.state.places) {
+        this.setState({ showError: true })
+        return false
+        }
+      }
+
+      fetch("http://localhost:3001/spot", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "name": this.state.places,
+          "zipcode": this.state.zipcodes,
+          "address": this.state.addresses,
+          "isActive": false,
+          "area": this.state.areas || "北海道",
+          "star": this.state.stars || 5,
+          "hasToilet": this.state.hasToilet || false,
+          "hasRoof": this.state.hasRoof || false,
+          "hasBench": this.state.hasBench || false,
+          "lat": this.state.postLat,
+          "lng": this.state.postLng,
+          "review": this.state.reviews
+        })
+      })
+      .then( this.startFetching )
+
     })
-    .then( this.startFetching )
+
+
   }
 
 
