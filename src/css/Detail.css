@@ -126,13 +126,21 @@
   display: flex;
 }
 .reviews {
+  font-size: 20px;
+  font-weight: bolder;
   margin-left: 50px;
   margin-bottom: 20px;
   height: 200px;
   width: 1000px;
-  border: solid 1px #000;
-  background-color: #ffe5cc;
+  /* border: solid 1px #000; */
+  /* background-color: #ffe5cc; */
 }
 .active {
   display: block;
+}
+.line {
+  border-bottom: solid medium;
+  width: 95%;
+  margin-left: 0;
+  margin-bottom: 20px
 }

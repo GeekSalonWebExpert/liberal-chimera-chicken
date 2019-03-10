@@ -136,8 +136,12 @@ class Detail extends Component {
           <div className="wordofmouth">口コミ</div>
           <div className="reviews">
             {
-              this.state.spot.review.map( reviewList => {
-                return <div className="reviewList">{reviewList}</div>
+              this.state.spot.review.map( reviewsList => {
+                return(
+                  <div className="reviewsList">{reviewsList}
+                  <p className="line"></p>
+                  </div>
+                )
               })
             }
           </div>
