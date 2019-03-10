@@ -287,7 +287,7 @@
       "id": 16,
       "name": "道の駅 むなかた",
       "address": "福岡県宗像市江口1172",
-      "area": "九州",
+      "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
       "star": [
@@ -304,7 +304,7 @@
       "id": 17,
       "name": "道の駅 水辺の郷 おおやま",
       "address": "大分県日田市大山町西大山4106",
-      "area": "九州",
+      "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
       "star": [
@@ -323,7 +323,7 @@
     {
       "id": 18,
       "name": "道の駅 厳木",
-      "area": "九州",
+      "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
       "star": [
