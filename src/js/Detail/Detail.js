@@ -6,9 +6,24 @@ import image from '../Image/sleepingbag.png'
 
 class Detail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      spot: []
+      spot: {
+        id: "",
+        name: "",
+        zipcode: "",
+        address: "",
+        area: "",
+        isActive: "",
+        image: "",
+        star: [],
+        hasToilet: "",
+        hasRoof: "",
+        hasBench: "",
+        lat: "",
+        lng: "",
+        review: [],
+      }
     }
 
     this.watcher = window.setInterval(()=>{
@@ -120,12 +135,13 @@ class Detail extends Component {
         <div className="reviewlist">
           <div className="wordofmouth">口コミ</div>
           <div className="reviews">
-          {
-             // this.state.spot.review.map( reviewList => {
-             //   return <div className="reviewList"> { reviewList } </div>
-             // } )
-          }
+            {
+              this.state.spot.review.map( reviewList => {
+                return <div className="reviewList">{reviewList}</div>
+              })
+            }
           </div>
+
         </div>
       </section>
     )
