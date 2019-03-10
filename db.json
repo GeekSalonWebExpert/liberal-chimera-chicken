@@ -337,6 +337,19 @@
       "review": [
         "屋根が小さく、雨風の強さによっては濡れる"
       ]
+    },
+    {
+      "name": "研究所",
+      "zipcode": "277-0014",
+      "address": "千葉県柏市東1丁目2-24",
+      "isActive": false,
+      "area": "関東",
+      "star": "4",
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "review": "最高!!",
+      "id": 19
     }
   ],
   "config": {
