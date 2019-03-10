@@ -388,7 +388,7 @@ class Main extends Component {
       }
     })
 
-    if((!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length)) {
+    if((!this.state.places) || (!this.state.zipcodes) || (!this.state.addresses)) {
       if(!this.state.places) {
       this.setState({ showError: true })
       return false
