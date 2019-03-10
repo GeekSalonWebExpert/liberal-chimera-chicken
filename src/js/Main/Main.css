@@ -1,0 +1,391 @@
+.my-style {
+  display: block;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+.flex-container {
+  display: flex;
+}
+.flex-container .title {
+  font-family: "Hiragino Kaku Gothic ProN";
+  font-size: 50px;
+  color: #fff;
+  margin-left: 20px;
+}
+.nav-list {
+  list-style: none;
+}
+.map {
+  height: 1000px;
+  width: 1000px;
+}
+.outer {
+  position: relative;
+  height: 100%;
+}
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  display: block;
+  background: rgba(0,0,0,0.3);
+  z-index: 1024;
+  cursor: pointer;
+}
+.post {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 64%;
+  height: 94%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  padding: 20px;
+  background: #fff;
+  z-index: 1029;
+  background-color: #fafff2;
+  border-radius: 5px;
+}
+.header-post {
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.form-title {
+  margin-bottom: 20px;
+}
+.form-contents {
+  height: 300px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
+.rating {
+  height: 200px;
+}
+.form-review {
+  margin-left: 60px;
+  margin-top: 20px;
+  width: 80%;
+  height: 50%;
+  border-radius: 5px;
+  border: solid 2px #9a9a9a;
+}
+.contents-title {
+  color: #9a9a9a;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+span {
+  color: #f24333;
+  font-size: 15px;
+  margin-left: 5px;
+}
+p {
+  color: #9a9a9a;
+}
+.line {
+  border-bottom: dashed 2px #9a9a9a;
+  width: 95%;
+  margin: 5px auto;
+}
+.txt-contents {
+  color: #9a9a9a;
+  margin-left: 40px;
+  margin-top: 15px;
+}
+.information-form {
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.form-message {
+  color: #f2a240;
+  text-align: center;
+}
+.message-space {
+  height: 100px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
+.posting {
+  text-align: center;
+}
+.upload-contents {
+  height: 200px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
+.form-upload {
+  margin-top: 5px;
+  text-align: center;
+}
+.upload {
+  background-color: #fff;
+  color: #f2a240;
+}
+.upload:hover {
+  background-color: #fff8f4;
+  color: #f2a240;
+}
+.upload:active {
+  background-color: #f2a240;
+  color: #fff;
+}
+.message-stop {
+  margin: 10px;
+}
+.check-post {
+  color: #9a9a9a;
+}
+.address {
+  width: 500px;
+}
+.area-name {
+  margin-top: 10px;
+  margin-left: 60px;
+}
+.post-image {
+  height: 300px;
+  max-width: 100%;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+  background-color: #dcd8b2;
+  width: 100%;
+}
+.post-place {
+  display: flex;
+}
+.post-address {
+  display: flex;
+}
+.post-star {
+  display: flex;
+}
+.post-attribute {
+  list-style: none;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+.attribute-check {
+  color: #9a9a9a;
+  margin-left: 20px;
+}
+.pane01 {
+  margin: 80px 50px;
+}
+.pane02 {
+  margin: 80px 50px;
+}
+/* 投稿ボタン */
+.button-post {
+  color: #fff;
+  padding: 10px 10px;
+  margin: 20px;
+  margin-left: 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  box-shadow: 0 7px #1a7940;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+}
+.button-post:active {
+  box-shadow: none;
+  position: relative;
+  top: 7px;
+}
+.button-post:hover {
+  background: #80c99d;
+}
+.nav-section-hd {
+  background-color: #5dca88;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 40px;
+  margin: 20px;
+}
+.nav-row {
+  position: relative;
+  padding: 6px 0 6px 30px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+.nav-row:not(.radio):hover {
+  opacity: 0.7;
+}
+.nav-row.checkbox[data-checked]::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  content: "";
+  width: 17px;
+  height: 17px;
+  border: 1px solid #aaa;
+  display: block;
+}
+.nav-row.checkbox[data-checked="true"]::before {
+  positon: absolute;
+  top: 48%;
+  left: 6px;
+  transform: translateY(-50%) rotate(45deg);
+  content: "";
+  width: 4px;
+  height: 10px;
+  background-color: transparent;
+  border-color: transparent #d22a2a #d22a2a transparent;
+  boreder-style: solid;
+  border-width: 0 2px 2px 0;
+}
+/* 投稿画面吹き出し */
+.css-fukidashi {
+  padding: 0;
+  margin: 0;
+}
+.fukidashi {
+  display: none;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  padding: 16px;
+  margin: 90px 0px 0px 0px;
+  background: #545e75;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 10px;
+}
+.fukidashi:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  marigin-left: 10px;
+  border: solid transparent;
+  border-color: rgba(51,204,153,0);
+  border-top-color: rgba(51,204,153,0);
+  boreder-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+.button-post:hover + .fukidashi {
+  display: block;
+}
+.header {
+  background-color: #f2a240;
+}
+.header-post {
+  color: #fff;
+  background-color: #f2a240;
+  margin: auto;
+  font-size: 40px;
+}
+.check-post {
+  float: left;
+}
