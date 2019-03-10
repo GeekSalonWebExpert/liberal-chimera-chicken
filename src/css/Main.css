@@ -123,12 +123,6 @@ video {
   z-index: 1024;
   cursor: pointer;
 }
-.post-alert{
-  position: absolute;
-  background-color: red;
-  width: 500px;
-  height: 500px;
-}
 .post {
   position: absolute;
   top: 50%;
