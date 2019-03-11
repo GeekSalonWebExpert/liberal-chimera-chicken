@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import Core from './Core';
+import storage from './storage';
 import '../../css/Main.css';
 import image from '../Image/sleepingbag.png'
 
@@ -39,9 +40,9 @@ class Main extends Component {
       },
       view: "default",
       nowLocation: [],
-      places: "",
-      zipcodes: "",
-      addresses: ""
+      places: [],
+      zipcodes: [],
+      addresser: []
     }
 
     this.watcher = window.setInterval(()=>{
@@ -63,6 +64,15 @@ class Main extends Component {
 
   componentWillMount(){
     this.startFetching()
+    console.log(storage)
+    storage.set("message2", "OK");
+    storage.save()
+      .then((data)=>{
+        console.log(data)
+      })
+      .catch(function(err){
+
+      });
   }
 
 
@@ -74,6 +84,7 @@ class Main extends Component {
         fetch(`http://localhost:3001/${r}`)
         .then(response => response.json())
         .then(json=>{
+          // objectID
           this.setState({
             [r]: json
           })
@@ -132,34 +143,12 @@ class Main extends Component {
                 // }
               });
 
-
-
-
-
               self.updateConfig()
             }
           );
         }
   }
 
-  // function geocodeAddress(geocoder, resultsMap) {
-  //   var address = document.getElementById('input-post-address-content').value;
-  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
-  //     if (status === google.maps.GeocoderStatus.OK) {
-  //       resultsMap.setCenter(results[0].geometry.location);
-  //       var marker = new google.maps.Marker({
-  //         map: resultsMap
-  //         positon: results[0].geometry.location
-  //       });
-  //       this.setState({
-  //         postLat: results[0].geometry.location.lat(),
-  //         postLng: results[0].geometry.location.lng()
-  //       })
-  //     } else {
-  //       alert('Geocode was not successful for the following reason:' + status);
-  //     }
-  // }
 
   updateConfig(option = {}) {
     let config = this.state.config
@@ -336,7 +325,9 @@ class Main extends Component {
     .then( this.startFetching )
   }
 
+
   posting() {
+
     let getLatLng = new Promise((resolve,reject)=>{
 
       // //住所から緯度・経度を取得する
@@ -369,12 +360,16 @@ class Main extends Component {
     getLatLng.then(latlng=>{
       // うまくやった時　次にやる事
       console.log(latlng)
+      // this.setState({
+      //   postLat: lat,
+      //   postLng: lng
+      // })
       /*
       =====
       */
       let refNames = Object.keys(this.refs)
       refNames.forEach(ref=>{
-        console.log(this.refs[ref].value)
+        console.log(this.refs[ref].checked)
         switch(ref){
           case "map-view":
           break
@@ -399,13 +394,15 @@ class Main extends Component {
           case "attribute-check":
             this.refs[ref].checked = false
           break
-          case "post-alert":
-            this.refs[ref].value = ""
-          break
         }
       })
 
-
+      if((!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length)) {
+        if(!this.state.places) {
+        this.setState({ showError: true })
+        return false
+        }
+      }
 
       fetch("http://localhost:3001/spot", {
         method: "POST",
@@ -423,12 +420,13 @@ class Main extends Component {
           "hasToilet": this.state.hasToilet || false,
           "hasRoof": this.state.hasRoof || false,
           "hasBench": this.state.hasBench || false,
-          "lat": this.state.postLat,
-          "lng": this.state.postLng,
+          "lat": latlng.lat,
+          "lng": latlng.lng,
           "review": this.state.reviews
         })
       })
       .then( this.startFetching )
+      .then( this.putMarker() )
 
     })
 
@@ -528,7 +526,13 @@ class Main extends Component {
           </div>
 
 
-
+        <div className="alert">
+          {
+            this.state.showError
+            &&
+            <div className="post-alert">エラー</div>
+          }
+        </div>
 
 
         {
@@ -542,7 +546,7 @@ class Main extends Component {
             <div className="main-post">
               <div className="form-contents">
                 <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
-                <p className="line"> </p>
+                <p className="border"> </p>
                 <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
 
                 <select ref="area-name" className="area-name" onChange={ this.inputArea }>
@@ -555,20 +559,20 @@ class Main extends Component {
           　　　</select>
 
                 <div className="post-place">
-                  <input type="text" id="input-place" className="information-form" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
+                  <input type="text" id="input-place" className="information-form1" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[0], value: value })
                   } }></input>
                 </div>
-                <div className="post-zipcode">
-                  <input type="text" id="input-zipcode" className="information-form" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
+                <div className="post-address">
+                  <input type="text" id="input-zipcode" className="information-form2" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[1], value: value })
                   } }></input>
                 </div>
 
                 <div className="post-address">
-                  <input type="text" id="input-address" className="information-form" ref="input-address" placeholder="住所" onChange={ (e)=>{
+                  <input type="text" id="input-address" className="information-form3" ref="input-address" placeholder="住所" onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[2], value: value })
                   } }></input>
@@ -595,7 +599,7 @@ class Main extends Component {
 
             <div className="form-contents rating">
               <h1 className="contents-title">評価する<span>※必須</span></h1>
-              <p className="line"> </p>
+              <p className="border"> </p>
               <p className="txt-contents">◼︎ 野宿先を総合評価5点満点で採点してください。☆の部分をクリックすると、右側に1〜5の点数が表示されます。</p>
               <div class="cp_ipselect cp_sl02">
                 <select ref="select-star" className="select-star" onChange={ (e)=>{
@@ -614,13 +618,13 @@ class Main extends Component {
 
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
-              <p className="line"> </p>
+              <p className="border"> </p>
               <textarea ref="form-review" className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。" onChange={ this.inputReview }></textarea>
             </div>
 
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
-              <p className="line"> </p>
+              <p className="border"> </p>
               <p className="txt-contents">◼︎ レビューに関連する画像ファイルを1点アップロードすることができます。</p>
               <div className="form-upload">
                 <button id="upload" className="upload">アップロードする</button>
@@ -635,7 +639,7 @@ class Main extends Component {
 
             <div className="posting">
               <button ref="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
-
+              {/*
               {
                 this.state.spot.map( spots => {
                   return(
@@ -646,6 +650,7 @@ class Main extends Component {
                   )
                 })
               }
+              */}
             </div>
           </section>
 

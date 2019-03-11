@@ -350,6 +350,21 @@
       "hasBench": false,
       "review": "最高！！",
       "id": 19
+    },
+    {
+      "name": "研究所",
+      "zipcode": "277-0014",
+      "address": "千葉県柏市東1-2-24",
+      "isActive": false,
+      "area": "関東",
+      "star": "3",
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 35.8570503,
+      "lng": 139.97907529999998,
+      "review": "最高!!",
+      "id": 20
     }
   ],
   "config": {
