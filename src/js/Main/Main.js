@@ -565,20 +565,20 @@ class Main extends Component {
           　　　</select>
 
                 <div className="post-place">
-                  <input type="text" id="input-place" className="information-form" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
+                  <input type="text" id="input-place" className="information-form1" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[0], value: value })
                   } }></input>
                 </div>
                 <div className="post-address">
-                  <input type="text" id="input-zipcode" className="information-form" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
+                  <input type="text" id="input-zipcode" className="information-form2" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[1], value: value })
                   } }></input>
                 </div>
 
                 <div className="post-address">
-                  <input type="text" id="input-address" className="information-form" ref="input-address" placeholder="住所" onChange={ (e)=>{
+                  <input type="text" id="input-address" className="information-form3" ref="input-address" placeholder="住所" onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[2], value: value })
                   } }></input>
