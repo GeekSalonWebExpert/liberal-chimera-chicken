@@ -39,9 +39,9 @@ class Main extends Component {
       },
       view: "default",
       nowLocation: [],
-      places: [],
-      zipcodes: [],
-      addresser: []
+      places: "",
+      zipcodes: "",
+      addresses: ""
     }
 
     this.watcher = window.setInterval(()=>{
@@ -336,9 +336,7 @@ class Main extends Component {
     .then( this.startFetching )
   }
 
-
   posting() {
-
     let getLatLng = new Promise((resolve,reject)=>{
 
       // //住所から緯度・経度を取得する
@@ -376,7 +374,7 @@ class Main extends Component {
       */
       let refNames = Object.keys(this.refs)
       refNames.forEach(ref=>{
-        console.log(this.refs[ref].checked)
+        console.log(this.refs[ref].value)
         switch(ref){
           case "map-view":
           break
@@ -401,15 +399,13 @@ class Main extends Component {
           case "attribute-check":
             this.refs[ref].checked = false
           break
+          case "post-alert":
+            this.refs[ref].value = ""
+          break
         }
       })
 
-      if((!this.state.places.length) || (!this.state.zipcodes.length) || (!this.state.addresses.length)) {
-        if(!this.state.places) {
-        this.setState({ showError: true })
-        return false
-        }
-      }
+
 
       fetch("http://localhost:3001/spot", {
         method: "POST",
@@ -532,13 +528,7 @@ class Main extends Component {
           </div>
 
 
-        <div className="alert">
-          {
-            this.state.showError
-            &&
-            <div className="post-alert">エラー</div>
-          }
-        </div>
+
 
 
         {
@@ -570,7 +560,7 @@ class Main extends Component {
                     this.inputText({ input: inputList[0], value: value })
                   } }></input>
                 </div>
-                <div className="post-address">
+                <div className="post-zipcode">
                   <input type="text" id="input-zipcode" className="information-form" ref="input-zipcode" placeholder="〒郵便番号" onChange={ (e)=>{
                     const value = e.target.value
                     this.inputText({ input: inputList[1], value: value })
@@ -645,7 +635,7 @@ class Main extends Component {
 
             <div className="posting">
               <button ref="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
-              {/*
+
               {
                 this.state.spot.map( spots => {
                   return(
@@ -656,7 +646,6 @@ class Main extends Component {
                   )
                 })
               }
-              */}
             </div>
           </section>
 

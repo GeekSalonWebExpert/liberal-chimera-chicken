@@ -124,10 +124,12 @@ video {
   cursor: pointer;
 }
 .post-alert{
-  position: absolute;
-  background-color: red;
-  width: 500px;
-  height: 500px;
+  top: 50%;
+  left: 50%;
+  color: red;
+}
+.alert{
+  margin-top: 10px;
 }
 .post {
   position: absolute;
@@ -260,6 +262,7 @@ p {
   width: 500px;
 }
 .area-name {
+  font-size: 1.25eM;
   margin-top: 10px;
   margin-left: 60px;
 }
@@ -272,7 +275,13 @@ p {
   background-color: #dcd8b2;
   width: 100%;
 }
+input{
+  font-size: 1.25eM;
+}
 .post-place {
+  display: flex;
+}
+.post-zipcode {
   display: flex;
 }
 .post-address {

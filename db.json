@@ -344,11 +344,11 @@
       "address": "千葉県柏市東1丁目2-24",
       "isActive": false,
       "area": "関東",
-      "star": "4",
-      "hasToilet": true,
-      "hasRoof": true,
-      "hasBench": true,
-      "review": "最高!!",
+      "star": 5,
+      "hasToilet": false,
+      "hasRoof": false,
+      "hasBench": false,
+      "review": "最高！！",
       "id": 19
     }
   ],
