@@ -89,19 +89,17 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-.title {
-  font-family: "Hiragino Kaku Gothic ProN";
-  font-size: 40px;
-  font-weight: bolder;
-  color: #fff;
-  margin-left: 50px;
-}
 .flex-container {
   display: flex;
 }
-.nav-list {
-  font-weight: bold;
+.flex-container .title {
+  font-family: "Hiragino Kaku Gothic ProN";
   font-size: 50px;
+  color: #fff;
+  margin-left: 20px;
+}
+.nav-list {
+  list-style: none;
 }
 .map {
   height: 1000px;
@@ -124,7 +122,6 @@ video {
   cursor: pointer;
 }
 .post {
-  font-family: "Hiragino Kaku Gothic ProN";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -139,7 +136,6 @@ video {
   border-radius: 5px;
 }
 .header-post {
-  font-family: "Hiragino Kaku Gothic ProN";
   text-align: center;
   border-radius: 5px;
   width: 100%;
@@ -150,15 +146,6 @@ video {
 }
 .form-contents {
   height: 300px;
-  max-width: 100%;
-  position: relative;
-  overflow: hidden;
-  background-color: #fff;
-  width: 100%;
-  border-radius: 5px;
-}
-.upload-contents {
-  height: 200px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
@@ -184,16 +171,14 @@ video {
   margin-left: 40px;
 }
 span {
-  color: #f00;
+  color: #f24333;
   font-size: 15px;
   margin-left: 5px;
 }
 p {
   color: #9a9a9a;
 }
-
-
-.border {
+.line {
   border-bottom: dashed 2px #9a9a9a;
   width: 95%;
   margin: 5px auto;
@@ -203,17 +188,7 @@ p {
   margin-left: 40px;
   margin-top: 15px;
 }
-.information-form1 {
-  width: 300px;
-  margin-left: 60px;
-  margin-top: 10px;
-}
-.information-form2 {
-  margin-left: 60px;
-  margin-top: 10px;
-}
-.information-form3 {
-  width: 300px;
+.information-form {
   margin-left: 60px;
   margin-top: 10px;
 }
@@ -229,38 +204,38 @@ p {
   background-color: #fff;
   width: 100%;
   border-radius: 5px;
-  padding-top: 30px;
 }
 .posting {
   text-align: center;
 }
+.upload-contents {
+  height: 200px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+}
 .form-upload {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
   text-align: center;
 }
-/* 画像アップロードボタン */
 .upload {
-  color: #fff;
-  padding: 10px 10px;
-  margin: 20px;
-  margin-left: 40px;
-  background-color: #f2a240;
-  cursor: pointer;
-  box-shadow: 0 7px #e07b00;
-  border-radius: 5px;
-  outline: 0;
-  border: 0;
-}
-.upload:active {
-  box-shadow: none;
-  position: relative;
-  top: 7px;
+  background-color: #fff;
+  color: #f2a240;
 }
 .upload:hover {
-  background: #f2b974;
+  background-color: #fff8f4;
+  color: #f2a240;
 }
-/* 画像アップロードボタン ---> end */
+.upload:active {
+  background-color: #f2a240;
+  color: #fff;
+}
+.message-stop {
+  margin: 10px;
+}
 .check-post {
   color: #9a9a9a;
 }
@@ -299,16 +274,17 @@ p {
   margin-left: 20px;
 }
 .pane01 {
-  margin: 50px 50px;
-  background-color: #e5fff2;
+  margin: 80px 50px;
 }
 .pane02 {
-  margin: 50px 50px;
+  margin: 80px 50px;
 }
 /* 投稿ボタン */
 .button-post {
   color: #fff;
-  margin-left: 0px;
+  padding: 10px 10px;
+  margin: 20px;
+  margin-left: 40px;
   background-color: #5dca88;
   cursor: pointer;
   box-shadow: 0 7px #1a7940;
@@ -335,16 +311,11 @@ p {
   position: relative;
   padding: 6px 0 6px 30px;
   font-size: 12px;
-  margin-left: 30px;
   cursor: pointer;
   transition: opacity 0.12s ease;
 }
 .nav-row:not(.radio):hover {
   opacity: 0.7;
-}
-.nav-row.checkbox {
-  font-size: 16px;
-  font-weight: bolder;
 }
 .nav-row.checkbox[data-checked]::after {
   position: absolute;
@@ -374,7 +345,6 @@ p {
 .css-fukidashi {
   padding: 0;
   margin: 0;
-  text-align: center;
 }
 .fukidashi {
   display: none;
@@ -383,7 +353,7 @@ p {
   top: 0;
   left: 200px;
   padding: 16px;
-  margin: 30px 0px 0px 0px;
+  margin: 90px 0px 0px 0px;
   background: #545e75;
   color: #fff;
   font-weight: bold;
