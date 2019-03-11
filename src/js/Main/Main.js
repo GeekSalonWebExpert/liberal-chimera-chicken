@@ -64,15 +64,6 @@ class Main extends Component {
 
   componentWillMount(){
     this.startFetching()
-    console.log(storage)
-    storage.set("message2", "OK");
-    storage.save()
-      .then((data)=>{
-        console.log(data)
-      })
-      .catch(function(err){
-
-      });
   }
 
 
@@ -260,34 +251,34 @@ class Main extends Component {
   }
 
 
-  // // 現在地からのルート検索
-  // route(latLng){
-  //   var request = {
-  //     origin: new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng), // 出発地
-  //     destination: latLng, // 目的地
-  //     travelMode: window.google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
-  //   };
-  //
-  //   var d = new window.google.maps.DirectionsService(); // ルート検索オブジェクト
-  //   if(this.directionsRenderer){
-  //     this.directionsRenderer.setMap(null)
-  //     this.directionsRenderer = null
-  //   }
-  //   this.directionsRenderer = new window.google.maps.DirectionsRenderer({ // ルート描画オブジェクト
-  //     map: this.map, // 描画先の地図
-  //     preserveViewport: true, // 描画後に中心点をずらさない
-  //   });
-  //
-  //   // ルート検索
-  //   var self = this
-  //   d.route(request, function(result, status){
-  //     // OKの場合ルート描画
-  //     if (status == window.google.maps.DirectionsStatus.OK) {
-  //       // この関数内でIndexを参照するために、↑でselfにthisを代入
-  //       self.directionsRenderer.setDirections(result);
-  //     }
-  //   })
-  // }
+  // 現在地からのルート検索
+  route(latLng){
+    var request = {
+      origin: new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng), // 出発地
+      destination: latLng, // 目的地
+      travelMode: window.google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+    };
+
+    var d = new window.google.maps.DirectionsService(); // ルート検索オブジェクト
+    if(this.directionsRenderer){
+      this.directionsRenderer.setMap(null)
+      this.directionsRenderer = null
+    }
+    this.directionsRenderer = new window.google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+      map: this.map, // 描画先の地図
+      preserveViewport: true, // 描画後に中心点をずらさない
+    });
+
+    // ルート検索
+    var self = this
+    d.route(request, function(result, status){
+      // OKの場合ルート描画
+      if (status == window.google.maps.DirectionsStatus.OK) {
+        // この関数内でIndexを参照するために、↑でselfにthisを代入
+        self.directionsRenderer.setDirections(result);
+      }
+    })
+  }
 
 
   inputArea(e){
@@ -312,7 +303,7 @@ class Main extends Component {
   }
 
   inputReview(e) {
-    const reviews = e.target.value
+    const reviews = [e.target.value]
     console.dir(reviews)
     this.setState({ reviews: reviews })
   }
@@ -594,9 +585,9 @@ class Main extends Component {
                     })
                   }
                 </ul>
-              </div>
             </div>
 
+            {/*
             <div className="form-contents rating">
               <h1 className="contents-title">評価する<span>※必須</span></h1>
               <p className="border"> </p>
@@ -615,6 +606,7 @@ class Main extends Component {
                 </select>
               </div>
             </div>
+            */}
 
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
@@ -622,6 +614,7 @@ class Main extends Component {
               <textarea ref="form-review" className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。" onChange={ this.inputReview }></textarea>
             </div>
 
+            {/*
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
               <p className="border"> </p>
@@ -630,6 +623,7 @@ class Main extends Component {
                 <button id="upload" className="upload">アップロードする</button>
               </div>
             </div>
+            */}
 
             <div className="message-space">
               <p className="form-message">野宿びよりは、『ご自身が実際に利用』した信頼度の高いレビューで、</p>
@@ -652,7 +646,8 @@ class Main extends Component {
               }
               */}
             </div>
-          </section>
+          </div>
+        </section>
 
         :null
         }
