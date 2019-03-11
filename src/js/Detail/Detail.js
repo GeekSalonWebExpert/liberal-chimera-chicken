@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import '../../css/Detail.css';
 import image from '../Image/sleepingbag.png'
-import noImage from "../Image/noimage.png"
+// import noImage from "../Image/noimage.png"
 
 
 class Detail extends Component {
