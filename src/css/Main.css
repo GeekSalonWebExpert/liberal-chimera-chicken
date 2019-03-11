@@ -191,11 +191,8 @@ span {
 p {
   color: #9a9a9a;
 }
-.line {
-  border-bottom: dashed 2px #9a9a9a;
-  width: 95%;
-  margin: 5px auto;
-}
+
+
 .border {
   border-bottom: dashed 2px #9a9a9a;
   width: 95%;
