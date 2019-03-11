@@ -143,7 +143,6 @@ class Detail extends Component {
         <div className="reviewlist">
           <div className="wordofmouth">口コミ</div>
           <div className="reviews">
-            {/*
             {
               this.state.spot.review.length　=== 0
               ?
@@ -157,7 +156,6 @@ class Detail extends Component {
                 )
               })
             }
-            */}
           </div>
 
         </div>
