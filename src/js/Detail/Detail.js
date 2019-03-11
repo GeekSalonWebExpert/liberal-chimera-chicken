@@ -3,6 +3,8 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import '../../css/Detail.css';
 import image from '../Image/sleepingbag.png'
+import noImage from "../Image/noimage.png"
+
 
 class Detail extends Component {
   constructor(props) {
@@ -109,7 +111,11 @@ class Detail extends Component {
         </div>
         <div className="detail_name">{this.state.spot.name}</div>
           <div className="detail_contents">
-            <div className="detail_image"></div>
+            {/*<div className="detail_image" src="">*/}
+            {
+              <img  className="image" src={noImage}></img>
+            }
+            {/*</div>*/}
             <div className="detail_info">
               {/*
               <div className = "detail_evaluation">
@@ -134,9 +140,12 @@ class Detail extends Component {
         </div>
         <div className="reviewlist">
           <div className="wordofmouth">口コミ</div>
-          {/*
           <div className="reviews">
             {
+              this.state.spot.review.length　=== 0
+              ?
+              <div>口コミがありません</div>
+              :
               this.state.spot.review.map( reviewsList => {
                 return(
                   <div className="reviewsList">{reviewsList}
@@ -146,7 +155,6 @@ class Detail extends Component {
               })
             }
           </div>
-          */}
 
         </div>
       </section>
