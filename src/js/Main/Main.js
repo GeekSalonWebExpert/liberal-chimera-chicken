@@ -218,9 +218,12 @@ class Main extends Component {
       })
 
       let info = document.createElement("div")
+      info.style.cssText = "font-weight: bolder; color: #5dca88"
       let spotName = document.createElement("div")
+      spotName.style.cssText =　"font-weight: bolder; font-size: 2em"
       spotName.textContent = spot.name
       let button = document.createElement("input")
+      button.style.cssText = "font-size: 2em"
       button.type = "button"
       button.value = "詳細画面へ"
       button.onclick = ()=>{
@@ -429,7 +432,6 @@ class Main extends Component {
     //let star = ""
     //for(let i = 0; i<3; i++) star += "⭐️"
     //console.log(this.refs["region-name"] && this.refs["region-name"].value)
-
     return (
       <div className="outer" data-view={this.state.view}>
 

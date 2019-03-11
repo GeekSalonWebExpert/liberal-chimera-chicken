@@ -130,7 +130,7 @@ video {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   width: 64%;
-  height: 94%;
+  height: 65%;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   padding: 20px;
   background: #fff;
@@ -150,7 +150,7 @@ video {
   font-weight: bold;
 }
 .form-contents {
-  height: 300px;
+  height: 250px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
@@ -173,6 +173,7 @@ video {
 .form-review {
   margin-left: 60px;
   margin-top: 20px;
+  font-size: 15px;
   width: 80%;
   height: 50%;
   border-radius: 5px;
@@ -208,18 +209,21 @@ p {
   margin-top: 15px;
 }
 .information-form1 {
+  font-size: 1.25em;
   width: 300px;
   margin-left: 60px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .information-form2 {
+  font-size: 1.25em;
   margin-left: 60px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .information-form3 {
+  font-size: 1.25em;
   width: 300px;
   margin-left: 60px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .form-message {
   color: #f2a240;
@@ -236,11 +240,11 @@ p {
   background-color: #fff;
   width: 100%;
   border-radius: 5px;
-  padding-top: 30px;
 }
 .posting {
+  height: 75px;
   text-align: center;
-  margin-bottom: 50px;
+  background-color: white;
 }
 .form-upload {
   margin-top: 20px;
@@ -276,7 +280,8 @@ p {
   width: 500px;
 }
 .area-name {
-  margin-top: 10px;
+  font-size: 1.1em;
+  margin-top: 20px;
   margin-left: 60px;
 }
 .post-image {
@@ -307,7 +312,7 @@ p {
   margin-left: 20px;
 }
 .pane01 {
-  margin: 50px 50px;
+  margin: 50px 0px 50px 50px;
   width: 500px;
   background-color: #e5fff2;
 }
@@ -317,7 +322,8 @@ p {
 /* 投稿ボタン */
 .button-post {
   color: #fff;
-  margin-left: 0px;
+  width: 200px;
+  margin-left: 20px;
   background-color: #5dca88;
   cursor: pointer;
   box-shadow: 0 7px #1a7940;
@@ -435,4 +441,7 @@ p {
 }
 .info {
   font-size: 50px;
+}
+.gm-style-iw{
+  background-color: #e5fff2;
 }
