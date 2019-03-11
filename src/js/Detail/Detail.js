@@ -106,17 +106,17 @@ class Detail extends Component {
 
     return (
       <section className="detail">
-        <div className="detail_header">
+        <header className="detail_header">
           <div className="detail_title">野宿びより</div>
-        </div>
+        </header>
         <div className="detail_name">{this.state.spot.name}</div>
           <div className="detail_contents">
-            {/*<div className="detail_image" src="">*/}
-            {
+            <div className="detail_image" src="">
+            {/*
               <img  className="image" src={noImage}></img>
-            }
-            {/*</div>*/}
-            <div className="detail_info">
+            */}
+            </div>
+          <div className="detail_info">
               {/*
               <div className = "detail_evaluation">
                  <div className= "detail_star">{star}</div>
@@ -124,23 +124,26 @@ class Detail extends Component {
               </div>
               */}
               <div className="detail_facility">設備状況</div>
-              <ul className="detail_searchword">
-                <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
-                <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
-                <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
-              </ul>
+                <ul className="detail_searchword">
+                  <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
+                  <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
+                  <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
+                </ul>
+                <div className="location">
+                  <div className="location_info">
+                    <div className="address">住所</div>
+                    <div className="location_address">{this.state.spot.address}</div>
+                  </div>
             </div>
           </div>
-        <div className="location">
-          <div className="location_info">
-            <div className="address">住所</div>
-            <div className="location_address">{this.state.spot.address}</div>
-          </div>
-            <div className="detail-map"　ref="map-view"></div>
+
+
         </div>
+        <div className="detail-map"　ref="map-view"></div>
         <div className="reviewlist">
           <div className="wordofmouth">口コミ</div>
           <div className="reviews">
+            {/*
             {
               this.state.spot.review.length　=== 0
               ?
@@ -154,6 +157,7 @@ class Detail extends Component {
                 )
               })
             }
+            */}
           </div>
 
         </div>

@@ -104,7 +104,7 @@ video {
   font-size: 50px;
 }
 .map {
-  height: 1000px;
+  height: 850px;
   width: 1000px;
 }
 .outer {
@@ -130,7 +130,7 @@ video {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   width: 64%;
-  height: 65%;
+  height: 82%;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   padding: 20px;
   background: #fff;
@@ -146,11 +146,12 @@ video {
   margin-bottom: 15px;
 }
 .form-title {
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 25px;
   font-weight: bold;
 }
 .form-contents {
-  height: 250px;
+  height: 325px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
@@ -173,7 +174,8 @@ video {
 .form-review {
   margin-left: 60px;
   margin-top: 20px;
-  font-size: 15px;
+  margin-bottm: 50px;
+  font-size: 18px;
   width: 80%;
   height: 50%;
   border-radius: 5px;
@@ -209,21 +211,21 @@ p {
   margin-top: 15px;
 }
 .information-form1 {
-  font-size: 1.25em;
   width: 300px;
   margin-left: 60px;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 18px;
 }
 .information-form2 {
-  font-size: 1.25em;
   margin-left: 60px;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 18px;
 }
 .information-form3 {
-  font-size: 1.25em;
   width: 300px;
   margin-left: 60px;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 18px;
 }
 .form-message {
   color: #f2a240;
@@ -233,7 +235,7 @@ p {
   width: 100px;
 }
 .message-space {
-  height: 100px;
+  height: 80px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
@@ -242,9 +244,9 @@ p {
   border-radius: 5px;
 }
 .posting {
-  height: 75px;
+  height: 100px;
   text-align: center;
-  background-color: white;
+  background-color: #fff;
 }
 .form-upload {
   margin-top: 20px;
@@ -280,9 +282,9 @@ p {
   width: 500px;
 }
 .area-name {
-  font-size: 1.1em;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 60px;
+  font-size: 18px;
 }
 .post-image {
   height: 300px;
@@ -310,20 +312,21 @@ p {
 .attribute-check {
   color: #9a9a9a;
   margin-left: 20px;
+  font-size: 18px;
 }
 .pane01 {
-  margin: 50px 0px 50px 50px;
-  width: 500px;
+  margin: 50px 0px 0px 50px;
+  height: 850px;
+  width: 300px;
   background-color: #e5fff2;
 }
 .pane02 {
-  margin: 50px 50px;
+  margin-top: 50px;
 }
 /* 投稿ボタン */
 .button-post {
   color: #fff;
   width: 200px;
-  margin-left: 20px;
   background-color: #5dca88;
   cursor: pointer;
   box-shadow: 0 7px #1a7940;
@@ -361,7 +364,7 @@ p {
 .nav-row.checkbox {
   font-size: 16px;
   font-weight: bolder;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .nav-row.checkbox[data-checked]::after {
   position: absolute;
@@ -375,7 +378,7 @@ p {
   display: block;
 }
 .nav-row.checkbox[data-checked="true"]::before {
-  position: absolute;
+  positon: absolute;
   top: 48%;
   left: 6px;
   transform: translateY(-50%) rotate(45deg);
@@ -384,7 +387,7 @@ p {
   height: 10px;
   background-color: transparent;
   border-color: transparent #d22a2a #d22a2a transparent;
-  border-style: solid;
+  boreder-style: solid;
   border-width: 0 2px 2px 0;
 }
 /* 投稿画面吹き出し */
@@ -395,7 +398,7 @@ p {
 }
 .fukidashi {
   display: none;
-  width: 300px;
+  width: 200px;
   position: absolute;
   top: 0;
   left: 200px;
@@ -413,11 +416,11 @@ p {
   height: 0;
   left: 0;
   bottom: -19px;
-  margin-left: 10px;
+  marigin-left: 10px;
   border: solid transparent;
   border-color: rgba(51,204,153,0);
   border-top-color: rgba(51,204,153,0);
-  border-width: 10px;
+  boreder-width: 10px;
   pointer-events: none;
   content: " ";
 }
@@ -435,13 +438,20 @@ p {
 }
 .check-post {
   float: left;
+  font-size: 18px;
 }
 .main-post {
-  padding-bottom: 50px;
+  background-color: #fff;
 }
 .info {
   font-size: 50px;
 }
-.gm-style-iw{
-  background-color: #e5fff2;
+.review-form {
+  height: 250px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
 }

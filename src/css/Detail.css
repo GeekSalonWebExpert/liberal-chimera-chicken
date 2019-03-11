@@ -10,11 +10,11 @@
 }
 .detail_name {
   font-weight: bolder;
-  font-size: 24px;
-  margin: 30px 0px 30px 375px;
+  font-size: 36px;
+  margin: 30px 0px 30px 300px;
 }
 .detail_image {
-  margin-left: 40px;
+  margin-left: 300px;
   height: 300px;
   width: 300px;
   background-color: #ffe5cc;
@@ -35,7 +35,7 @@
 }
 .detail_searchword {
   list-style: none;
-  margin-left: 20px;
+  margin-left: 50px;
   display: flex;
   font-size: 16px;
 }
@@ -44,12 +44,12 @@
   padding: 10px 20px;
   cursor: pointer;
   font-weight: bolder;
+  border-radius: 5px;
 }
 .detail_facility {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bolder;
-  margin-top: 10px;
-  margin-left: 40px;
+  margin-left: 70px;
 }
 .hasToilet {
   display: inline-block;
@@ -102,33 +102,35 @@
 .address {
   width: 50px;
   font-weight: bolder;
-  font-size: 18px;
-  margin: 30px 10px 30px 375px;
+  font-size: 24px;
+  margin: 75px 0px 0px 70px;
   border: solid 1px #000;
   text-align: center;
 }
 .location_address {
   font-weight: bolder;
-  font-size: 18px;
-  margin: 30px 0px 30px 20px;
+  font-size: 24px;
+  margin: 75px 0px 0px 20px;
 }
 .detail-map {
-  margin-left: 375px;
+  margin-top: 50px;
+  margin-left: 300px;
   height: 600px;
-  width: 750px;
+  width: 850px;
   background-color: #ffe5cc;
 }
 .wordofmouth {
   font-weight: bolder;
-  margin: 30px 0px 30px 375px;
+  font-size: 24px;
+  margin: 30px 0px 30px 300px;
 }
 .review_info {
   display: flex;
 }
 .reviews {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bolder;
-  margin-left: 375px;
+  margin-left: 300px;
   margin-bottom: 20px;
   height: 200px;
   width: 1000px;
@@ -140,7 +142,7 @@
 }
 .line {
   border-bottom: solid medium;
-  width: 75%;
+  width: 90%;
   margin-left: 0;
   margin-bottom: 20px
 }
@@ -148,5 +150,5 @@
 .image{
   height: 300px;
   width: 300px;
-  margin-left: 375px;
+  margin-left: 300px;
 }

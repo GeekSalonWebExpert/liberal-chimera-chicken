@@ -114,7 +114,7 @@ class Main extends Component {
               var mapLatLng = new window.google.maps.LatLng(this.state.nowLocation.lat, this.state.nowLocation.lng);
               // マップオプションを変数に格納
               var mapOptions = {
-                zoom : 6.1,          // 拡大倍率
+                zoom : 6.0,          // 拡大倍率
                 center : mapLatLng  // 緯度・経度
               };
               // マップオブジェクト作成
@@ -448,9 +448,9 @@ class Main extends Component {
 
 
       <div className="App">
-          <div className="header">
+          <header className="header">
             <div className="title">野宿びより</div>
-          </div>
+          </header>
 
           <div className="flex-container">
             <div className="pane01">
@@ -610,7 +610,7 @@ class Main extends Component {
             </div>
             */}
 
-            <div className="form-contents">
+            <div className="review-form">
               <h1 className="contents-title">レビューする</h1>
               <p className="border"> </p>
               <textarea ref="form-review" className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。" onChange={ this.inputReview }></textarea>
