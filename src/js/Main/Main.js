@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import Core from './Core';
+import storage from './storage';
 import '../../css/Main.css';
 import image from '../Image/sleepingbag.png'
 
@@ -63,6 +64,15 @@ class Main extends Component {
 
   componentWillMount(){
     this.startFetching()
+    console.log(storage)
+    storage.set("message2", "OK");
+    storage.save()
+      .then((data)=>{
+        console.log(data)
+      })
+      .catch(function(err){
+
+      });
   }
 
 
@@ -74,6 +84,7 @@ class Main extends Component {
         fetch(`http://localhost:3001/${r}`)
         .then(response => response.json())
         .then(json=>{
+          // objectID
           this.setState({
             [r]: json
           })
@@ -132,34 +143,12 @@ class Main extends Component {
                 // }
               });
 
-
-
-
-
               self.updateConfig()
             }
           );
         }
   }
 
-  // function geocodeAddress(geocoder, resultsMap) {
-  //   var address = document.getElementById('input-post-address-content').value;
-  //   // resultsに緯度・経度などの情報、statusに緯度・経度取得に成功したかどうかの判定結果
-  //   geocoder.geocode({'input-post-address-content': address}, function(results, status))
-  //     if (status === google.maps.GeocoderStatus.OK) {
-  //       resultsMap.setCenter(results[0].geometry.location);
-  //       var marker = new google.maps.Marker({
-  //         map: resultsMap
-  //         positon: results[0].geometry.location
-  //       });
-  //       this.setState({
-  //         postLat: results[0].geometry.location.lat(),
-  //         postLng: results[0].geometry.location.lng()
-  //       })
-  //     } else {
-  //       alert('Geocode was not successful for the following reason:' + status);
-  //     }
-  // }
 
   updateConfig(option = {}) {
     let config = this.state.config
@@ -371,6 +360,10 @@ class Main extends Component {
     getLatLng.then(latlng=>{
       // うまくやった時　次にやる事
       console.log(latlng)
+      // this.setState({
+      //   postLat: lat,
+      //   postLng: lng
+      // })
       /*
       =====
       */
@@ -427,12 +420,13 @@ class Main extends Component {
           "hasToilet": this.state.hasToilet || false,
           "hasRoof": this.state.hasRoof || false,
           "hasBench": this.state.hasBench || false,
-          "lat": this.state.postLat,
-          "lng": this.state.postLng,
+          "lat": latlng.lat,
+          "lng": latlng.lng,
           "review": this.state.reviews
         })
       })
       .then( this.startFetching )
+      .then( this.putMarker() )
 
     })
 
