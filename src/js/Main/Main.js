@@ -552,7 +552,7 @@ class Main extends Component {
             <div className="main-post">
               <div className="form-contents">
                 <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
-                <p className="line"> </p>
+                <p className="border"> </p>
                 <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
 
                 <select ref="area-name" className="area-name" onChange={ this.inputArea }>
@@ -605,7 +605,7 @@ class Main extends Component {
 
             <div className="form-contents rating">
               <h1 className="contents-title">評価する<span>※必須</span></h1>
-              <p className="line"> </p>
+              <p className="border"> </p>
               <p className="txt-contents">◼︎ 野宿先を総合評価5点満点で採点してください。☆の部分をクリックすると、右側に1〜5の点数が表示されます。</p>
               <div class="cp_ipselect cp_sl02">
                 <select ref="select-star" className="select-star" onChange={ (e)=>{
@@ -624,13 +624,13 @@ class Main extends Component {
 
             <div className="form-contents">
               <h1 className="contents-title">レビューする</h1>
-              <p className="line"> </p>
+              <p className="border"> </p>
               <textarea ref="form-review" className="form-review" rows="10" cols="60" placeholder="野宿先を利用した感想を記入してください。" onChange={ this.inputReview }></textarea>
             </div>
 
             <div className="form-contents">
               <h1 className="contents-title">画像をアップロードする</h1>
-              <p className="line"> </p>
+              <p className="border"> </p>
               <p className="txt-contents">◼︎ レビューに関連する画像ファイルを1点アップロードすることができます。</p>
               <div className="form-upload">
                 <button id="upload" className="upload">アップロードする</button>

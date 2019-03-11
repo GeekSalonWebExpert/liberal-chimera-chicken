@@ -182,7 +182,7 @@ video {
   margin-left: 40px;
 }
 span {
-  color: #f24333;
+  color: #f00;
   font-size: 15px;
   margin-left: 5px;
 }
@@ -190,6 +190,11 @@ p {
   color: #9a9a9a;
 }
 .line {
+  border-bottom: dashed 2px #9a9a9a;
+  width: 95%;
+  margin: 5px auto;
+}
+.border {
   border-bottom: dashed 2px #9a9a9a;
   width: 95%;
   margin: 5px auto;
