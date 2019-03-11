@@ -134,6 +134,7 @@ class Detail extends Component {
         </div>
         <div className="reviewlist">
           <div className="wordofmouth">口コミ</div>
+          {/*
           <div className="reviews">
             {
               this.state.spot.review.map( reviewsList => {
@@ -145,6 +146,7 @@ class Detail extends Component {
               })
             }
           </div>
+          */}
 
         </div>
       </section>

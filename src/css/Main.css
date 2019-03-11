@@ -134,8 +134,8 @@ video {
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   padding: 20px;
   background: #fff;
+  background-color: #e5fff2;
   z-index: 1029;
-  background-color: #fafff2;
   border-radius: 5px;
 }
 .header-post {
@@ -147,6 +147,7 @@ video {
 }
 .form-title {
   margin-bottom: 20px;
+  font-weight: bold;
 }
 .form-contents {
   height: 300px;
@@ -191,8 +192,11 @@ span {
 p {
   color: #9a9a9a;
 }
-
-
+.line {
+  border-bottom: dashed 2px #9a9a9a;
+  width: 95%;
+  margin: 5px auto;
+}
 .border {
   border-bottom: dashed 2px #9a9a9a;
   width: 95%;
@@ -221,6 +225,9 @@ p {
   color: #f2a240;
   text-align: center;
 }
+.select-star {
+  width: 100px;
+}
 .message-space {
   height: 100px;
   max-width: 100%;
@@ -233,6 +240,7 @@ p {
 }
 .posting {
   text-align: center;
+  margin-bottom: 50px;
 }
 .form-upload {
   margin-top: 20px;
@@ -300,6 +308,7 @@ p {
 }
 .pane01 {
   margin: 50px 50px;
+  width: 500px;
   background-color: #e5fff2;
 }
 .pane02 {
@@ -326,9 +335,10 @@ p {
 }
 .nav-section-hd {
   background-color: #5dca88;
+  font-weight: bold;
   border-radius: 5px;
   color: #fff;
-  padding: 10px 40px;
+  text-align: center;
   margin: 20px;
 }
 .nav-row {
@@ -345,6 +355,7 @@ p {
 .nav-row.checkbox {
   font-size: 16px;
   font-weight: bolder;
+  margin-top: 20px;
 }
 .nav-row.checkbox[data-checked]::after {
   position: absolute;
@@ -373,12 +384,12 @@ p {
 /* 投稿画面吹き出し */
 .css-fukidashi {
   padding: 0;
-  margin: 0;
+  margin: 20px;
   text-align: center;
 }
 .fukidashi {
   display: none;
-  width: 200px;
+  width: 300px;
   position: absolute;
   top: 0;
   left: 200px;
@@ -418,4 +429,10 @@ p {
 }
 .check-post {
   float: left;
+}
+.main-post {
+  padding-bottom: 50px;
+}
+.info {
+  font-size: 50px;
 }

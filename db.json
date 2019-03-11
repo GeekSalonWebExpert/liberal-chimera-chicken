@@ -365,6 +365,23 @@
       "lng": 139.97907529999998,
       "review": "最高!!",
       "id": 20
+    },
+    {
+      "name": "北海道",
+      "zipcode": "055-4323",
+      "address": "北海道函館市",
+      "isActive": false,
+      "area": "北海道",
+      "star": 5,
+      "hasToilet": false,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 41.7687933,
+      "lng": 140.72881029999996,
+      "review": [
+        "最高！！！"
+      ],
+      "id": 21
     }
   ],
   "config": {
