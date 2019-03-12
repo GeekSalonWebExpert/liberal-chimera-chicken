@@ -58,6 +58,7 @@ class Main extends Component {
     this.inputText = this.inputText.bind(this)
     this.inputReview = this.inputReview.bind(this)
     this.posting = this.posting.bind(this)
+    this.putMarker = this.putMarker.bind(this)
     this.startFetching = this.startFetching.bind(this)
   }
 
@@ -416,15 +417,12 @@ class Main extends Component {
           "hasBench": this.state.hasBench || false,
           "lat": latlng.lat,
           "lng": latlng.lng,
-          "review": this.state.reviews
+          "review": this.state.reviews || [],
         })
       })
       .then( this.startFetching )
       .then( this.putMarker() )
-
     })
-
-
   }
 
 
@@ -635,7 +633,7 @@ class Main extends Component {
 
             <div className="posting">
               <button ref="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
-              {/*
+
               {
                 this.state.spot.map( spots => {
                   return(
@@ -646,7 +644,7 @@ class Main extends Component {
                   )
                 })
               }
-              */}
+
             </div>
           </div>
         </section>

@@ -1,24 +1,6 @@
 {
   "spot": [
     {
-      "id": 1,
-      "name": "道の駅五霞",
-      "zipcode": "〒306-0304",
-      "address": "茨城県猿島群五霞町幸主18-1",
-      "area": "関東",
-      "isActive": false,
-      "image": 0,
-      "star": [
-        5
-      ],
-      "hasToilet": true,
-      "hasRoof": true,
-      "hasBench": true,
-      "lat": 36.115163,
-      "lng": 139.734986,
-      "review": []
-    },
-    {
       "id": 2,
       "name": "道の駅 YOU・遊・もり",
       "zipcode": "〒049-2311",
@@ -269,6 +251,7 @@
     {
       "id": 15,
       "name": "道の駅 風早の郷 風和里",
+      "zipcode": "799-2408",
       "address": "愛媛県松山市大浦119",
       "area": "四国",
       "isActive": false,
@@ -287,6 +270,7 @@
       "id": 16,
       "name": "道の駅 むなかた",
       "address": "福岡県宗像市江口1172",
+      "zipcode": "811-3502",
       "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
@@ -304,6 +288,7 @@
       "id": 17,
       "name": "道の駅 水辺の郷 おおやま",
       "address": "大分県日田市大山町西大山4106",
+      "zipcodes": "877-0201",
       "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
@@ -323,6 +308,8 @@
     {
       "id": 18,
       "name": "道の駅 厳木",
+      "address": "佐賀県唐津市厳木町牧瀬692-1",
+      "zipcode": "849-3113",
       "area": "九州・沖縄",
       "isActive": false,
       "image": 0,
