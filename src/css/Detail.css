@@ -1,25 +1,28 @@
 .detail-header {
-  background-color: #f2a240;
+  background: linear-gradient( #ffc896, #ff9696);
 }
 .detail-title {
   font-family: "Hiragino Kaku Gothic ProN";
   font-size: 40px;
   font-weight: bolder;
-  color: #fff;
   margin-left: 50px;
 }
 .detail-name {
   font-weight: bolder;
   font-size: 36px;
   margin: 30px 0px 30px 300px;
+  color: rgb(255,150,150);
 }
-.detail-image {
+.image {
   margin-left: 300px;
   height: 300px;
   width: 300px;
   background-color: #ffe5cc;
 }
 .detail-contents {
+  display: flex;
+}
+.detail-pane {
   display: flex;
 }
 .detail-evaluation {
@@ -50,18 +53,19 @@
   font-size: 24px;
   font-weight: bolder;
   margin-left: 70px;
+  color: rgb(255,150,150);
 }
 .hasToilet {
   display: inline-block;
   color: #fff;
-  background-color: #5dca88;
+  background-color: rgb(255,125,150);
   margin-top: 20px;
   margin-left: 20px;
 }
 .noToilet {
   display: inline-block;
   color: #fff;
-  background-color: #5dca88;
+  background-color: rgb(255,150,150,0.5);
   opacity: 0.2;
   margin-top: 20px;
   margin-left: 20px;
@@ -69,14 +73,14 @@
 .hasBench {
   display: inline-block;
   color: #fff;
-  background-color: #5dca88;
+  background-color: rgb(255,125,150);
   margin-top: 20px;
   margin-left: 20px;
 }
 .noBench {
   display: inline-block;
   color: #fff;
-  background-color: #5dca88;
+  background-color: rgb(255,150,150,0.5);
   opacity: 0.2;
   margin-top: 20px;
   margin-left: 20px;
@@ -84,33 +88,31 @@
 .hasRoof {
   display: inline-block;
   color: #fff;
-  background-color: #5dca88;
+  background-color: rgb(255,125,150);
   margin-top: 20px;
   margin-left: 20px;
 }
 .noRoof {
   display: inline-block;
   color: #fff;
-  background-color: #5dca88;
+  background-color: rgb(255,150,150,0.5);
   opacity: 0.2;
   margin-top: 20px;
   margin-left: 20px;
-}
-.location-info {
-  display: flex;
 }
 .address {
   width: 50px;
   font-weight: bolder;
   font-size: 24px;
   margin: 75px 0px 0px 70px;
-  border: solid 1px #000;
   text-align: center;
+  color: rgb(255,150,150);
 }
 .location-address {
   font-weight: bolder;
   font-size: 24px;
-  margin: 75px 0px 0px 20px;
+  margin: 13px 0px 0px 70px;
+  color: rgb(255,150,150);
 }
 .detail-map {
   margin-top: 50px;
@@ -123,6 +125,7 @@
 .wordofmouth {
   font-weight: bolder;
   font-size: 24px;
+  color: rgb(255,150,150);
   margin: 30px 0px 30px 300px;
 }
 .review-info {
@@ -144,7 +147,8 @@
   border-bottom: solid medium;
   width: 82.5%;
   margin-left: 0;
-  margin-bottom: 20px
+  margin-bottom: 50px;
+  color: rgb(255,125,150);
 }
 .image{
   height: 300px;
@@ -173,4 +177,7 @@
   font-size: 30px;
   border-radius: 5px;
   border: solid 2px #9a9a9a;
+}
+.reviewsList{
+  color: black;
 }

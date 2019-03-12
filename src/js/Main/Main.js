@@ -5,6 +5,7 @@ import Core from './Core';
 import storage from './storage';
 import '../../css/Main.css';
 import image from '../Image/sleepingbag.png'
+import sleep from '../Image/sleep.png'
 
 
 const areaList = [
@@ -219,7 +220,7 @@ class Main extends Component {
       })
 
       let info = document.createElement("div")
-      info.style.cssText = "font-weight: bolder; color: #5dca88"
+      info.style.cssText = "font-weight: bolder; color: #ff9696"
       let spotName = document.createElement("div")
       spotName.style.cssText =　"font-weight: bolder; font-size: 2em"
       spotName.textContent = spot.name
@@ -447,7 +448,10 @@ class Main extends Component {
 
       <div className="App">
           <header className="header">
+          <div className="header-pane">
             <div className="title">野宿びより</div>
+            <img  className="image-sleep" src={sleep}></img>
+          </div>
           </header>
 
           <div className="flex-container">

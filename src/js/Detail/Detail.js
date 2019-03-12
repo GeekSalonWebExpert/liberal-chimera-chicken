@@ -3,7 +3,9 @@ import { Router, Route, IndexRoute, browserHistory, Link } from "react-router";
 import ReactDOM from 'react-dom';
 import '../../css/Detail.css';
 import image from '../Image/sleepingbag.png'
-// import noImage from "../Image/noimage.png"
+import sleep from "../Image/sleep.png"
+import noImage from "../Image/noimage.png"
+
 
 
 class Detail extends Component {
@@ -155,36 +157,37 @@ class Detail extends Component {
     return (
       <section className="detail">
         <header className="detail-header">
-          <div className="detail-title">野宿びより</div>
+        <div className="header-pane">
+          <div className="title">野宿びより</div>
+          <img  className="image-sleep" src={sleep}></img>
+        </div>
         </header>
         <div className="detail-name">{this.state.spot.name}</div>
-          <div className="detail-contents">
-            <div className="detail-image" src="">
-            {/*
-              <img  className="image" src={noImage}></img>
-            */}
-            </div>
-            <div className="detail-info">
-              {/*
-              <div className = "detail_evaluation">
-                 <div className= "detail_star">{star}</div>
-                 <div className="detail_rate">{this.state.spot.score}</div>
-              </div>
-              */}
-              <div className="detail-facility">設備状況</div>
-                <ul className="detail-searchword">
-                  <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
-                  <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
-                  <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
-                </ul>
-                <div className="location">
-                  <div className="location-info">
-                    <div className="address">住所</div>
-                    <div className="location-address">{this.state.spot.address}</div>
-                  </div>
+
+        <div className="detail-pane">
+          <img  className="image" src={noImage}></img>
+            <div className="detail-contents">
+              <div className="detail-info">
+                {/*
+                <div className = "detail_evaluation">
+                   <div className= "detail_star">{star}</div>
+                   <div className="detail_rate">{this.state.spot.score}</div>
                 </div>
+                */}
+                <div className="detail-facility">設備状況</div>
+                  <ul className="detail-searchword">
+                    <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
+                    <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
+                    <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
+                  </ul>
+                  <div className="location">
+                      <div className="address">住所</div>
+                      <div className="location-address">{this.state.spot.address}</div>
+                  </div>
+              </div>
             </div>
-          </div>
+        </div>
+
         <div className="detail-map"　ref="map-view"></div>
         <div className="reviewlist">
           <div className="wordofmouth">レビュー</div>
