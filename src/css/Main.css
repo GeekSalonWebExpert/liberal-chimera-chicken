@@ -151,7 +151,7 @@ video {
   font-weight: bold;
 }
 .form-contents {
-  height: 325px;
+  height: 350px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
@@ -182,7 +182,7 @@ video {
   border: solid 2px #9a9a9a;
 }
 .contents-title {
-  color: #9a9a9a;
+  color: #333333;
   font-size: 25px;
   margin-top: 10px;
   margin-left: 40px;
@@ -296,9 +296,11 @@ p {
   width: 100%;
 }
 .post-place {
+  margin-top: 10px;
   display: flex;
 }
 .post-address {
+  margin-top: 10px;
   display: flex;
 }
 .post-star {
