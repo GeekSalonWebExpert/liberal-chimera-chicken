@@ -166,6 +166,7 @@ video {
   /* margin-bottom: 25px; */
   font-weight: bold;
   background-color: rgb(255,150,150);
+  border-radius: 5px;
 }
 .form-contents {
   height: 350px;
@@ -368,7 +369,7 @@ p {
   border-radius: 5px;
   color: #fff;
   text-align: center;
-  border: solid 1.5px rgb(255,150,150);
+  border: solid 3px rgb(255,150,150);
   margin: 20px;
 }
 .nav-row {
