@@ -538,20 +538,20 @@ class Main extends Component {
               <h1 className="form-title">野宿場所 & レビュー 投稿フォーム</h1>
             </div>
 
-            <div className="main-post">
-              <div className="form-contents">
-                <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
-                <p className="border"> </p>
-                <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
+              <div className="main-post">
+                <div className="form-contents">
+                  <h1 className="contents-title">野宿先情報を記入する<span>※必須</span></h1>
+                  <p className="border"> </p>
+                  <p className="txt-contents">◼︎ 下記の項目について記入してください。</p>
 
-                <select ref="area-name" className="area-name" onChange={ this.inputArea }>
-                  <option value="" hidden>エリア選択</option>
-                {
-                  areaList.map((area,i)=>{
-                    return <option value={i}>{area}</option>
-                  })
-                }
-          　　　</select>
+                  <select ref="area-name" className="area-name" onChange={ this.inputArea }>
+                    <option value="" hidden>エリア選択</option>
+                  {
+                    areaList.map((area,i)=>{
+                      return <option value={i}>{area}</option>
+                    })
+                  }
+            　　　</select>
 
                 <div className="post-place">
                   <input type="text" id="input-place" className="information-form1" ref="input-place" placeholder="野宿先名称"  onChange={ (e)=>{
@@ -589,7 +589,7 @@ class Main extends Component {
                     })
                   }
                 </ul>
-            </div>
+              </div>
 
             {/*
             <div className="form-contents rating">
@@ -638,6 +638,7 @@ class Main extends Component {
             <div className="posting">
               <button ref="posting" className="button-post" onClick= { this.posting }>入力内容を投稿する</button>
 
+              {/*
               {
                 this.state.spot.map( spots => {
                   return(
@@ -648,9 +649,10 @@ class Main extends Component {
                   )
                 })
               }
+              */}
 
+              </div>
             </div>
-          </div>
         </section>
 
         :null

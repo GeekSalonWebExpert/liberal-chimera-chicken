@@ -172,7 +172,6 @@ video {
   max-width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #fff;
   width: 100%;
   border-radius: 5px;
   margin-top: 20px;
@@ -257,14 +256,12 @@ p {
   max-width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #fff;
   width: 100%;
   border-radius: 5px;
 }
 .posting {
   height: 100px;
   text-align: center;
-  background-color: #fff;
 }
 .form-upload {
   margin-top: 20px;
@@ -352,7 +349,7 @@ p {
   font-size: 18px;
   background-color: rgb(255,125,150);
   cursor: pointer;
-  box-shadow: 0 7px rgb(255,100,150);
+  box-shadow: 0 8px rgb(255,100,150);
   border-radius: 5px;
   outline: 0;
   border: 0;
@@ -388,7 +385,7 @@ p {
   font-size: 16px;
   font-weight: bolder;
   margin-top: 10px;
-  color: rgb(0, 0, 0, 0.6);
+  color: rgb(0, 0, 0, 0.7);
 }
 .nav-row.checkbox[data-checked]::after {
   position: absolute;
@@ -473,7 +470,12 @@ p {
   max-width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #fff;
   width: 100%;
   border-radius: 5px;
+}
+.form {
+  background-color: color;
+}
+.main-post {
+  background-color: whites;
 }

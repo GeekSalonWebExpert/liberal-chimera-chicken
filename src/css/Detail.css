@@ -1,3 +1,6 @@
+.detail {
+  background-color: rgb(230,230,250,0.1);
+}
 .detail-header {
   background: linear-gradient( #ffc896, #ff9696);
 }
