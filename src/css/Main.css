@@ -368,6 +368,7 @@ p {
   border-radius: 5px;
   color: #fff;
   text-align: center;
+  border: solid 1.5px rgb(255,150,150);
   margin: 20px;
 }
 .nav-row {
