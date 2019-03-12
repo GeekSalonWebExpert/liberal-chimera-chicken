@@ -104,9 +104,9 @@ class Detail extends Component {
   }
 
   inputReview(e) {
-    const reviews = e.target.value
-    var totals = this.state.spot.review.push(reviews)
-    this.setState({ reviews: this.state.spot.review })
+    const reviews = [this.state.spot.review]
+    var totals = reviews.push(e.target.value)
+    this.setState({ reviews: reviews })
   }
 
   deleteInput() {
