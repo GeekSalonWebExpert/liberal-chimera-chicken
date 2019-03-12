@@ -36,6 +36,10 @@ class Detail extends Component {
         this.initMap.call(this)
       }
     },100)
+
+    this.fetchSpot = this.fetchSpot.bind(this)
+    this.inputReview = this.inputReview.bind(this)
+    this.deleteInput = this.deleteInput.bind(this)
   }
 
   initMap(){
@@ -91,13 +95,56 @@ class Detail extends Component {
     this.fetchSpot()
   }
 
- fetchSpot(){
+  fetchSpot(){
    fetch(`http://localhost:3001/spot/${this.props.params.id}/`)
    .then( response => response.json() )
    .then( json => {
      this.setState({ spot: json })
    })
- }
+  }
+
+  inputReview(e) {
+    const reviews = [e.target.value]
+    this.setState({ reviews: reviews })
+  }
+
+  deleteInput() {
+    let refNames = Object.keys(this.refs)
+    refNames.forEach(ref=>{
+      switch (ref) {
+        case "detail-review":
+          this.refs[ref].value = ""
+        break;
+        default:
+      }
+    })
+  }
+
+  postReview(postId) {
+    fetch("http://localhost:3001/spot/" + postId, {
+      method: "PUT",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "name": this.state.spot.name,
+        "zipcode": this.state.spot.zipcode,
+        "address": this.state.spot.address,
+        "isActive": false,
+        "area": this.state.spot.area,
+        "star": this.state.spot.star,
+        "hasToilet": this.state.spot.hasToilet,
+        "hasRoof": this.state.spot.hasRoof,
+        "hasBench": this.state.spot.hasBench,
+        "lat": this.state.spot.lat,
+        "lng": this.state.spot.lng,
+        "review": this.state.reviews
+      })
+    })
+    .then( this.fetchSpot )
+    .then( this.deleteInput )
+  }
 
   render() {
     console.log(this.state.spot.hasToilet)
@@ -106,47 +153,45 @@ class Detail extends Component {
 
     return (
       <section className="detail">
-        <header className="detail_header">
-          <div className="detail_title">野宿びより</div>
+        <header className="detail-header">
+          <div className="detail-title">野宿びより</div>
         </header>
-        <div className="detail_name">{this.state.spot.name}</div>
-          <div className="detail_contents">
-            <div className="detail_image" src="">
+        <div className="detail-name">{this.state.spot.name}</div>
+          <div className="detail-contents">
+            <div className="detail-image" src="">
             {/*
               <img  className="image" src={noImage}></img>
             */}
             </div>
-          <div className="detail_info">
+            <div className="detail-info">
               {/*
               <div className = "detail_evaluation">
                  <div className= "detail_star">{star}</div>
                  <div className="detail_rate">{this.state.spot.score}</div>
               </div>
               */}
-              <div className="detail_facility">設備状況</div>
-                <ul className="detail_searchword">
+              <div className="detail-facility">設備状況</div>
+                <ul className="detail-searchword">
                   <li className={this.state.spot.hasToilet ? "hasToilet": "noToilet"}>トイレ</li>
                   <li className={this.state.spot.hasBench ? "hasBench": "noBench"}>ベンチ</li>
                   <li className={this.state.spot.hasRoof ? "hasRoof": "noRoof"}>屋根</li>
                 </ul>
                 <div className="location">
-                  <div className="location_info">
+                  <div className="location-info">
                     <div className="address">住所</div>
-                    <div className="location_address">{this.state.spot.address}</div>
+                    <div className="location-address">{this.state.spot.address}</div>
                   </div>
+                </div>
             </div>
           </div>
-
-
-        </div>
         <div className="detail-map"　ref="map-view"></div>
         <div className="reviewlist">
-          <div className="wordofmouth">口コミ</div>
+          <div className="wordofmouth">レビュー</div>
           <div className="reviews">
             {
               this.state.spot.review.length　=== 0
               ?
-              <div>口コミがありません</div>
+              <div>レビューがありません</div>
               :
               this.state.spot.review.map( reviewsList => {
                 return(
@@ -156,6 +201,10 @@ class Detail extends Component {
                 )
               })
             }
+          </div>
+          <div className="detail-post">
+            <button type="button" name="post" className="plus-review" placeholder="+" onClick={()=> {this.postReview(this.state.spot.id) }} >+</button>
+            <textarea ref="detail-review" className="detail-review" rows="5" cols="90" placeholder="レビューを投稿してください" onChange={ this.inputReview }></textarea>
           </div>
 
         </div>

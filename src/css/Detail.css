@@ -1,52 +1,52 @@
-.detail_header {
+.detail-header {
   background-color: #f2a240;
 }
-.detail_title {
+.detail-title {
   font-family: "Hiragino Kaku Gothic ProN";
   font-size: 40px;
   font-weight: bolder;
   color: #fff;
   margin-left: 50px;
 }
-.detail_name {
+.detail-name {
   font-weight: bolder;
   font-size: 36px;
   margin: 30px 0px 30px 300px;
 }
-.detail_image {
+.detail-image {
   margin-left: 300px;
   height: 300px;
   width: 300px;
   background-color: #ffe5cc;
 }
-.detail_contents {
+.detail-contents {
   display: flex;
 }
-.detail_evaluation {
+.detail-evaluation {
   display: flex;
 }
-.detail_star {
+.detail-star {
   margin-left: 20px;
 }
-.detail_rate {
+.detail-rate {
   margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
 }
-.detail_searchword {
+.detail-searchword {
   list-style: none;
   margin-left: 50px;
   display: flex;
   font-size: 16px;
 }
-.detail_searchword li {
+.detail-searchword li {
   display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
   font-weight: bolder;
   border-radius: 5px;
 }
-.detail_facility {
+.detail-facility {
   font-size: 24px;
   font-weight: bolder;
   margin-left: 70px;
@@ -96,7 +96,7 @@
   margin-top: 20px;
   margin-left: 20px;
 }
-.location_info {
+.location-info {
   display: flex;
 }
 .address {
@@ -107,7 +107,7 @@
   border: solid 1px #000;
   text-align: center;
 }
-.location_address {
+.location-address {
   font-weight: bolder;
   font-size: 24px;
   margin: 75px 0px 0px 20px;
@@ -116,15 +116,16 @@
   margin-top: 50px;
   margin-left: 300px;
   height: 600px;
-  width: 850px;
+  width: 825px;
   background-color: #ffe5cc;
+  align-items: center;
 }
 .wordofmouth {
   font-weight: bolder;
   font-size: 24px;
   margin: 30px 0px 30px 300px;
 }
-.review_info {
+.review-info {
   display: flex;
 }
 .reviews {
@@ -132,7 +133,6 @@
   font-weight: bolder;
   margin-left: 300px;
   margin-bottom: 20px;
-  height: 200px;
   width: 1000px;
   /* border: solid 1px #000; */
   /* background-color: #ffe5cc; */
@@ -142,13 +142,35 @@
 }
 .line {
   border-bottom: solid medium;
-  width: 90%;
+  width: 82.5%;
   margin-left: 0;
   margin-bottom: 20px
 }
-
 .image{
   height: 300px;
   width: 300px;
   margin-left: 300px;
+}
+.detail-review {
+  margin-left: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: solid 2px #9a9a9a;
+  height: 100px;
+  width: 800px;
+}
+.detail-post{
+  display: flex;
+}
+.plus-review {
+  color: gray;
+  margin-left: 300px;
+  margin-top: 50px;
+  height: 108px;
+  width: 50px;
+  font-size: 30px;
+  border-radius: 5px;
+  border: solid 2px #9a9a9a;
 }
