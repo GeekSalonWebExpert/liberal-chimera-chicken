@@ -324,6 +324,21 @@
       "review": [
         "屋根が小さく、雨風の強さによっては濡れる"
       ]
+    },
+    {
+      "name": "道の駅　五霞",
+      "zipcode": "〒306-0304",
+      "address": "茨城県猿島郡五霞町幸主１８－１",
+      "isActive": false,
+      "area": "関東",
+      "star": 5,
+      "hasToilet": true,
+      "hasRoof": true,
+      "hasBench": true,
+      "lat": 36.095335,
+      "lng": 139.7582595,
+      "review": [],
+      "id": 19
     }
   ],
   "config": {
