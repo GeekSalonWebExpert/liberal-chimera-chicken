@@ -56,7 +56,9 @@
   font-size: 24px;
   font-weight: bolder;
   margin-left: 70px;
+  width: 97px;
   color: rgb(255,150,150);
+  border: solid 1px rgb(255,150,150);
 }
 .hasToilet {
   display: inline-block;
@@ -110,12 +112,13 @@
   margin: 75px 0px 0px 70px;
   text-align: center;
   color: rgb(255,150,150);
+  border: solid 1px rgb(255,150,150);
 }
 .location-address {
   font-weight: bolder;
   font-size: 24px;
   margin: 13px 0px 0px 70px;
-  color: rgb(255,150,150);
+  color: rgb(255,125,150);
 }
 .detail-map {
   margin-top: 50px;
